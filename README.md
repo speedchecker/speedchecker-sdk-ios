@@ -11,6 +11,7 @@ The embedded framework version of the Speedchecker Speed Test supports its own A
 - detailed statistics and reports by Speedchecker
 
 ## Requirements
+  - Xcode 7.3.1 or later
   - Swift 2.2 or Objective-C
   - Development Target 8.4 or later
   - Bundle Identifier licensed by Speedchecker Ltd.
