@@ -29,8 +29,8 @@ class ViewController: UIViewController, SpeedTestDelegate {
 	// Actions
 	@IBAction func startButton_didTouch(sender: UIButton) {
 		speedTest?.start() { error in
-			if let error = error {
-				return print("speedTest did fail: \(error)")
+			if (error != .None) {
+				return print("speedTest did fail: \(error.rawValue)")
 			}
 			
 			dispatch_async(dispatch_get_main_queue()) {
@@ -137,7 +137,7 @@ class ViewController: UIViewController, SpeedTestDelegate {
 	}
 	
 	func speedTestDidFinish(withError error: SpeedTestError) {
-		print("speedTestDidFinish error: \(error)")
+		print("speedTestDidFinish error: \(error.rawValue)")
 	}
 }
 

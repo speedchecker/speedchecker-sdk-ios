@@ -1,6 +1,6 @@
-# Speedchecker SDK for iOS
+# Speedchecker SDK for iOS, version 1.4
 
-The embedded framework version of the Speedchecker Speed Test supports its own API which allows you to access various methods and events easily from the your iOS application code. You can also try our  [Speedchecker on App Store](https://itunes.apple.com/app/id658790195), it's powered by the latest Spedchecker SDK version.
+The embedded framework version of the Speedchecker Speed Test supports its own API which allows you to access various methods and events easily from the your iOS application code. You can also try our  [Speedchecker on App Store](https://itunes.apple.com/app/id658790195), it's powered by the latest Speedchecker SDK version.
 
 ## Features
 - latency, downlad and upload speed of the user connection
@@ -11,8 +11,8 @@ The embedded framework version of the Speedchecker Speed Test supports its own A
 - detailed statistics and reports by Speedchecker
 
 ## Requirements
-  - Xcode 7.3.1 or later
-  - Swift 2.2 or Objective-C
+  - Xcode 8.0 or later
+  - Swift 2.3 or Objective-C
   - Development Target 8.4 or later
   - Bundle Identifier licensed by Speedchecker Ltd.
 
