@@ -1,4 +1,4 @@
-# Speedchecker SDK for iOS, version 1.7
+# Speedchecker SDK for iOS, version 1.8
 
 The embedded framework version of the Speedchecker Speed Test supports its own API which allows you to access various methods and events easily from the your iOS application code. You can also try our  [Speedchecker on App Store](https://itunes.apple.com/app/id658790195), it's powered by the latest Speedchecker SDK version.
 
@@ -11,7 +11,7 @@ The embedded framework version of the Speedchecker Speed Test supports its own A
 - detailed statistics and reports by Speedchecker
 
 ## Requirements
-  - Xcode 9.0 or later
+  - Xcode 9.2 or later
   - Swift 4 or Objective-C
   - Development Target 10.0 or later
   - Bundle Identifier licensed by Speedchecker Ltd.
