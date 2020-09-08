@@ -16,6 +16,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+        
     }
 
     @IBAction func runSpeedTestTouched(_ sender: UIButton) {
@@ -81,3 +89,6 @@ extension ViewController: InternetSpeedTestDelegate {
     
 }
 
+extension ViewController: CLLocationManagerDelegate {
+    
+}
