@@ -151,6 +151,7 @@ public enum ConnectionIssue : Swift.Int {
   open func startTest(_ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   open func forceFinish(_ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   open func currentNetwork() -> SpeedcheckerSDK.SpeedTestNetwork
+  public static func clearTempDirectory()
   public func speedTestServers(_ servers: [SpeedcheckerSDK.SCServer]?) -> [SpeedcheckerSDK.SpeedTestServer]?
   @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
   @objc deinit
