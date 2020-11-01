@@ -24,11 +24,61 @@ The embedded framework version of the Speedchecker Speed Test supports its own A
     ```swift
     import SpeedcheckerSDK
     ```
-    
+## Licence 
+SpeedChecker is offering different types of licences
+
+| Free  | Basic  | Advanced |
+| ------------- | ------------- | ------------- |
+| Download / Upload / Latency  | Download / Upload / Latency  | Download / Upload / Latency  |
+| Device / Network KPIs  | Device / Network KPIs  | Device / Network KPIs  |
+| Required location permissions | - | - |
+| Required data sharing | - | - |
+| - | Custom measurement servers | Custom measurement servers |
+| - | - | Background data collection |
+| Cost: FREE | Cost: 1000 EUR per app per year | Cost: [Enquire](https://www.speedchecker.com/contact-us.html) |
+
+## FAQ
+
+**Is the SDK free to use?**
+
+Yes! But the SDK collects data on network performance from your app and shares it with Speedchecker and our clients. Free SDK version requires enabled location. Those restrictions are not in Basic and Advanced versions
+
+**Do you have Android SDK?**
+
+Yes! Please [contact us](https://www.speedchecker.com/contact-us.html) for more information.
+
+**Do you provide free support?**
+
+No, we provide support only on Basic and Advanced plans
+
+**What are all the metrics or KPIs that you can get using our SDKs?**
+
+iOS does not provide as many capabilities to collect network and device KPIs as Android does. Here are some of the KPIs which can be retrieved using our iOS SDK:
+
+| iOS KPI list |
+| ------------- |
+| Download / Upload / Latency |
+| Device Model |
+| Measurement server used |
+| Geolocation Accuracy |
+| Latitude & Longitude |
+| WiFi / Cellular connection type |
+| Cellular type (e.g. 4G/3G) |
+| Indication if device is charging |
+| ISP |
+| ASN |
+| IP Address |
+
+[Full list of our KPIs](https://www.speedchecker.com/broadband-data/kpis.html)
+
+**Do you host all infrastructure for the test?**
+
+Yes, you do not need to run any servers. We provide and maintain network of high quality servers and CDNs to ensure the testing is accurate. If you wish to configure your own server, this is possible on Basic and Advanced plans.
 
 ## What's next?
-Please contact us for future details and license requirements. Also you can download the latest framework version, the sample app to see detailed implementation in Xcode project as well as our Internet Speed Test application on App Store.
-- [Contact us](http://www.speedchecker.xyz/contact-us.html)
+Please contact us for more details and license requirements. Also you can download the latest framework version, the sample app to see detailed implementation in Xcode project as well as our Internet Speed Test application on App Store.
+- [Buy licence](https://www.speedchecker.com/contact-us.html)
+- [Contact us](https://www.speedchecker.com/contact-us.html)
 - [Speedchecker on App Store](https://itunes.apple.com/app/id658790195)
 - [Framework](https://github.com/speedchecker/speedchecker-sdk-ios/tree/master/Framework)
 - [Sample app in Swift](https://github.com/speedchecker/speedchecker-sdk-ios/tree/master/Sample%20in%20Swift)
