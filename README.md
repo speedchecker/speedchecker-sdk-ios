@@ -1,6 +1,6 @@
 # Speedchecker SDK for iOS, version 1.5.3 - Free speed test for your own app.
 
-The embedded framework version of the Speedchecker Speed Test supports its own API which allows you to access various methods and events easily from the your iOS application code. You can also try our  [Speedchecker on App Store](https://itunes.apple.com/app/id658790195), it's powered by the latest Speedchecker SDK version.
+The embedded framework version of the Speedchecker Speed Test supports its own API which allows you to access various methods and events easily from the your iOS application code. You can also try our  [Speedchecker on App Store](https://itunes.apple.com/app/id658790195), it's powered by the latest Speedchecker SDK version. More information about [SpeedChecker SDKs](https://www.speedchecker.com/speed-test-tools/mobile-apps-and-sdks.html)
 
 ## Features
 - latency, download and upload speed of the user connection
@@ -75,8 +75,13 @@ iOS does not provide as many capabilities to collect network and device KPIs as 
 
 Yes, you do not need to run any servers. We provide and maintain network of high quality servers and CDNs to ensure the testing is accurate. If you wish to configure your own server, this is possible on Basic and Advanced plans.
 
+**How do you measure the speed?**
+
+See our [measurement methodology](https://www.speedchecker.com/broadband-data/measurement-method.html)
+
 ## What's next?
 Please contact us for more details and license requirements. Also you can download the latest framework version, the sample app to see detailed implementation in Xcode project as well as our Internet Speed Test application on App Store.
+- [More information about SpeedChecker SDKs](https://www.speedchecker.com/speed-test-tools/mobile-apps-and-sdks.html)
 - [Buy licence](https://www.speedchecker.com/contact-us.html)
 - [Contact us](https://www.speedchecker.com/contact-us.html)
 - [Speedchecker on App Store](https://itunes.apple.com/app/id658790195)
