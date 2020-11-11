@@ -45,7 +45,7 @@ Yes! But the SDK collects data on network performance from your app and shares i
 
 **Do you have Android SDK?**
 
-Yes! Please [contact us](https://www.speedchecker.com/contact-us.html) for more information.
+Yes! Please take a look at this [repo](https://github.com/speedchecker/speedchecker-sdk-android)
 
 **Do you provide free support?**
 
