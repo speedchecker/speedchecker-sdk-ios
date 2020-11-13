@@ -24,6 +24,9 @@ The embedded framework version of the Speedchecker Speed Test supports its own A
     ```swift
     import SpeedcheckerSDK
     ```
+    
+5. You can download our [sample app](https://github.com/speedchecker/speedchecker-sdk-ios/tree/master/Sample%20in%20Swift) to get better understanding how it works or review [API documentation](https://github.com/speedchecker/speedchecker-sdk-ios/wiki/API-documentation)
+
 ## Licence 
 SpeedChecker is offering different types of licences
 
