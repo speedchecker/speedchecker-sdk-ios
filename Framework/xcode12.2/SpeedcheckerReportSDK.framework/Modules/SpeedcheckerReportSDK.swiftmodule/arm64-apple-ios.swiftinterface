@@ -109,6 +109,7 @@ public typealias ReportCompletionHandler = (SpeedcheckerReportSDK.ReportCompleti
   public func initialize()
   public func reportConnectionIssue(type: SpeedcheckerReportSDK.SRIssueType, phoneNumber: Swift.String, comment: Swift.String?, withSpeedTest: Swift.Bool = false, completion: @escaping SpeedcheckerReportSDK.ReportCompletionHandler)
   public func speedTest(delegate: SpeedcheckerSDK.InternetSpeedTestDelegate, completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
+  public func speedTestStop(completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   @objc deinit
 }
 extension SpeedcheckerReportSDK : SpeedcheckerSDK.InternetSpeedTestDelegate {
