@@ -197,7 +197,7 @@ public enum ConnectionIssue : Swift.Int {
 @objc public class InternetSpeedTest : ObjectiveC.NSObject {
   final public let userID: Swift.Int
   final public let clientID: Swift.Int
-  final public let delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?
+  public var delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?
   public var png: Swift.String?
   open var downloadTimeout: Foundation.TimeInterval
   open var uploadTimeout: Foundation.TimeInterval
