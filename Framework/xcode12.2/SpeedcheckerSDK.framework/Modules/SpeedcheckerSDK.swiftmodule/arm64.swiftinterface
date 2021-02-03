@@ -379,6 +379,7 @@ public enum SpeedTestLatencyType : Swift.Int {
   final public let ipAddress: Swift.String?
   final public let ispName: Swift.String?
   final public let date: Foundation.Date?
+  public static func create(withPlain date: Foundation.Date, latencyType: Swift.String?, latencyInMs: Swift.Int, jitter: Swift.Double, downloadInBps: Swift.Double, uploadInBps: Swift.Double, ipAddress: Swift.String?, ispName: Swift.String?, networkType: Swift.String?, serverID: Swift.Int, serverDomain: Swift.String?, serverCityName: Swift.String?, serverCountryCode: Swift.String?) -> SpeedcheckerSDK.SpeedTestResult
   @objc deinit
 }
 public class SpeedTestServer {
