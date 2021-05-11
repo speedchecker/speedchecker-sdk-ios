@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3 effective-4.1.50 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-compiler-version: Apple Swift version 5.4 effective-4.1.50 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -Onone -module-name XMLParsing
 import Foundation
 import Swift
@@ -8,7 +8,7 @@ open class XMLDecoder {
     case deferredToDate
     case secondsSince1970
     case millisecondsSince1970
-    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
+    @available(macOS 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     case iso8601
     case formatted(Foundation.DateFormatter)
     case custom((Swift.Decoder) throws -> Foundation.Date)
@@ -41,17 +41,17 @@ open class XMLEncoder {
     public let rawValue: Swift.UInt
     public init(rawValue: Swift.UInt)
     public static var prettyPrinted: XMLParsing.XMLEncoder.OutputFormatting
-    @available(OSX 10.13, iOS 11.0, watchOS 4.0, tvOS 11.0, *)
+    @available(macOS 10.13, iOS 11.0, watchOS 4.0, tvOS 11.0, *)
     public static var sortedKeys: XMLParsing.XMLEncoder.OutputFormatting
-    public typealias Element = XMLParsing.XMLEncoder.OutputFormatting
     public typealias ArrayLiteralElement = XMLParsing.XMLEncoder.OutputFormatting
+    public typealias Element = XMLParsing.XMLEncoder.OutputFormatting
     public typealias RawValue = Swift.UInt
   }
   public enum DateEncodingStrategy {
     case deferredToDate
     case secondsSince1970
     case millisecondsSince1970
-    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
+    @available(macOS 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     case iso8601
     case formatted(Foundation.DateFormatter)
     case custom((Foundation.Date, Swift.Encoder) throws -> Swift.Void)
@@ -60,10 +60,10 @@ open class XMLEncoder {
     case deferredToString
     case cdata
     public static func == (a: XMLParsing.XMLEncoder.StringEncodingStrategy, b: XMLParsing.XMLEncoder.StringEncodingStrategy) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public enum DataEncodingStrategy {
     case deferredToData

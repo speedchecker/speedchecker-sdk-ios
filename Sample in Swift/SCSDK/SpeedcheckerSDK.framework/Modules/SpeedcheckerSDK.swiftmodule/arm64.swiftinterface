@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name SpeedcheckerSDK
 import SystemConfiguration.CaptiveNetwork
 import CoreLocation
@@ -20,8 +20,8 @@ public enum SCIssueSignalMeasurementStrength : Swift.Int, Swift.Codable {
   case veryGood
   case excellent
   public func convertToDB() -> Swift.Int
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -42,10 +42,10 @@ public enum SCError : Swift.Error {
   case invalidResponse
   case responseFailed
   public static func == (a: SpeedcheckerSDK.SCError, b: SpeedcheckerSDK.SCError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum SCTestError : Swift.Int {
   case none
@@ -55,15 +55,15 @@ public enum SCTestError : Swift.Int {
   case failed
   case notSaved
   case cancelled
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
 public struct SCLoggerDetail : Swift.Codable {
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public struct SCLogger {
   public static var sdkVersion: Swift.String
@@ -78,10 +78,10 @@ public enum SCNetworkStatus {
   case cellular
   case simulator
   public static func == (a: SpeedcheckerSDK.SCNetworkStatus, b: SpeedcheckerSDK.SCNetworkStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public struct SCNetwork {
   public var cellularCountryCode: Swift.String? {
@@ -154,8 +154,8 @@ public struct IPHeader {
 public enum ICMPType : Swift.UInt8 {
   case EchoReply
   case EchoRequest
-  public typealias RawValue = Swift.UInt8
   public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
   public var rawValue: Swift.UInt8 {
     get
   }
@@ -188,8 +188,8 @@ public enum ConnectionIssue : Swift.Int {
   case unableToMakeCall
   case noMobileInternet
   case slowInternetSpeed
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -197,7 +197,8 @@ public enum ConnectionIssue : Swift.Int {
 @objc public class InternetSpeedTest : ObjectiveC.NSObject {
   final public let userID: Swift.Int
   final public let clientID: Swift.Int
-  final public let delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?
+  public var delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?
+  public var png: Swift.String?
   open var downloadTimeout: Foundation.TimeInterval
   open var uploadTimeout: Foundation.TimeInterval
   public init(clientID: Swift.Int = 0, userID: Swift.Int = 0, isBackground: Swift.Bool = false, bgdlTime: Foundation.TimeInterval? = nil, bgulTime: Foundation.TimeInterval? = nil, bgskipTime: Foundation.TimeInterval? = nil, delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?)
@@ -210,11 +211,8 @@ public enum ConnectionIssue : Swift.Int {
   public static func clearTempDirectory()
   public func speedTestServers(_ servers: [SpeedcheckerSDK.SCServer]?) -> [SpeedcheckerSDK.SpeedTestServer]?
   @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
-  @objc deinit
   @objc override dynamic public init()
-}
-extension InternetSpeedTest : SpeedcheckerSDK.PingDelegate {
-  public func didReceive(response: SpeedcheckerSDK.PingResponse)
+  @objc deinit
 }
 public protocol InternetSpeedTestDelegate {
   func internetTest(finish error: SpeedcheckerSDK.SpeedTestError)
@@ -238,10 +236,10 @@ public enum SCLatencySpeedType {
   case http
   case icmp
   public static func == (a: SpeedcheckerSDK.SCLatencySpeedType, b: SpeedcheckerSDK.SCLatencySpeedType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public struct SCLatencySpeed {
   public let type: SpeedcheckerSDK.SCLatencySpeedType
@@ -252,6 +250,11 @@ extension SCLatencySpeed {
   }
 }
 public func == (lhs: SpeedcheckerSDK.SCLatencySpeed, rhs: SpeedcheckerSDK.SCLatencySpeed) -> Swift.Bool
+@_hasMissingDesignatedInitializers public class SCLatencyTestController : SpeedcheckerSDK.PingDelegate {
+  public static var pingInterval: Foundation.TimeInterval?
+  public func didReceive(response: SpeedcheckerSDK.PingResponse)
+  @objc deinit
+}
 public struct SCLocation {
   public let latitude: Swift.Double?
   public let longitude: Swift.Double?
@@ -268,10 +271,10 @@ public enum SCServerType {
   case speedchecker
   case ookla
   public static func == (a: SpeedcheckerSDK.SCServerType, b: SpeedcheckerSDK.SCServerType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public struct SCServer : Swift.Equatable {
   public let ID: Swift.Int?
@@ -310,7 +313,7 @@ public class SCServerSelecter {
 }
 public protocol SCServerSelecterDelegate {
   func serverSelecter(_ selecter: SpeedcheckerSDK.SCServerSelecter, status: SpeedcheckerSDK.SCTestStatus)
-  func serverSelecter(_ selecter: SpeedcheckerSDK.SCServerSelecter, didSelect server: SpeedcheckerSDK.SCServer, latency: SpeedcheckerSDK.SCLatencySpeed?)
+  func serverSelecter(_ selecter: SpeedcheckerSDK.SCServerSelecter, didSelect server: SpeedcheckerSDK.SCServer, latency: SpeedcheckerSDK.SCLatencySpeed?, latencies: [Swift.Double])
 }
 public enum SCTestStatus {
   case ready
@@ -318,10 +321,10 @@ public enum SCTestStatus {
   case finished
   case failed
   public static func == (a: SpeedcheckerSDK.SCTestStatus, b: SpeedcheckerSDK.SCTestStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum SpeedTestError : Swift.Int {
   case invalidSettings
@@ -331,8 +334,8 @@ public enum SpeedTestError : Swift.Int {
   case notSaved
   case cancelled
   case locationUndefined
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -341,8 +344,8 @@ public enum SpeedTestNetworkType : Swift.Int {
   case any
   case wifi
   case cellular
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -359,8 +362,8 @@ public enum SpeedTestNetworkType : Swift.Int {
 public enum SpeedTestLatencyType : Swift.Int {
   case http
   case icmp
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -370,12 +373,13 @@ public enum SpeedTestLatencyType : Swift.Int {
   final public let server: SpeedcheckerSDK.SpeedTestServer
   final public let latencyType: SpeedcheckerSDK.SpeedTestLatencyType
   final public let latencyInMs: Swift.Int
+  final public let jitter: Swift.Double
   final public let downloadSpeed: SpeedcheckerSDK.SpeedTestSpeed
   final public let uploadSpeed: SpeedcheckerSDK.SpeedTestSpeed
   final public let ipAddress: Swift.String?
   final public let ispName: Swift.String?
   final public let date: Foundation.Date?
-  public static func create(withPlain date: Foundation.Date, latencyType: Swift.String?, latencyInMs: Swift.Int, downloadInBps: Swift.Double, uploadInBps: Swift.Double, ipAddress: Swift.String?, ispName: Swift.String?, networkType: Swift.String?, serverID: Swift.Int, serverDomain: Swift.String?, serverCityName: Swift.String?, serverCountryCode: Swift.String?) -> SpeedcheckerSDK.SpeedTestResult
+  public static func create(withPlain date: Foundation.Date, latencyType: Swift.String?, latencyInMs: Swift.Int, jitter: Swift.Double, downloadInBps: Swift.Double, uploadInBps: Swift.Double, ipAddress: Swift.String?, ispName: Swift.String?, networkType: Swift.String?, serverID: Swift.Int, serverDomain: Swift.String?, serverCityName: Swift.String?, serverCountryCode: Swift.String?) -> SpeedcheckerSDK.SpeedTestResult
   @objc deinit
 }
 public class SpeedTestServer {
@@ -426,8 +430,8 @@ public struct UPNPAction {
     public let name: Swift.String
     public struct Response : Swift.Codable {
       public let NewTotalBytesReceived: Swift.Int
-      public init(from decoder: Swift.Decoder) throws
       public func encode(to encoder: Swift.Encoder) throws
+      public init(from decoder: Swift.Decoder) throws
     }
   }
   public struct TotalBytesSent : SpeedcheckerSDK.UPNPActionable {
@@ -435,8 +439,8 @@ public struct UPNPAction {
     public let name: Swift.String
     public struct Response : Swift.Codable {
       public let NewTotalBytesSent: Swift.Int
-      public init(from decoder: Swift.Decoder) throws
       public func encode(to encoder: Swift.Encoder) throws
+      public init(from decoder: Swift.Decoder) throws
     }
   }
   public struct ByteStatistics : SpeedcheckerSDK.UPNPActionable {
@@ -445,8 +449,8 @@ public struct UPNPAction {
     public struct Response : Swift.Codable {
       public let NewTotalBytesSent: Swift.Int
       public let NewTotalBytesReceived: Swift.Int
-      public init(from decoder: Swift.Decoder) throws
       public func encode(to encoder: Swift.Encoder) throws
+      public init(from decoder: Swift.Decoder) throws
     }
   }
   public struct ByteStatsForAssociatedDev : SpeedcheckerSDK.UPNPActionable {
@@ -455,8 +459,8 @@ public struct UPNPAction {
     public struct Response : Swift.Codable {
       public let NewTotalBytesSent: Swift.Int
       public let NewTotalBytesReceived: Swift.Int
-      public init(from decoder: Swift.Decoder) throws
       public func encode(to encoder: Swift.Encoder) throws
+      public init(from decoder: Swift.Decoder) throws
     }
   }
 }
@@ -476,8 +480,8 @@ extension UPNPActionable {
 public enum UPNPDeviceType : Swift.String {
   case internetGateway
   case wlanAccessPoint
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -488,8 +492,8 @@ public enum UPNPServiceType : Swift.String {
   case wanIPConnection
   case wanPPPConnection
   case wlanConfiguration
-  public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
@@ -497,8 +501,8 @@ public enum UPNPServiceType : Swift.String {
 public struct UPNPVersion : Swift.Codable {
   public let major: Swift.Int?
   public let minor: Swift.Int?
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public struct UPNPService : Swift.Codable {
   public let serviceId: Swift.String?
@@ -506,50 +510,50 @@ public struct UPNPService : Swift.Codable {
   public let controlURL: Swift.String?
   public let eventSubURL: Swift.String?
   public let SCPDURL: Swift.String?
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public struct UPNPDeviceList : Swift.Codable {
   public let items: [SpeedcheckerSDK.UPNPDevice]
   public enum CodingKeys : Swift.String, Swift.CodingKey {
     case items
-    public typealias RawValue = Swift.String
     public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias RawValue = Swift.String
+    public var intValue: Swift.Int? {
+      get
+    }
     public var rawValue: Swift.String {
       get
     }
     public var stringValue: Swift.String {
       get
     }
-    public init?(stringValue: Swift.String)
-    public var intValue: Swift.Int? {
-      get
-    }
-    public init?(intValue: Swift.Int)
   }
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public struct UPNPServiceList : Swift.Codable {
   public let items: [SpeedcheckerSDK.UPNPService]
   public enum CodingKeys : Swift.String, Swift.CodingKey {
     case items
-    public typealias RawValue = Swift.String
     public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias RawValue = Swift.String
+    public var intValue: Swift.Int? {
+      get
+    }
     public var rawValue: Swift.String {
       get
     }
     public var stringValue: Swift.String {
       get
     }
-    public init?(stringValue: Swift.String)
-    public var intValue: Swift.Int? {
-      get
-    }
-    public init?(intValue: Swift.Int)
   }
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public struct UPNPDevice : Swift.Codable {
   public let deviceType: Swift.String?
@@ -567,8 +571,8 @@ public struct UPNPDevice : Swift.Codable {
   public var serviceURL: Foundation.URL?
   public let serviceList: SpeedcheckerSDK.UPNPServiceList?
   public func first(service value: SpeedcheckerSDK.UPNPServiceType) -> SpeedcheckerSDK.UPNPService?
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public enum UPNPDiscoverError : Swift.Error {
   case unavailable

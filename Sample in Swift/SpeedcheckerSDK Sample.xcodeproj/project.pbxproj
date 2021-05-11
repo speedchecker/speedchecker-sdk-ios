@@ -12,8 +12,6 @@
 		38E83E0324DBD7430064DCD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0124DBD7430064DCD5 /* Main.storyboard */; };
 		38E83E0524DBD7440064DCD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0424DBD7440064DCD5 /* Assets.xcassets */; };
 		38E83E0824DBD7440064DCD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0624DBD7440064DCD5 /* LaunchScreen.storyboard */; };
-		38E83E1C24DBD7B30064DCD5 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1324DBD7AD0064DCD5 /* CryptoSwift.framework */; };
-		38E83E1D24DBD7B30064DCD5 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1324DBD7AD0064DCD5 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38E83E1F24DBD7B40064DCD5 /* DataCompression.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1024DBD7AD0064DCD5 /* DataCompression.framework */; };
 		38E83E2024DBD7B40064DCD5 /* DataCompression.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1024DBD7AD0064DCD5 /* DataCompression.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38E83E2124DBD7B60064DCD5 /* Socket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1424DBD7AD0064DCD5 /* Socket.framework */; };
@@ -36,7 +34,6 @@
 				38E83E2624DBD7B90064DCD5 /* SpeedcheckerSDK.framework in Embed Frameworks */,
 				38E83E2824DBD7BA0064DCD5 /* XMLParsing.framework in Embed Frameworks */,
 				38E83E2224DBD7B60064DCD5 /* Socket.framework in Embed Frameworks */,
-				38E83E1D24DBD7B30064DCD5 /* CryptoSwift.framework in Embed Frameworks */,
 				38E83E2024DBD7B40064DCD5 /* DataCompression.framework in Embed Frameworks */,
 				38E83E2424DBD7B70064DCD5 /* SpeedcheckerReportSDK.framework in Embed Frameworks */,
 			);
@@ -69,7 +66,6 @@
 				38E83E2524DBD7B90064DCD5 /* SpeedcheckerSDK.framework in Frameworks */,
 				38E83E2724DBD7BA0064DCD5 /* XMLParsing.framework in Frameworks */,
 				38E83E1F24DBD7B40064DCD5 /* DataCompression.framework in Frameworks */,
-				38E83E1C24DBD7B30064DCD5 /* CryptoSwift.framework in Frameworks */,
 				38E83E2124DBD7B60064DCD5 /* Socket.framework in Frameworks */,
 				38E83E2324DBD7B70064DCD5 /* SpeedcheckerReportSDK.framework in Frameworks */,
 			);

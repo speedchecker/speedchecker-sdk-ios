@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name SpeedcheckerReportSDK
 import SystemConfiguration.CaptiveNetwork
 import CoreLocation
@@ -33,10 +33,10 @@ public class Reachability {
       get
     }
     public static func == (a: SpeedcheckerReportSDK.Reachability.NetworkStatus, b: SpeedcheckerReportSDK.Reachability.NetworkStatus) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public enum Connection : Swift.CustomStringConvertible {
     @available(*, deprecated, renamed: "unavailable")
@@ -48,10 +48,10 @@ public class Reachability {
       get
     }
     public static func == (a: SpeedcheckerReportSDK.Reachability.Connection, b: SpeedcheckerReportSDK.Reachability.Connection) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public var whenReachable: SpeedcheckerReportSDK.Reachability.NetworkReachable?
   public var whenUnreachable: SpeedcheckerReportSDK.Reachability.NetworkUnreachable?
@@ -98,10 +98,10 @@ public enum ReportCompletionResult {
   case reportSent
   case reportQueued
   public static func == (a: SpeedcheckerReportSDK.ReportCompletionResult, b: SpeedcheckerReportSDK.ReportCompletionResult) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public typealias ReportCompletionHandler = (SpeedcheckerReportSDK.ReportCompletionResult) -> Swift.Void
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SpeedcheckerReportSDK : ObjectiveC.NSObject {
@@ -109,6 +109,7 @@ public typealias ReportCompletionHandler = (SpeedcheckerReportSDK.ReportCompleti
   public func initialize()
   public func reportConnectionIssue(type: SpeedcheckerReportSDK.SRIssueType, phoneNumber: Swift.String, comment: Swift.String?, withSpeedTest: Swift.Bool = false, completion: @escaping SpeedcheckerReportSDK.ReportCompletionHandler)
   public func speedTest(delegate: SpeedcheckerSDK.InternetSpeedTestDelegate, completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
+  public func speedTestStop(completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   @objc deinit
 }
 extension SpeedcheckerReportSDK : SpeedcheckerSDK.InternetSpeedTestDelegate {
@@ -144,8 +145,8 @@ public enum SRIssueType : Swift.Int, Swift.Codable {
   case unableToMakeCall
   case noMobileInternet
   case slowInternetSpeed
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -155,8 +156,8 @@ public enum SRIssueSignalMeasurementStrength : Swift.Int, Swift.Codable {
   case ok
   case veryGood
   case excellent
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
