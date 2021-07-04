@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name SpeedcheckerSDK
 import SystemConfiguration.CaptiveNetwork
 import CoreLocation
@@ -101,6 +101,7 @@ extension String {
   }
 }
 public typealias Observer = ((SpeedcheckerSDK.PingResponse) -> Swift.Void)
+public typealias FinishedCallback = ((SpeedcheckerSDK.PingResult) -> Swift.Void)
 public protocol PingDelegate {
   func didReceive(response: SpeedcheckerSDK.PingResponse)
 }
@@ -111,7 +112,7 @@ public enum PingError : Swift.Error, Swift.Equatable {
   case invalidType(received: SpeedcheckerSDK.ICMPType.RawValue)
   case invalidCode(received: Swift.UInt8)
   case identifierMismatch(received: Swift.UInt16, expected: Swift.UInt16)
-  case invalidSequenceIndex(received: Swift.Int, expected: Swift.Int)
+  case invalidSequenceIndex(received: Swift.UInt16, expected: Swift.UInt16)
   case unknownHostError
   case addressLookupError
   case hostNotFound
@@ -127,19 +128,35 @@ public enum PingError : Swift.Error, Swift.Equatable {
   public static func == (a: SpeedcheckerSDK.PingError, b: SpeedcheckerSDK.PingError) -> Swift.Bool
 }
 public class SocketInfo {
-  final public let pinger: SpeedcheckerSDK.SwiftyPing
+  weak public var pinger: SpeedcheckerSDK.SwiftyPing?
   final public let identifier: Swift.UInt16
   public init(pinger: SpeedcheckerSDK.SwiftyPing, identifier: Swift.UInt16)
   @objc deinit
 }
 @objc public class SwiftyPing : ObjectiveC.NSObject {
   public struct Destination {
+    public let host: Swift.String
+    public let ipv4Address: Foundation.Data
+    public var socketAddress: Darwin.sockaddr_in? {
+      get
+    }
+    public var ip: Swift.String? {
+      get
+    }
+    public static func getIPv4AddressFromHost(host: Swift.String) throws -> Foundation.Data
   }
   final public let destination: SpeedcheckerSDK.SwiftyPing.Destination
   final public let configuration: SpeedcheckerSDK.PingConfiguration
   public var observer: SpeedcheckerSDK.Observer?
+  public var finished: SpeedcheckerSDK.FinishedCallback?
   public var delegate: SpeedcheckerSDK.PingDelegate?
   public var targetCount: Swift.Int?
+  public var currentCount: Swift.UInt64 {
+    get
+  }
+  public var responses: [SpeedcheckerSDK.PingResponse] {
+    get
+  }
   public init(destination: SpeedcheckerSDK.SwiftyPing.Destination, configuration: SpeedcheckerSDK.PingConfiguration, queue: Dispatch.DispatchQueue) throws
   public convenience init(ipv4Address: Swift.String, config configuration: SpeedcheckerSDK.PingConfiguration, queue: Dispatch.DispatchQueue) throws
   public convenience init(host: Swift.String, configuration: SpeedcheckerSDK.PingConfiguration, queue: Dispatch.DispatchQueue) throws
@@ -150,6 +167,16 @@ public class SocketInfo {
   @objc override dynamic public init()
 }
 public struct IPHeader {
+  public var versionAndHeaderLength: Swift.UInt8
+  public var differentiatedServices: Swift.UInt8
+  public var totalLength: Swift.UInt16
+  public var identification: Swift.UInt16
+  public var flagsAndFragmentOffset: Swift.UInt16
+  public var timeToLive: Swift.UInt8
+  public var `protocol`: Swift.UInt8
+  public var headerChecksum: Swift.UInt16
+  public var sourceAddress: (Swift.UInt8, Swift.UInt8, Swift.UInt8, Swift.UInt8)
+  public var destinationAddress: (Swift.UInt8, Swift.UInt8, Swift.UInt8, Swift.UInt8)
 }
 public enum ICMPType : Swift.UInt8 {
   case EchoReply
@@ -163,13 +190,35 @@ public enum ICMPType : Swift.UInt8 {
 public struct PingResponse {
   public let identifier: Swift.UInt16
   public let ipAddress: Swift.String?
-  public let sequenceNumber: Swift.Int
-  public let duration: Foundation.TimeInterval?
+  public let sequenceNumber: Swift.UInt16
+  public let trueSequenceNumber: Swift.UInt64
+  public let duration: Foundation.TimeInterval
   public let error: SpeedcheckerSDK.PingError?
   public let byteCount: Swift.Int?
   public let ipHeader: SpeedcheckerSDK.IPHeader?
 }
+public struct PingResult {
+  public struct Roundtrip {
+    public let minimum: Swift.Double
+    public let maximum: Swift.Double
+    public let average: Swift.Double
+    public let standardDeviation: Swift.Double
+  }
+  public let responses: [SpeedcheckerSDK.PingResponse]
+  public let packetsTransmitted: Swift.UInt64
+  public let packetsReceived: Swift.UInt64
+  public var packetLoss: Swift.Double? {
+    get
+  }
+  public let roundtrip: SpeedcheckerSDK.PingResult.Roundtrip?
+}
 public struct PingConfiguration {
+  public let pingInterval: Foundation.TimeInterval
+  public let timeoutInterval: Foundation.TimeInterval
+  public var handleBackgroundTransitions: Swift.Bool
+  public var timeToLive: Swift.Int?
+  public var payloadSize: Swift.Int
+  public var haltAfterTarget: Swift.Bool
   public init(interval: Foundation.TimeInterval = 1, with timeout: Foundation.TimeInterval = 5)
   public init(interval: Foundation.TimeInterval)
 }
@@ -381,6 +430,23 @@ public enum SpeedTestLatencyType : Swift.Int {
   final public let date: Foundation.Date?
   public static func create(withPlain date: Foundation.Date, latencyType: Swift.String?, latencyInMs: Swift.Int, jitter: Swift.Double, downloadInBps: Swift.Double, uploadInBps: Swift.Double, ipAddress: Swift.String?, ispName: Swift.String?, networkType: Swift.String?, serverID: Swift.Int, serverDomain: Swift.String?, serverCityName: Swift.String?, serverCountryCode: Swift.String?) -> SpeedcheckerSDK.SpeedTestResult
   @objc deinit
+}
+extension SpeedTestResult {
+  public var connectionType: Swift.String? {
+    get
+  }
+  public var locationLatitude: Swift.Double? {
+    get
+  }
+  public var locationLongitude: Swift.Double? {
+    get
+  }
+  public var networkOperator: Swift.String {
+    get
+  }
+  public var deviceInfo: Swift.String {
+    get
+  }
 }
 public class SpeedTestServer {
   final public let ID: Swift.Int?
