@@ -218,6 +218,7 @@ SWIFT_CLASS("_TtC15SpeedcheckerSDK17InternetSpeedTest")
 @end
 
 
+
 /// Represents a single ping instance. A ping instance has a single destination.
 SWIFT_CLASS("_TtC15SpeedcheckerSDK10SwiftyPing")
 @interface SwiftyPing : NSObject

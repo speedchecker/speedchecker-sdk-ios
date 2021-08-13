@@ -14,6 +14,19 @@ import SystemConfiguration
 import UIKit
 import XMLParsing
 import os
+public struct SpeedTestOptions {
+  public let downloadTimeMs: Swift.Int
+  public let uploadTimeMs: Swift.Int
+  public let downloadThreadsCount: Swift.Int
+  public let uploadThreadsCount: Swift.Int
+  public let downloadSampleTimeMs: Swift.Int
+  public let uploadSampleTimeMs: Swift.Int
+  public let speedLimitForAdditionalThreadsMbps: Swift.Int
+  public let additionalThreadsCount: Swift.Int
+  public let skipFirstSamplesTimeMs: Swift.Int
+  public let connectionTimeoutMs: Swift.Int
+  public init(downloadTimeMs: Swift.Int = 10000, uploadTimeMs: Swift.Int = 10000, downloadThreadsCount: Swift.Int = 3, uploadThreadsCount: Swift.Int = 3, downloadSampleTimeMs: Swift.Int = 100, uploadSampleTimeMs: Swift.Int = 100, speedLimitForAdditionalThreadsMbps: Swift.Int = 90, additionalThreadsCount: Swift.Int = 10, skipFirstSamplesTimeMs: Swift.Int = 2000, connectionTimeoutMs: Swift.Int = 10000)
+}
 public enum SCIssueSignalMeasurementStrength : Swift.Int, Swift.Codable {
   case weak
   case ok
@@ -248,13 +261,12 @@ public enum ConnectionIssue : Swift.Int {
   final public let clientID: Swift.Int
   public var delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?
   public var png: Swift.String?
-  open var downloadTimeout: Foundation.TimeInterval
-  open var uploadTimeout: Foundation.TimeInterval
-  public init(clientID: Swift.Int = 0, userID: Swift.Int = 0, isBackground: Swift.Bool = false, bgdlTime: Foundation.TimeInterval? = nil, bgulTime: Foundation.TimeInterval? = nil, bgskipTime: Foundation.TimeInterval? = nil, delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?)
+  public init(clientID: Swift.Int = 0, userID: Swift.Int = 0, isBackground: Swift.Bool = false, bgdlTimeMs: Swift.Int? = nil, bgulTimeMs: Swift.Int? = nil, bgskipTimeMs: Swift.Int? = nil, delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?)
   open func start(_ servers: [SpeedcheckerSDK.SpeedTestServer], completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   open func start(_ servers: [SpeedcheckerSDK.SCServer], completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   open func start(_ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   open func startTest(_ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
+  open func startWithOptions(_ options: SpeedcheckerSDK.SpeedTestOptions, _ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   open func forceFinish(_ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   open func currentNetwork() -> SpeedcheckerSDK.SpeedTestNetwork
   public static func clearTempDirectory()
@@ -262,6 +274,16 @@ public enum ConnectionIssue : Swift.Int {
   @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
   @objc override dynamic public init()
   @objc deinit
+}
+extension InternetSpeedTest {
+  public static var customerId: Swift.String? {
+    get
+    set(newValue)
+  }
+  public static var customerTag: Swift.String? {
+    get
+    set(newValue)
+  }
 }
 public protocol InternetSpeedTestDelegate {
   func internetTest(finish error: SpeedcheckerSDK.SpeedTestError)
