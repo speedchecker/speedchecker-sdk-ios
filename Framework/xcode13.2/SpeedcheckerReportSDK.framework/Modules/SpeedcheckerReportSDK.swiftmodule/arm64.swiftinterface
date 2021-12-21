@@ -108,7 +108,7 @@ public typealias ReportCompletionHandler = (SpeedcheckerReportSDK.ReportCompleti
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SpeedcheckerReportSDK : ObjectiveC.NSObject {
   public static var shared: SpeedcheckerReportSDK.SpeedcheckerReportSDK
   public func initialize()
-  public func reportConnectionIssue(type: SpeedcheckerReportSDK.SRIssueType, phoneNumber: Swift.String, comment: Swift.String?, userValue: Swift.String?, withSpeedTest: Swift.Bool = false, completion: @escaping SpeedcheckerReportSDK.ReportCompletionHandler)
+  public func reportConnectionIssue(type: SpeedcheckerReportSDK.SRIssueType, phoneNumber: Swift.String, comment: Swift.String?, userValue: Swift.String?, completion: @escaping SpeedcheckerReportSDK.ReportCompletionHandler)
   public func speedTest(delegate: SpeedcheckerSDK.InternetSpeedTestDelegate, completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   public func speedTestStop(completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   @objc deinit
@@ -139,15 +139,20 @@ extension SpeedcheckerReportSDK.SpeedcheckerReportSDK : SpeedcheckerSDK.WifiSpee
 }
 public struct SRAppConfig {
 }
-public enum SRIssueType : Swift.Int, Swift.Codable {
-  case callDrop
-  case poorCallQuality
-  case noSignal
-  case unableToMakeCall
-  case noMobileInternet
-  case slowInternetSpeed
+public enum SRIssueType : Swift.Int, Swift.Codable, Swift.CaseIterable {
+  case serviceDisconnection
+  case blackSpot
+  case services5G
+  case fiberServices
+  case indoorCoverage
+  case threshold
+  case lowSpeed
   public init?(rawValue: Swift.Int)
+  public typealias AllCases = [SpeedcheckerReportSDK.SRIssueType]
   public typealias RawValue = Swift.Int
+  public static var allCases: [SpeedcheckerReportSDK.SRIssueType] {
+    get
+  }
   public var rawValue: Swift.Int {
     get
   }
