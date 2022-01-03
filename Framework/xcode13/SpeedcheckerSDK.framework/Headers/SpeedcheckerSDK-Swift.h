@@ -207,6 +207,13 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
+SWIFT_CLASS("_TtC15SpeedcheckerSDK8HTTPPing")
+@interface HTTPPing : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class NSString;
 
 /// The controller manages the speed test process. See also <code>InternetSpeedTestDelegate</code>

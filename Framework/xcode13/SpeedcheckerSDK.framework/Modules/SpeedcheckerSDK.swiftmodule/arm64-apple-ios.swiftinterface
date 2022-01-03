@@ -308,6 +308,9 @@ public struct SCClient {
 @_hasMissingDesignatedInitializers public class SCDataController {
   @objc deinit
 }
+@objc @_hasMissingDesignatedInitializers public class HTTPPing : ObjectiveC.NSObject {
+  @objc deinit
+}
 public enum SCLatencySpeedType {
   case http
   case icmp
