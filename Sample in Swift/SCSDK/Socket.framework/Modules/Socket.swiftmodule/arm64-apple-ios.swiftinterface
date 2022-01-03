@@ -1,9 +1,10 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Socket
 import Darwin
 import Foundation
 import Swift
+import _Concurrency
 @_hasMissingDesignatedInitializers public class Socket : Socket.SocketReader, Socket.SocketWriter {
   public static var SOCKET_MINIMUM_READ_BUFFER_SIZE: Swift.Int
   public static var SOCKET_DEFAULT_READ_BUFFER_SIZE: Swift.Int
@@ -273,7 +274,7 @@ public enum SSLError : Swift.Error, Swift.CustomStringConvertible {
     get
   }
 }
-extension fd_set {
+extension Darwin.fd_set {
   public mutating func zero()
   public mutating func set(_ fd: Swift.Int32)
   public mutating func clear(_ fd: Swift.Int32)

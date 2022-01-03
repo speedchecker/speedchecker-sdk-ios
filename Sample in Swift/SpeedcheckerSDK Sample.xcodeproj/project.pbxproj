@@ -53,7 +53,6 @@
 		38E83E1024DBD7AD0064DCD5 /* DataCompression.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DataCompression.framework; sourceTree = "<group>"; };
 		38E83E1124DBD7AD0064DCD5 /* SpeedcheckerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpeedcheckerSDK.framework; sourceTree = "<group>"; };
 		38E83E1224DBD7AD0064DCD5 /* SpeedcheckerReportSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpeedcheckerReportSDK.framework; sourceTree = "<group>"; };
-		38E83E1324DBD7AD0064DCD5 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
 		38E83E1424DBD7AD0064DCD5 /* Socket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Socket.framework; sourceTree = "<group>"; };
 		38E83E1524DBD7AD0064DCD5 /* XMLParsing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XMLParsing.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,7 +109,6 @@
 				38E83E1024DBD7AD0064DCD5 /* DataCompression.framework */,
 				38E83E1124DBD7AD0064DCD5 /* SpeedcheckerSDK.framework */,
 				38E83E1224DBD7AD0064DCD5 /* SpeedcheckerReportSDK.framework */,
-				38E83E1324DBD7AD0064DCD5 /* CryptoSwift.framework */,
 				38E83E1424DBD7AD0064DCD5 /* Socket.framework */,
 				38E83E1524DBD7AD0064DCD5 /* XMLParsing.framework */,
 			);

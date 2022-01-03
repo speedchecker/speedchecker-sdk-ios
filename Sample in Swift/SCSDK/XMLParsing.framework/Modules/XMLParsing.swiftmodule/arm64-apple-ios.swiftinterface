@@ -1,8 +1,9 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 effective-4.1.50 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5.2 effective-4.1.50 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -Onone -module-name XMLParsing
 import Foundation
 import Swift
+import _Concurrency
 open class XMLDecoder {
   public enum DateDecodingStrategy {
     case deferredToDate
@@ -11,12 +12,12 @@ open class XMLDecoder {
     @available(macOS 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     case iso8601
     case formatted(Foundation.DateFormatter)
-    case custom((Swift.Decoder) throws -> Foundation.Date)
+    case custom((_ decoder: Swift.Decoder) throws -> Foundation.Date)
   }
   public enum DataDecodingStrategy {
     case deferredToData
     case base64
-    case custom((Swift.Decoder) throws -> Foundation.Data)
+    case custom((_ decoder: Swift.Decoder) throws -> Foundation.Data)
   }
   public enum NonConformingFloatDecodingStrategy {
     case `throw`
@@ -25,7 +26,7 @@ open class XMLDecoder {
   public enum KeyDecodingStrategy {
     case useDefaultKeys
     case convertFromSnakeCase
-    case custom(([Swift.CodingKey]) -> Swift.CodingKey)
+    case custom((_ codingPath: [Swift.CodingKey]) -> Swift.CodingKey)
   }
   open var dateDecodingStrategy: XMLParsing.XMLDecoder.DateDecodingStrategy
   open var dataDecodingStrategy: XMLParsing.XMLDecoder.DataDecodingStrategy
@@ -77,7 +78,7 @@ open class XMLEncoder {
   public enum KeyEncodingStrategy {
     case useDefaultKeys
     case convertToSnakeCase
-    case custom(([Swift.CodingKey]) -> Swift.CodingKey)
+    case custom((_ codingPath: [Swift.CodingKey]) -> Swift.CodingKey)
   }
   public enum AttributeEncodingStrategy {
     case deferredToEncoder

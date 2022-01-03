@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name SpeedcheckerReportSDK
 import SystemConfiguration.CaptiveNetwork
 import CoreLocation
@@ -9,6 +9,7 @@ import SpeedcheckerSDK
 import Swift
 import SystemConfiguration
 import UIKit
+import _Concurrency
 public enum ReachabilityError : Swift.Error {
   case failedToCreateWithAddress(Darwin.sockaddr, Swift.Int32)
   case failedToCreateWithHostname(Swift.String, Swift.Int32)
@@ -18,7 +19,7 @@ public enum ReachabilityError : Swift.Error {
 }
 @available(*, unavailable, renamed: "Notification.Name.reachabilityChanged")
 public var ReachabilityChangedNotification: Foundation.NSNotification.Name
-extension NSNotification.Name {
+extension Foundation.NSNotification.Name {
   public static var reachabilityChanged: Foundation.Notification.Name
 }
 public class Reachability {
@@ -75,7 +76,7 @@ public class Reachability {
   public convenience init(queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main) throws
   @objc deinit
 }
-extension Reachability {
+extension SpeedcheckerReportSDK.Reachability {
   public func startNotifier() throws
   public func stopNotifier()
   @available(*, deprecated, message: "Please use `connection != .none`")
@@ -107,12 +108,12 @@ public typealias ReportCompletionHandler = (SpeedcheckerReportSDK.ReportCompleti
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SpeedcheckerReportSDK : ObjectiveC.NSObject {
   public static var shared: SpeedcheckerReportSDK.SpeedcheckerReportSDK
   public func initialize()
-  public func reportConnectionIssue(type: SpeedcheckerReportSDK.SRIssueType, phoneNumber: Swift.String, comment: Swift.String?, withSpeedTest: Swift.Bool = false, completion: @escaping SpeedcheckerReportSDK.ReportCompletionHandler)
+  public func reportConnectionIssue(type: SpeedcheckerReportSDK.SRIssueType, phoneNumber: Swift.String, comment: Swift.String?, userValue: Swift.String?, withSpeedTest: Swift.Bool = false, completion: @escaping SpeedcheckerReportSDK.ReportCompletionHandler)
   public func speedTest(delegate: SpeedcheckerSDK.InternetSpeedTestDelegate, completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   public func speedTestStop(completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   @objc deinit
 }
-extension SpeedcheckerReportSDK : SpeedcheckerSDK.InternetSpeedTestDelegate {
+extension SpeedcheckerReportSDK.SpeedcheckerReportSDK : SpeedcheckerSDK.InternetSpeedTestDelegate {
   public func internetTest(finish error: SpeedcheckerSDK.SpeedTestError)
   public func internetTest(finish result: SpeedcheckerSDK.SpeedTestResult)
   public func internetTest(received servers: [SpeedcheckerSDK.SpeedTestServer])
@@ -124,7 +125,7 @@ extension SpeedcheckerReportSDK : SpeedcheckerSDK.InternetSpeedTestDelegate {
   public func internetTestUploadFinish()
   public func internetTestUpload(progress: Swift.Double, _ speed: SpeedcheckerSDK.SpeedTestSpeed?)
 }
-extension SpeedcheckerReportSDK : SpeedcheckerSDK.WifiSpeedTestDelegate {
+extension SpeedcheckerReportSDK.SpeedcheckerReportSDK : SpeedcheckerSDK.WifiSpeedTestDelegate {
   public func wifiTest(finish error: SpeedcheckerSDK.SCTestError)
   public func wifiTest(finish speed: SpeedcheckerSDK.SpeedTestSpeed)
   public func wifiTest(latency: Swift.Int)
