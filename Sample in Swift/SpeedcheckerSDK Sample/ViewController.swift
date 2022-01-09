@@ -38,7 +38,9 @@ class ViewController: UIViewController {
         // to use paid version, your app does not need location access
 //        internetTest = InternetSpeedTest(clientID: 0, userID: 0, delegate: self)
 //        internetTest?.start() { (error) in
-//            print(error)
+//          if error != .ok {
+//              print(error)
+//          }
 //        }
     }
     
