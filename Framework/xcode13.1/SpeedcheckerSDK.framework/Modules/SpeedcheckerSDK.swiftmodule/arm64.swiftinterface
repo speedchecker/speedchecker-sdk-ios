@@ -261,46 +261,52 @@ public enum ConnectionIssue : Swift.Int {
     get
   }
 }
-@objc public class InternetSpeedTest : ObjectiveC.NSObject {
+@objc(InternetSpeedTest) public class InternetSpeedTest : ObjectiveC.NSObject {
   final public let userID: Swift.Int
   final public let clientID: Swift.Int
   public var delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?
   public var png: Swift.String?
+  public static var testInProgress: Swift.Bool {
+    get
+  }
+  @objc public init(clientID: Swift.Int = 0, userID: Swift.Int = 0, isBackground: Swift.Bool = false, delegate: SpeedcheckerSDK.InternetSpeedTestDelegate)
   public init(clientID: Swift.Int = 0, userID: Swift.Int = 0, isBackground: Swift.Bool = false, bgdlTimeMs: Swift.Int? = nil, bgulTimeMs: Swift.Int? = nil, bgskipTimeMs: Swift.Int? = nil, delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?)
-  open func start(_ servers: [SpeedcheckerSDK.SpeedTestServer], completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
-  open func start(_ servers: [SpeedcheckerSDK.SCServer], completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
-  open func start(_ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
-  open func startTest(_ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
+  @objc open func start(_ servers: [SpeedcheckerSDK.SpeedTestServer], completion: (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
+  open func start(_ servers: [SpeedcheckerSDK.SCServer], completion: (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
+  @objc open func start(_ completion: (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
+  @objc open func startTest(_ completion: (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
   open func startWithOptions(_ options: SpeedcheckerSDK.SpeedTestOptions, _ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   open func startWithOptions(_ options: SpeedcheckerSDK.SpeedTestOptions, servers: [SpeedcheckerSDK.SpeedTestServer], _ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
-  open func forceFinish(_ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
-  open func currentNetwork() -> SpeedcheckerSDK.SpeedTestNetwork
+  @objc open func forceFinish(_ completion: (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
+  @objc open func currentNetwork() -> SpeedcheckerSDK.SpeedTestNetwork
   public static func clearTempDirectory()
   public func speedTestServers(_ servers: [SpeedcheckerSDK.SCServer]?) -> [SpeedcheckerSDK.SpeedTestServer]?
   @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
   @objc deinit
 }
 extension SpeedcheckerSDK.InternetSpeedTest {
-  public static var customerId: Swift.String? {
-    get
-    set(newValue)
+  @objc public static var customerId: Swift.String {
+    @objc get
+    @objc set(newValue)
   }
-  public static var customerTag: Swift.String? {
-    get
-    set(newValue)
+  @objc public static var customerTag: Swift.String {
+    @objc get
+    @objc set(newValue)
   }
+  @objc public static func bgTestAbility(completion: @escaping (Swift.String, Swift.Bool, Swift.Bool, Swift.Bool, Swift.Bool, Swift.Bool) -> Swift.Void)
 }
-public protocol InternetSpeedTestDelegate {
-  func internetTest(finish error: SpeedcheckerSDK.SpeedTestError)
-  func internetTest(finish result: SpeedcheckerSDK.SpeedTestResult)
-  func internetTest(received servers: [SpeedcheckerSDK.SpeedTestServer])
-  func internetTest(selected server: SpeedcheckerSDK.SpeedTestServer, latency: Swift.Int)
-  func internetTestDownloadStart()
-  func internetTestDownloadFinish()
-  func internetTestDownload(progress: Swift.Double, _ speed: SpeedcheckerSDK.SpeedTestSpeed?)
-  func internetTestUploadStart()
-  func internetTestUploadFinish()
-  func internetTestUpload(progress: Swift.Double, _ speed: SpeedcheckerSDK.SpeedTestSpeed?)
+@objc(InternetSpeedTestDelegate) public protocol InternetSpeedTestDelegate {
+  @objc func internetTestError(error: SpeedcheckerSDK.SpeedTestError)
+  @objc func internetTestFinish(result: SpeedcheckerSDK.SpeedTestResult)
+  @objc optional func internetTestFinishExpress(result: SpeedcheckerSDK.SpeedTestResult)
+  @objc func internetTestReceived(servers: [SpeedcheckerSDK.SpeedTestServer])
+  @objc func internetTestSelected(server: SpeedcheckerSDK.SpeedTestServer, latency: Swift.Int, jitter: Swift.Int)
+  @objc func internetTestDownloadStart()
+  @objc func internetTestDownloadFinish()
+  @objc func internetTestDownload(progress: Swift.Double, speed: SpeedcheckerSDK.SpeedTestSpeed)
+  @objc func internetTestUploadStart()
+  @objc func internetTestUploadFinish()
+  @objc func internetTestUpload(progress: Swift.Double, speed: SpeedcheckerSDK.SpeedTestSpeed)
 }
 public struct SCClient {
   public init(ID: Swift.Int?, applicationHash: Swift.String? = nil, name: Swift.String? = nil)
@@ -405,7 +411,8 @@ public enum SCTestStatus {
     get
   }
 }
-public enum SpeedTestError : Swift.Int {
+@objc(SpeedTestError) public enum SpeedTestError : Swift.Int {
+  case ok
   case invalidSettings
   case invalidServers
   case inProgress
@@ -419,7 +426,7 @@ public enum SpeedTestError : Swift.Int {
     get
   }
 }
-public enum SpeedTestNetworkType : Swift.Int {
+@objc(SpeedTestNetworkType) public enum SpeedTestNetworkType : Swift.Int {
   case any
   case wifi
   case cellular
@@ -429,16 +436,16 @@ public enum SpeedTestNetworkType : Swift.Int {
     get
   }
 }
-@_hasMissingDesignatedInitializers public class SpeedTestNetwork {
-  final public let type: SpeedcheckerSDK.SpeedTestNetworkType
-  final public let cellularCarrier: CoreTelephony.CTCarrier?
-  final public let cellularTechnology: Swift.String?
-  open var networkShortDescription: Swift.String? {
-    get
+@_hasMissingDesignatedInitializers @objc(SpeedTestNetwork) public class SpeedTestNetwork : ObjectiveC.NSObject {
+  @objc final public let type: SpeedcheckerSDK.SpeedTestNetworkType
+  @objc final public let cellularCarrier: CoreTelephony.CTCarrier?
+  @objc final public let cellularTechnology: Swift.String?
+  @objc open var networkShortDescription: Swift.String? {
+    @objc get
   }
   @objc deinit
 }
-public enum SpeedTestLatencyType : Swift.Int {
+@objc(SpeedTestLatencyType) public enum SpeedTestLatencyType : Swift.Int {
   case http
   case icmp
   public init?(rawValue: Swift.Int)
@@ -447,67 +454,74 @@ public enum SpeedTestLatencyType : Swift.Int {
     get
   }
 }
-@_hasMissingDesignatedInitializers public class SpeedTestResult {
-  open var network: SpeedcheckerSDK.SpeedTestNetwork
-  final public let server: SpeedcheckerSDK.SpeedTestServer
-  final public let latencyType: SpeedcheckerSDK.SpeedTestLatencyType
-  final public let latencyInMs: Swift.Int
-  final public let jitter: Swift.Double
-  final public let downloadSpeed: SpeedcheckerSDK.SpeedTestSpeed
-  final public let uploadSpeed: SpeedcheckerSDK.SpeedTestSpeed
-  final public let ipAddress: Swift.String?
-  final public let ispName: Swift.String?
-  final public let date: Foundation.Date?
+@_hasMissingDesignatedInitializers @objc(SpeedTestResult) public class SpeedTestResult : ObjectiveC.NSObject {
+  @objc open var network: SpeedcheckerSDK.SpeedTestNetwork
+  @objc final public let server: SpeedcheckerSDK.SpeedTestServer
+  @objc final public let latencyType: SpeedcheckerSDK.SpeedTestLatencyType
+  @objc final public let latencyInMs: Swift.Int
+  @objc final public let jitter: Swift.Double
+  @objc final public let downloadSpeed: SpeedcheckerSDK.SpeedTestSpeed
+  @objc final public let uploadSpeed: SpeedcheckerSDK.SpeedTestSpeed
+  @objc final public let ipAddress: Swift.String?
+  @objc final public let ispName: Swift.String?
+  @objc final public let date: Foundation.Date?
+  @objc public var userCityName: Swift.String?
   public static func create(withPlain date: Foundation.Date, latencyType: Swift.String?, latencyInMs: Swift.Int, jitter: Swift.Double, downloadInBps: Swift.Double, uploadInBps: Swift.Double, ipAddress: Swift.String?, ispName: Swift.String?, networkType: Swift.String?, serverID: Swift.Int, serverDomain: Swift.String?, serverCityName: Swift.String?, serverCountryCode: Swift.String?) -> SpeedcheckerSDK.SpeedTestResult
   @objc deinit
 }
 extension SpeedcheckerSDK.SpeedTestResult {
-  public var connectionType: Swift.String? {
-    get
+  @objc dynamic public var connectionType: Swift.String? {
+    @objc get
   }
-  public var locationLatitude: Swift.Double? {
-    get
+  @objc dynamic public var locationLatitude: Swift.Double {
+    @objc get
   }
-  public var locationLongitude: Swift.Double? {
-    get
+  @objc dynamic public var locationLongitude: Swift.Double {
+    @objc get
   }
-  public var networkOperator: Swift.String {
-    get
+  @objc dynamic public var networkOperator: Swift.String {
+    @objc get
   }
-  public var deviceInfo: Swift.String {
-    get
+  @objc dynamic public var deviceInfo: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var cellMCC: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var cellMNC: Swift.String {
+    @objc get
   }
 }
-public class SpeedTestServer {
+@objc(SpeedTestServer) public class SpeedTestServer : ObjectiveC.NSObject {
   final public let ID: Swift.Int?
   final public let type: SpeedcheckerSDK.SCServerType
-  final public let scheme: Swift.String?
-  final public let domain: Swift.String?
+  @objc final public let scheme: Swift.String?
+  @objc final public let domain: Swift.String?
   final public let port: Swift.Int?
-  final public let countryCode: Swift.String?
-  final public let cityName: Swift.String?
-  public var country: Swift.String? {
-    get
+  @objc final public let countryCode: Swift.String?
+  @objc final public let cityName: Swift.String?
+  @objc public var country: Swift.String? {
+    @objc get
   }
   public init(ID: Swift.Int?, type: SpeedcheckerSDK.SCServerType = .speedchecker, scheme: Swift.String?, domain: Swift.String?, port: Swift.Int? = nil, countryCode: Swift.String?, cityName: Swift.String?)
   @objc deinit
 }
-public class SpeedTestSpeed {
-  final public let bps: Swift.Double
+@objc(SpeedTestSpeed) public class SpeedTestSpeed : ObjectiveC.NSObject {
+  @objc final public let bps: Swift.Double
   public init(bps value: Swift.Double)
   public init(kbps value: Swift.Double)
   public init(mbps value: Swift.Double)
-  open var kbps: Swift.Double {
-    get
+  @objc open var kbps: Swift.Double {
+    @objc get
   }
-  open var mbps: Swift.Double {
-    get
+  @objc open var mbps: Swift.Double {
+    @objc get
   }
-  open var descriptionInKbps: Swift.String {
-    get
+  @objc open var descriptionInKbps: Swift.String {
+    @objc get
   }
-  open var descriptionInMbps: Swift.String {
-    get
+  @objc open var descriptionInMbps: Swift.String {
+    @objc get
   }
   @objc deinit
 }

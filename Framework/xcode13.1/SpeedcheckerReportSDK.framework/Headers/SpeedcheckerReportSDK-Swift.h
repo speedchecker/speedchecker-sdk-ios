@@ -188,7 +188,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import Foundation;
 @import ObjectiveC;
+@import SpeedcheckerSDK;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -214,6 +216,23 @@ SWIFT_CLASS("_TtC21SpeedcheckerReportSDK21SpeedcheckerReportSDK")
 @end
 
 
+@class SpeedTestResult;
+@class SpeedTestServer;
+@class NSNumber;
+@class SpeedTestSpeed;
+
+@interface SpeedcheckerReportSDK (SWIFT_EXTENSION(SpeedcheckerReportSDK)) <InternetSpeedTestDelegate>
+- (void)internetTestErrorWithError:(enum SpeedTestError)error;
+- (void)internetTestFinishWithResult:(SpeedTestResult * _Nonnull)result;
+- (void)internetTestReceivedWithServers:(NSArray<SpeedTestServer *> * _Nonnull)servers;
+- (void)internetTestSelectedWithServer:(SpeedTestServer * _Nonnull)server latency:(NSInteger)latency jitter:(NSInteger)jitter;
+- (void)internetTestDownloadStart;
+- (void)internetTestDownloadFinish;
+- (void)internetTestDownloadWithProgress:(double)progress speed:(SpeedTestSpeed * _Nonnull)speed;
+- (void)internetTestUploadStart;
+- (void)internetTestUploadFinish;
+- (void)internetTestUploadWithProgress:(double)progress speed:(SpeedTestSpeed * _Nonnull)speed;
+@end
 
 
 #if __has_attribute(external_source_symbol)

@@ -30,7 +30,9 @@ class ViewController: UIViewController {
         // to use free version, your app should have location access
         internetTest = InternetSpeedTest(delegate: self)
         internetTest?.startTest() { (error) in
-            print(error)
+            if error != .ok {
+                print(error)
+            }
         }
         
         // to use paid version, your app does not need location access
@@ -43,23 +45,24 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: InternetSpeedTestDelegate {
-    func internetTest(finish error: SpeedTestError) {
+    func internetTestError(error: SpeedTestError) {
         print(error)
     }
     
-    func internetTest(finish result: SpeedTestResult) {
+    func internetTestFinish(result: SpeedTestResult) {
         print(result.downloadSpeed.mbps)
         print(result.uploadSpeed.mbps)
         print(result.latencyInMs)
         
     }
     
-    func internetTest(received servers: [SpeedTestServer]) {
+    func internetTestReceived(servers: [SpeedTestServer]) {
         //
     }
     
-    func internetTest(selected server: SpeedTestServer, latency: Int) {
-        //
+    func internetTestSelected(server: SpeedTestServer, latency: Int, jitter: Int) {
+        print("Latency: \(latency)")
+        print("Jitter: \(jitter)")
     }
     
     func internetTestDownloadStart() {
@@ -70,8 +73,8 @@ extension ViewController: InternetSpeedTestDelegate {
         //
     }
     
-    func internetTestDownload(progress: Double, _ speed: SpeedTestSpeed?) {
-        //
+    func internetTestDownload(progress: Double, speed: SpeedTestSpeed) {
+        print("Download: \(speed.descriptionInMbps)")
     }
     
     func internetTestUploadStart() {
@@ -82,8 +85,8 @@ extension ViewController: InternetSpeedTestDelegate {
         //
     }
     
-    func internetTestUpload(progress: Double, _ speed: SpeedTestSpeed?) {
-        //
+    func internetTestUpload(progress: Double, speed: SpeedTestSpeed) {
+        print("Upload: \(speed.descriptionInMbps)")
     }
     
     
