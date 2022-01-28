@@ -188,8 +188,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreLocation;
 @import Foundation;
 @import ObjectiveC;
+@import UIKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -207,6 +209,78 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class NSNumber;
+@class NSString;
+@class CLLocationManager;
+
+SWIFT_CLASS_NAMED("BackgroundTest")
+@interface BackgroundTest : NSObject
+- (nonnull instancetype)initWithClientID:(NSInteger)clientID url:(NSString * _Nullable)url testsEnabled:(BOOL)testsEnabled OBJC_DESIGNATED_INITIALIZER;
+- (void)setBackgroundNetworkTestingWithTestsEnabled:(BOOL)testsEnabled;
+- (void)prepareLocationManagerWithLocationManager:(CLLocationManager * _Nullable)locationManager;
+- (void)applicationDidEnterBackgroundWithLocationManager:(CLLocationManager * _Nullable)locationManager;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+- (void)loadConfigWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions completion:(void (^ _Nonnull)(BOOL))completion;
+@end
+
+
+@class CLLocation;
+@class CLRegion;
+
+@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+- (void)didChangeAuthorizationWithManager:(CLLocationManager * _Nonnull)manager status:(CLAuthorizationStatus)status;
+- (void)didUpdateLocationsWithManager:(CLLocationManager * _Nonnull)manager locations:(NSArray<CLLocation *> * _Nonnull)locations;
+- (void)didEnterRegionWithManager:(CLLocationManager * _Nonnull)manager region:(CLRegion * _Nonnull)region;
+- (void)didExitRegionWithManager:(CLLocationManager * _Nonnull)manager region:(CLRegion * _Nonnull)region;
+@end
+
+
+
+@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+- (void)runWithLocation:(CLLocation * _Nonnull)location completion:(void (^ _Nonnull)(BOOL))completion;
+@end
+
+enum SpeedTestError : NSInteger;
+@class SpeedTestResult;
+@class SpeedTestServer;
+@class SpeedTestSpeed;
+
+SWIFT_PROTOCOL_NAMED("InternetSpeedTestDelegate")
+@protocol InternetSpeedTestDelegate
+- (void)internetTestErrorWithError:(enum SpeedTestError)error;
+- (void)internetTestFinishWithResult:(SpeedTestResult * _Nonnull)result;
+@optional
+- (void)internetTestFinishExpressWithResult:(SpeedTestResult * _Nonnull)result;
+@required
+- (void)internetTestReceivedWithServers:(NSArray<SpeedTestServer *> * _Nonnull)servers;
+- (void)internetTestSelectedWithServer:(SpeedTestServer * _Nonnull)server latency:(NSInteger)latency jitter:(NSInteger)jitter;
+- (void)internetTestDownloadStart;
+- (void)internetTestDownloadFinish;
+- (void)internetTestDownloadWithProgress:(double)progress speed:(SpeedTestSpeed * _Nonnull)speed;
+- (void)internetTestUploadStart;
+- (void)internetTestUploadFinish;
+- (void)internetTestUploadWithProgress:(double)progress speed:(SpeedTestSpeed * _Nonnull)speed;
+@end
+
+
+@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK)) <InternetSpeedTestDelegate>
+- (void)internetTestErrorWithError:(enum SpeedTestError)error;
+- (void)internetTestFinishWithResult:(SpeedTestResult * _Nonnull)result;
+- (void)internetTestReceivedWithServers:(NSArray<SpeedTestServer *> * _Nonnull)servers;
+- (void)internetTestSelectedWithServer:(SpeedTestServer * _Nonnull)server latency:(NSInteger)latency jitter:(NSInteger)jitter;
+- (void)internetTestDownloadStart;
+- (void)internetTestDownloadFinish;
+- (void)internetTestDownloadWithProgress:(double)progress speed:(SpeedTestSpeed * _Nonnull)speed;
+- (void)internetTestUploadStart;
+- (void)internetTestUploadFinish;
+- (void)internetTestUploadWithProgress:(double)progress speed:(SpeedTestSpeed * _Nonnull)speed;
+@end
+
 
 SWIFT_CLASS("_TtC15SpeedcheckerSDK8HTTPPing")
 @interface HTTPPing : NSObject
@@ -214,12 +288,7 @@ SWIFT_CLASS("_TtC15SpeedcheckerSDK8HTTPPing")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSNumber;
-@protocol InternetSpeedTestDelegate;
-@class SpeedTestServer;
-enum SpeedTestError : NSInteger;
 @class SpeedTestNetwork;
-@class NSString;
 
 /// The controller manages the speed test process. See also <code>InternetSpeedTestDelegate</code>
 SWIFT_CLASS_NAMED("InternetSpeedTest")
@@ -251,25 +320,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull cust
 + (void)bgTestAbilityWithCompletion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL, BOOL, BOOL, BOOL, BOOL))completion;
 @end
 
-@class SpeedTestResult;
-@class SpeedTestSpeed;
-
-SWIFT_PROTOCOL_NAMED("InternetSpeedTestDelegate")
-@protocol InternetSpeedTestDelegate
-- (void)internetTestErrorWithError:(enum SpeedTestError)error;
-- (void)internetTestFinishWithResult:(SpeedTestResult * _Nonnull)result;
-@optional
-- (void)internetTestFinishExpressWithResult:(SpeedTestResult * _Nonnull)result;
-@required
-- (void)internetTestReceivedWithServers:(NSArray<SpeedTestServer *> * _Nonnull)servers;
-- (void)internetTestSelectedWithServer:(SpeedTestServer * _Nonnull)server latency:(NSInteger)latency jitter:(NSInteger)jitter;
-- (void)internetTestDownloadStart;
-- (void)internetTestDownloadFinish;
-- (void)internetTestDownloadWithProgress:(double)progress speed:(SpeedTestSpeed * _Nonnull)speed;
-- (void)internetTestUploadStart;
-- (void)internetTestUploadFinish;
-- (void)internetTestUploadWithProgress:(double)progress speed:(SpeedTestSpeed * _Nonnull)speed;
-@end
 
 /// The set of possible errors occur in the <code>InternetSpeedTest</code> object.
 typedef SWIFT_ENUM_NAMED(NSInteger, SpeedTestError, "SpeedTestError", open) {
