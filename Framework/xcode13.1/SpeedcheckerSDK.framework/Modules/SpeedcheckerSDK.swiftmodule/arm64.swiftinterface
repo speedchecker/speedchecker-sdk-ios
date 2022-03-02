@@ -117,7 +117,7 @@ extension Swift.String {
 }
 public typealias Observer = ((_ response: SpeedcheckerSDK.PingResponse) -> Swift.Void)
 public typealias FinishedCallback = ((_ result: SpeedcheckerSDK.PingResult) -> Swift.Void)
-public protocol PingDelegate {
+public protocol PingDelegate : AnyObject {
   func didReceive(response: SpeedcheckerSDK.PingResponse)
 }
 public enum PingError : Swift.Error, Swift.Equatable {
@@ -166,7 +166,7 @@ public class SocketInfo {
   final public let configuration: SpeedcheckerSDK.PingConfiguration
   public var observer: SpeedcheckerSDK.Observer?
   public var finished: SpeedcheckerSDK.FinishedCallback?
-  public var delegate: SpeedcheckerSDK.PingDelegate?
+  weak public var delegate: SpeedcheckerSDK.PingDelegate?
   public var targetCount: Swift.Int?
   public var currentCount: Swift.UInt64 {
     get
