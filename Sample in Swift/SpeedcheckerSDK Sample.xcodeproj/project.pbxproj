@@ -12,16 +12,16 @@
 		38E83E0324DBD7430064DCD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0124DBD7430064DCD5 /* Main.storyboard */; };
 		38E83E0524DBD7440064DCD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0424DBD7440064DCD5 /* Assets.xcassets */; };
 		38E83E0824DBD7440064DCD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0624DBD7440064DCD5 /* LaunchScreen.storyboard */; };
-		A63023A827DFDFF2001AB546 /* DataCompression.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A227DFDFED001AB546 /* DataCompression.xcframework */; };
-		A63023A927DFDFF2001AB546 /* DataCompression.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A227DFDFED001AB546 /* DataCompression.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A63023AA27DFDFF4001AB546 /* Socket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A127DFDFED001AB546 /* Socket.xcframework */; };
-		A63023AB27DFDFF4001AB546 /* Socket.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A127DFDFED001AB546 /* Socket.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A63023AC27DFDFF5001AB546 /* SpeedcheckerReportSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A630239F27DFDFED001AB546 /* SpeedcheckerReportSDK.xcframework */; };
-		A63023AD27DFDFF5001AB546 /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A630239F27DFDFED001AB546 /* SpeedcheckerReportSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A63023AE27DFDFF7001AB546 /* SpeedcheckerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A630239E27DFDFED001AB546 /* SpeedcheckerSDK.xcframework */; };
-		A63023AF27DFDFF7001AB546 /* SpeedcheckerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A630239E27DFDFED001AB546 /* SpeedcheckerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A63023B027DFDFF8001AB546 /* XMLParsing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A027DFDFED001AB546 /* XMLParsing.xcframework */; };
-		A63023B127DFDFF8001AB546 /* XMLParsing.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A027DFDFED001AB546 /* XMLParsing.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6072E4127DFEB5D00C2F0DD /* DataCompression.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6072E3A27DFEB4F00C2F0DD /* DataCompression.xcframework */; };
+		A6072E4227DFEB5D00C2F0DD /* DataCompression.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6072E3A27DFEB4F00C2F0DD /* DataCompression.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6072E4327DFEB5E00C2F0DD /* Socket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6072E3B27DFEB4F00C2F0DD /* Socket.xcframework */; };
+		A6072E4427DFEB5E00C2F0DD /* Socket.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6072E3B27DFEB4F00C2F0DD /* Socket.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6072E4527DFEB5F00C2F0DD /* SpeedcheckerReportSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6072E3927DFEB4F00C2F0DD /* SpeedcheckerReportSDK.xcframework */; };
+		A6072E4627DFEB5F00C2F0DD /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6072E3927DFEB4F00C2F0DD /* SpeedcheckerReportSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6072E4727DFEB6000C2F0DD /* SpeedcheckerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6072E3827DFEB4F00C2F0DD /* SpeedcheckerSDK.xcframework */; };
+		A6072E4827DFEB6000C2F0DD /* SpeedcheckerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6072E3827DFEB4F00C2F0DD /* SpeedcheckerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6072E4927DFEB6200C2F0DD /* XMLParsing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6072E3727DFEB4F00C2F0DD /* XMLParsing.xcframework */; };
+		A6072E4A27DFEB6200C2F0DD /* XMLParsing.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6072E3727DFEB4F00C2F0DD /* XMLParsing.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,11 +31,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A63023B127DFDFF8001AB546 /* XMLParsing.xcframework in Embed Frameworks */,
-				A63023AB27DFDFF4001AB546 /* Socket.xcframework in Embed Frameworks */,
-				A63023A927DFDFF2001AB546 /* DataCompression.xcframework in Embed Frameworks */,
-				A63023AF27DFDFF7001AB546 /* SpeedcheckerSDK.xcframework in Embed Frameworks */,
-				A63023AD27DFDFF5001AB546 /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */,
+				A6072E4A27DFEB6200C2F0DD /* XMLParsing.xcframework in Embed Frameworks */,
+				A6072E4427DFEB5E00C2F0DD /* Socket.xcframework in Embed Frameworks */,
+				A6072E4227DFEB5D00C2F0DD /* DataCompression.xcframework in Embed Frameworks */,
+				A6072E4827DFEB6000C2F0DD /* SpeedcheckerSDK.xcframework in Embed Frameworks */,
+				A6072E4627DFEB5F00C2F0DD /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,11 +50,11 @@
 		38E83E0424DBD7440064DCD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38E83E0724DBD7440064DCD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38E83E0924DBD7440064DCD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A630239E27DFDFED001AB546 /* SpeedcheckerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpeedcheckerSDK.xcframework; path = ../../../../../Temp/speedcheckerSDK/SpeedcheckerSDK.xcframework; sourceTree = "<group>"; };
-		A630239F27DFDFED001AB546 /* SpeedcheckerReportSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpeedcheckerReportSDK.xcframework; path = ../../../../../Temp/speedcheckerSDK/SpeedcheckerReportSDK.xcframework; sourceTree = "<group>"; };
-		A63023A027DFDFED001AB546 /* XMLParsing.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = XMLParsing.xcframework; path = ../../../../../Temp/speedcheckerSDK/XMLParsing.xcframework; sourceTree = "<group>"; };
-		A63023A127DFDFED001AB546 /* Socket.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Socket.xcframework; sourceTree = "<group>"; };
-		A63023A227DFDFED001AB546 /* DataCompression.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DataCompression.xcframework; path = ../../../../../Temp/speedcheckerSDK/DataCompression.xcframework; sourceTree = "<group>"; };
+		A6072E3727DFEB4F00C2F0DD /* XMLParsing.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = XMLParsing.xcframework; sourceTree = "<group>"; };
+		A6072E3827DFEB4F00C2F0DD /* SpeedcheckerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SpeedcheckerSDK.xcframework; sourceTree = "<group>"; };
+		A6072E3927DFEB4F00C2F0DD /* SpeedcheckerReportSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SpeedcheckerReportSDK.xcframework; sourceTree = "<group>"; };
+		A6072E3A27DFEB4F00C2F0DD /* DataCompression.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DataCompression.xcframework; sourceTree = "<group>"; };
+		A6072E3B27DFEB4F00C2F0DD /* Socket.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Socket.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +62,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A63023B027DFDFF8001AB546 /* XMLParsing.xcframework in Frameworks */,
-				A63023A827DFDFF2001AB546 /* DataCompression.xcframework in Frameworks */,
-				A63023AA27DFDFF4001AB546 /* Socket.xcframework in Frameworks */,
-				A63023AE27DFDFF7001AB546 /* SpeedcheckerSDK.xcframework in Frameworks */,
-				A63023AC27DFDFF5001AB546 /* SpeedcheckerReportSDK.xcframework in Frameworks */,
+				A6072E4927DFEB6200C2F0DD /* XMLParsing.xcframework in Frameworks */,
+				A6072E4127DFEB5D00C2F0DD /* DataCompression.xcframework in Frameworks */,
+				A6072E4327DFEB5E00C2F0DD /* Socket.xcframework in Frameworks */,
+				A6072E4527DFEB5F00C2F0DD /* SpeedcheckerReportSDK.xcframework in Frameworks */,
+				A6072E4727DFEB6000C2F0DD /* SpeedcheckerSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,11 +106,11 @@
 		38E83E0F24DBD7AD0064DCD5 /* SCSDK */ = {
 			isa = PBXGroup;
 			children = (
-				A63023A227DFDFED001AB546 /* DataCompression.xcframework */,
-				A63023A127DFDFED001AB546 /* Socket.xcframework */,
-				A630239F27DFDFED001AB546 /* SpeedcheckerReportSDK.xcframework */,
-				A630239E27DFDFED001AB546 /* SpeedcheckerSDK.xcframework */,
-				A63023A027DFDFED001AB546 /* XMLParsing.xcframework */,
+				A6072E3A27DFEB4F00C2F0DD /* DataCompression.xcframework */,
+				A6072E3B27DFEB4F00C2F0DD /* Socket.xcframework */,
+				A6072E3927DFEB4F00C2F0DD /* SpeedcheckerReportSDK.xcframework */,
+				A6072E3827DFEB4F00C2F0DD /* SpeedcheckerSDK.xcframework */,
+				A6072E3727DFEB4F00C2F0DD /* XMLParsing.xcframework */,
 			);
 			path = SCSDK;
 			sourceTree = "<group>";
