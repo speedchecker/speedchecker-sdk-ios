@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,16 +12,16 @@
 		38E83E0324DBD7430064DCD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0124DBD7430064DCD5 /* Main.storyboard */; };
 		38E83E0524DBD7440064DCD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0424DBD7440064DCD5 /* Assets.xcassets */; };
 		38E83E0824DBD7440064DCD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0624DBD7440064DCD5 /* LaunchScreen.storyboard */; };
-		38E83E1F24DBD7B40064DCD5 /* DataCompression.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1024DBD7AD0064DCD5 /* DataCompression.framework */; };
-		38E83E2024DBD7B40064DCD5 /* DataCompression.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1024DBD7AD0064DCD5 /* DataCompression.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		38E83E2124DBD7B60064DCD5 /* Socket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1424DBD7AD0064DCD5 /* Socket.framework */; };
-		38E83E2224DBD7B60064DCD5 /* Socket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1424DBD7AD0064DCD5 /* Socket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		38E83E2324DBD7B70064DCD5 /* SpeedcheckerReportSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1224DBD7AD0064DCD5 /* SpeedcheckerReportSDK.framework */; };
-		38E83E2424DBD7B70064DCD5 /* SpeedcheckerReportSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1224DBD7AD0064DCD5 /* SpeedcheckerReportSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		38E83E2524DBD7B90064DCD5 /* SpeedcheckerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1124DBD7AD0064DCD5 /* SpeedcheckerSDK.framework */; };
-		38E83E2624DBD7B90064DCD5 /* SpeedcheckerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1124DBD7AD0064DCD5 /* SpeedcheckerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		38E83E2724DBD7BA0064DCD5 /* XMLParsing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1524DBD7AD0064DCD5 /* XMLParsing.framework */; };
-		38E83E2824DBD7BA0064DCD5 /* XMLParsing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38E83E1524DBD7AD0064DCD5 /* XMLParsing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A63023A827DFDFF2001AB546 /* DataCompression.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A227DFDFED001AB546 /* DataCompression.xcframework */; };
+		A63023A927DFDFF2001AB546 /* DataCompression.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A227DFDFED001AB546 /* DataCompression.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A63023AA27DFDFF4001AB546 /* Socket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A127DFDFED001AB546 /* Socket.xcframework */; };
+		A63023AB27DFDFF4001AB546 /* Socket.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A127DFDFED001AB546 /* Socket.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A63023AC27DFDFF5001AB546 /* SpeedcheckerReportSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A630239F27DFDFED001AB546 /* SpeedcheckerReportSDK.xcframework */; };
+		A63023AD27DFDFF5001AB546 /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A630239F27DFDFED001AB546 /* SpeedcheckerReportSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A63023AE27DFDFF7001AB546 /* SpeedcheckerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A630239E27DFDFED001AB546 /* SpeedcheckerSDK.xcframework */; };
+		A63023AF27DFDFF7001AB546 /* SpeedcheckerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A630239E27DFDFED001AB546 /* SpeedcheckerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A63023B027DFDFF8001AB546 /* XMLParsing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A027DFDFED001AB546 /* XMLParsing.xcframework */; };
+		A63023B127DFDFF8001AB546 /* XMLParsing.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A63023A027DFDFED001AB546 /* XMLParsing.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,11 +31,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				38E83E2624DBD7B90064DCD5 /* SpeedcheckerSDK.framework in Embed Frameworks */,
-				38E83E2824DBD7BA0064DCD5 /* XMLParsing.framework in Embed Frameworks */,
-				38E83E2224DBD7B60064DCD5 /* Socket.framework in Embed Frameworks */,
-				38E83E2024DBD7B40064DCD5 /* DataCompression.framework in Embed Frameworks */,
-				38E83E2424DBD7B70064DCD5 /* SpeedcheckerReportSDK.framework in Embed Frameworks */,
+				A63023B127DFDFF8001AB546 /* XMLParsing.xcframework in Embed Frameworks */,
+				A63023AB27DFDFF4001AB546 /* Socket.xcframework in Embed Frameworks */,
+				A63023A927DFDFF2001AB546 /* DataCompression.xcframework in Embed Frameworks */,
+				A63023AF27DFDFF7001AB546 /* SpeedcheckerSDK.xcframework in Embed Frameworks */,
+				A63023AD27DFDFF5001AB546 /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,11 +50,11 @@
 		38E83E0424DBD7440064DCD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38E83E0724DBD7440064DCD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38E83E0924DBD7440064DCD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		38E83E1024DBD7AD0064DCD5 /* DataCompression.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DataCompression.framework; sourceTree = "<group>"; };
-		38E83E1124DBD7AD0064DCD5 /* SpeedcheckerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpeedcheckerSDK.framework; sourceTree = "<group>"; };
-		38E83E1224DBD7AD0064DCD5 /* SpeedcheckerReportSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpeedcheckerReportSDK.framework; sourceTree = "<group>"; };
-		38E83E1424DBD7AD0064DCD5 /* Socket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Socket.framework; sourceTree = "<group>"; };
-		38E83E1524DBD7AD0064DCD5 /* XMLParsing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XMLParsing.framework; sourceTree = "<group>"; };
+		A630239E27DFDFED001AB546 /* SpeedcheckerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpeedcheckerSDK.xcframework; path = ../../../../../Temp/speedcheckerSDK/SpeedcheckerSDK.xcframework; sourceTree = "<group>"; };
+		A630239F27DFDFED001AB546 /* SpeedcheckerReportSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpeedcheckerReportSDK.xcframework; path = ../../../../../Temp/speedcheckerSDK/SpeedcheckerReportSDK.xcframework; sourceTree = "<group>"; };
+		A63023A027DFDFED001AB546 /* XMLParsing.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = XMLParsing.xcframework; path = ../../../../../Temp/speedcheckerSDK/XMLParsing.xcframework; sourceTree = "<group>"; };
+		A63023A127DFDFED001AB546 /* Socket.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Socket.xcframework; sourceTree = "<group>"; };
+		A63023A227DFDFED001AB546 /* DataCompression.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DataCompression.xcframework; path = ../../../../../Temp/speedcheckerSDK/DataCompression.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +62,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38E83E2524DBD7B90064DCD5 /* SpeedcheckerSDK.framework in Frameworks */,
-				38E83E2724DBD7BA0064DCD5 /* XMLParsing.framework in Frameworks */,
-				38E83E1F24DBD7B40064DCD5 /* DataCompression.framework in Frameworks */,
-				38E83E2124DBD7B60064DCD5 /* Socket.framework in Frameworks */,
-				38E83E2324DBD7B70064DCD5 /* SpeedcheckerReportSDK.framework in Frameworks */,
+				A63023B027DFDFF8001AB546 /* XMLParsing.xcframework in Frameworks */,
+				A63023A827DFDFF2001AB546 /* DataCompression.xcframework in Frameworks */,
+				A63023AA27DFDFF4001AB546 /* Socket.xcframework in Frameworks */,
+				A63023AE27DFDFF7001AB546 /* SpeedcheckerSDK.xcframework in Frameworks */,
+				A63023AC27DFDFF5001AB546 /* SpeedcheckerReportSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,11 +106,11 @@
 		38E83E0F24DBD7AD0064DCD5 /* SCSDK */ = {
 			isa = PBXGroup;
 			children = (
-				38E83E1024DBD7AD0064DCD5 /* DataCompression.framework */,
-				38E83E1124DBD7AD0064DCD5 /* SpeedcheckerSDK.framework */,
-				38E83E1224DBD7AD0064DCD5 /* SpeedcheckerReportSDK.framework */,
-				38E83E1424DBD7AD0064DCD5 /* Socket.framework */,
-				38E83E1524DBD7AD0064DCD5 /* XMLParsing.framework */,
+				A63023A227DFDFED001AB546 /* DataCompression.xcframework */,
+				A63023A127DFDFED001AB546 /* Socket.xcframework */,
+				A630239F27DFDFED001AB546 /* SpeedcheckerReportSDK.xcframework */,
+				A630239E27DFDFED001AB546 /* SpeedcheckerSDK.xcframework */,
+				A63023A027DFDFED001AB546 /* XMLParsing.xcframework */,
 			);
 			path = SCSDK;
 			sourceTree = "<group>";
