@@ -1,0 +1,93 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SpeedcheckerReportSDK
+import SystemConfiguration.CaptiveNetwork
+import CoreLocation
+import CoreTelephony
+import Foundation
+import SpeedcheckerSDK
+import Swift
+import SystemConfiguration
+import UIKit
+import _Concurrency
+public enum ReportCompletionResult {
+  case reportSent
+  case reportQueued
+  public static func == (a: SpeedcheckerReportSDK.ReportCompletionResult, b: SpeedcheckerReportSDK.ReportCompletionResult) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public typealias ReportCompletionHandler = (SpeedcheckerReportSDK.ReportCompletionResult) -> Swift.Void
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SpeedcheckerReport : ObjectiveC.NSObject {
+  public static let shared: SpeedcheckerReportSDK.SpeedcheckerReport
+  public func initialize()
+  public func reportConnectionIssue(type: SpeedcheckerReportSDK.SRIssueType, phoneNumber: Swift.String, comment: Swift.String?, userValue: Swift.String?, completion: @escaping SpeedcheckerReportSDK.ReportCompletionHandler)
+  public func speedTest(delegate: SpeedcheckerSDK.InternetSpeedTestDelegate, completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
+  public func speedTestStop(completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
+  @objc deinit
+}
+extension SpeedcheckerReportSDK.SpeedcheckerReport : SpeedcheckerSDK.InternetSpeedTestDelegate {
+  @objc dynamic public func internetTestError(error: SpeedcheckerSDK.SpeedTestError)
+  @objc dynamic public func internetTestFinish(result: SpeedcheckerSDK.SpeedTestResult)
+  @objc dynamic public func internetTestReceived(servers: [SpeedcheckerSDK.SpeedTestServer])
+  @objc dynamic public func internetTestSelected(server: SpeedcheckerSDK.SpeedTestServer, latency: Swift.Int, jitter: Swift.Int)
+  @objc dynamic public func internetTestDownloadStart()
+  @objc dynamic public func internetTestDownloadFinish()
+  @objc dynamic public func internetTestDownload(progress: Swift.Double, speed: SpeedcheckerSDK.SpeedTestSpeed)
+  @objc dynamic public func internetTestUploadStart()
+  @objc dynamic public func internetTestUploadFinish()
+  @objc dynamic public func internetTestUpload(progress: Swift.Double, speed: SpeedcheckerSDK.SpeedTestSpeed)
+}
+extension SpeedcheckerReportSDK.SpeedcheckerReport : SpeedcheckerSDK.WifiSpeedTestDelegate {
+  public func wifiTest(finish error: SpeedcheckerSDK.SCTestError)
+  public func wifiTest(finish speed: SpeedcheckerSDK.SpeedTestSpeed)
+  public func wifiTest(latency: Swift.Int)
+  public func wifiTest(progress: Swift.Double, _ speed: SpeedcheckerSDK.SpeedTestSpeed)
+}
+@_hasMissingDesignatedInitializers public class SRSignalHelper {
+  public func getWiFiInfo() -> (ssid: Swift.String, bssid: Swift.String)
+  public func getCellularInfo() -> (id: Swift.String, mcc: Swift.String, mnc: Swift.String, technology: Swift.String)
+  public func getSignalStrengh() -> (cellStrength: SpeedcheckerReportSDK.SRIssueSignalMeasurementStrength?, wiFiStrength: SpeedcheckerReportSDK.SRIssueSignalMeasurementStrength?)
+  @objc deinit
+}
+public struct SRAppConfig {
+}
+public enum SRIssueType : Swift.Int, Swift.Codable, Swift.CaseIterable {
+  case serviceDisconnection
+  case blackSpot
+  case services5G
+  case fiberServices
+  case indoorCoverage
+  case threshold
+  case lowSpeed
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [SpeedcheckerReportSDK.SRIssueType]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [SpeedcheckerReportSDK.SRIssueType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum SRIssueSignalMeasurementStrength : Swift.Int, Swift.Codable {
+  case weak
+  case ok
+  case veryGood
+  case excellent
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension SpeedcheckerReportSDK.ReportCompletionResult : Swift.Equatable {}
+extension SpeedcheckerReportSDK.ReportCompletionResult : Swift.Hashable {}
+extension SpeedcheckerReportSDK.SRIssueType : Swift.Equatable {}
+extension SpeedcheckerReportSDK.SRIssueType : Swift.Hashable {}
+extension SpeedcheckerReportSDK.SRIssueType : Swift.RawRepresentable {}
+extension SpeedcheckerReportSDK.SRIssueSignalMeasurementStrength : Swift.Equatable {}
+extension SpeedcheckerReportSDK.SRIssueSignalMeasurementStrength : Swift.Hashable {}
+extension SpeedcheckerReportSDK.SRIssueSignalMeasurementStrength : Swift.RawRepresentable {}

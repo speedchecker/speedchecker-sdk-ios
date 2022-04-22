@@ -1,0 +1,48 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DataCompression
+import Compression
+import Foundation
+import Swift
+import _Concurrency
+extension Foundation.Data {
+  public func compress(withAlgorithm algo: Foundation.Data.CompressionAlgorithm) -> Foundation.Data?
+  public func decompress(withAlgorithm algo: Foundation.Data.CompressionAlgorithm) -> Foundation.Data?
+  public enum CompressionAlgorithm {
+    case zlib
+    case lzfse
+    case lzma
+    case lz4
+    public static func == (a: Foundation.Data.CompressionAlgorithm, b: Foundation.Data.CompressionAlgorithm) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public func deflate() -> Foundation.Data?
+  public func inflate() -> Foundation.Data?
+  public func zip() -> Foundation.Data?
+  public func unzip(skipCheckSumValidation: Swift.Bool = true) -> Foundation.Data?
+  public func gzip() -> Foundation.Data?
+  public func gunzip() -> Foundation.Data?
+  public func adler32() -> DataCompression.Adler32
+  public func crc32() -> DataCompression.Crc32
+}
+public struct Crc32 : Swift.CustomStringConvertible {
+  public init()
+  public var checksum: Swift.UInt32
+  public mutating func advance(withChunk chunk: Foundation.Data)
+  public var description: Swift.String {
+    get
+  }
+}
+public struct Adler32 : Swift.CustomStringConvertible {
+  public init()
+  public var checksum: Swift.UInt32
+  public mutating func advance(withChunk chunk: Foundation.Data)
+  public var description: Swift.String {
+    get
+  }
+}
+extension Foundation.Data.CompressionAlgorithm : Swift.Equatable {}
+extension Foundation.Data.CompressionAlgorithm : Swift.Hashable {}

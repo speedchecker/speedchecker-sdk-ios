@@ -1,0 +1,102 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 effective-4.1.50 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -module-name XMLParsing
+import Foundation
+import Swift
+import _Concurrency
+open class XMLDecoder {
+  public enum DateDecodingStrategy {
+    case deferredToDate
+    case secondsSince1970
+    case millisecondsSince1970
+    @available(macOS 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
+    case iso8601
+    case formatted(Foundation.DateFormatter)
+    case custom((_ decoder: Swift.Decoder) throws -> Foundation.Date)
+  }
+  public enum DataDecodingStrategy {
+    case deferredToData
+    case base64
+    case custom((_ decoder: Swift.Decoder) throws -> Foundation.Data)
+  }
+  public enum NonConformingFloatDecodingStrategy {
+    case `throw`
+    case convertFromString(positiveInfinity: Swift.String, negativeInfinity: Swift.String, nan: Swift.String)
+  }
+  public enum KeyDecodingStrategy {
+    case useDefaultKeys
+    case convertFromSnakeCase
+    case custom((_ codingPath: [Swift.CodingKey]) -> Swift.CodingKey)
+  }
+  open var dateDecodingStrategy: XMLParsing.XMLDecoder.DateDecodingStrategy
+  open var dataDecodingStrategy: XMLParsing.XMLDecoder.DataDecodingStrategy
+  open var nonConformingFloatDecodingStrategy: XMLParsing.XMLDecoder.NonConformingFloatDecodingStrategy
+  open var keyDecodingStrategy: XMLParsing.XMLDecoder.KeyDecodingStrategy
+  open var userInfo: [Swift.CodingUserInfoKey : Any]
+  public init()
+  open func decode<T>(_ type: T.Type, from data: Foundation.Data) throws -> T where T : Swift.Decodable
+  @objc deinit
+}
+open class XMLEncoder {
+  public struct OutputFormatting : Swift.OptionSet {
+    public let rawValue: Swift.UInt
+    public init(rawValue: Swift.UInt)
+    public static let prettyPrinted: XMLParsing.XMLEncoder.OutputFormatting
+    @available(macOS 10.13, iOS 11.0, watchOS 4.0, tvOS 11.0, *)
+    public static let sortedKeys: XMLParsing.XMLEncoder.OutputFormatting
+    public typealias ArrayLiteralElement = XMLParsing.XMLEncoder.OutputFormatting
+    public typealias Element = XMLParsing.XMLEncoder.OutputFormatting
+    public typealias RawValue = Swift.UInt
+  }
+  public enum DateEncodingStrategy {
+    case deferredToDate
+    case secondsSince1970
+    case millisecondsSince1970
+    @available(macOS 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
+    case iso8601
+    case formatted(Foundation.DateFormatter)
+    case custom((Foundation.Date, Swift.Encoder) throws -> Swift.Void)
+  }
+  public enum StringEncodingStrategy {
+    case deferredToString
+    case cdata
+    public static func == (a: XMLParsing.XMLEncoder.StringEncodingStrategy, b: XMLParsing.XMLEncoder.StringEncodingStrategy) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum DataEncodingStrategy {
+    case deferredToData
+    case base64
+    case custom((Foundation.Data, Swift.Encoder) throws -> Swift.Void)
+  }
+  public enum NonConformingFloatEncodingStrategy {
+    case `throw`
+    case convertToString(positiveInfinity: Swift.String, negativeInfinity: Swift.String, nan: Swift.String)
+  }
+  public enum KeyEncodingStrategy {
+    case useDefaultKeys
+    case convertToSnakeCase
+    case custom((_ codingPath: [Swift.CodingKey]) -> Swift.CodingKey)
+  }
+  public enum AttributeEncodingStrategy {
+    case deferredToEncoder
+    case custom((Swift.Encoder) -> Swift.Bool)
+  }
+  open var outputFormatting: XMLParsing.XMLEncoder.OutputFormatting
+  open var dateEncodingStrategy: XMLParsing.XMLEncoder.DateEncodingStrategy
+  open var dataEncodingStrategy: XMLParsing.XMLEncoder.DataEncodingStrategy
+  open var nonConformingFloatEncodingStrategy: XMLParsing.XMLEncoder.NonConformingFloatEncodingStrategy
+  open var keyEncodingStrategy: XMLParsing.XMLEncoder.KeyEncodingStrategy
+  open var attributeEncodingStrategy: XMLParsing.XMLEncoder.AttributeEncodingStrategy
+  open var stringEncodingStrategy: XMLParsing.XMLEncoder.StringEncodingStrategy
+  open var userInfo: [Swift.CodingUserInfoKey : Any]
+  public init()
+  open func encode<T>(_ value: T, withRootKey rootKey: Swift.String, header: XMLParsing.XMLHeader? = nil) throws -> Foundation.Data where T : Swift.Encodable
+  @objc deinit
+}
+public struct XMLHeader {
+}
+extension XMLParsing.XMLEncoder.StringEncodingStrategy : Swift.Equatable {}
+extension XMLParsing.XMLEncoder.StringEncodingStrategy : Swift.Hashable {}
