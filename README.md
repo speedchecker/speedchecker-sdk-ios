@@ -72,7 +72,7 @@ iOS does not provide as many capabilities to collect network and device KPIs as 
 | ASN |
 | IP Address |
 
-[Full list of our KPIs](https://www.speedchecker.com/products/speed-test-datasets.html)
+[Full list of our KPIs](https://docs.speedchecker.com/measurement-methodology-links/u21ongNGAYLb6eo7cqjY/kpis-and-measurements/list-of-kpis)
 
 **Do you host all infrastructure for the test?**
 
