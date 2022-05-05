@@ -72,7 +72,7 @@ iOS does not provide as many capabilities to collect network and device KPIs as 
 | ASN |
 | IP Address |
 
-[Full list of our KPIs](https://www.speedchecker.com/broadband-data/kpis.html)
+[Full list of our KPIs](https://www.speedchecker.com/products/speed-test-datasets.html)
 
 **Do you host all infrastructure for the test?**
 
@@ -80,7 +80,7 @@ Yes, you do not need to run any servers. We provide and maintain network of high
 
 **How do you measure the speed?**
 
-See our [measurement methodology](https://www.speedchecker.com/broadband-data/measurement-method.html)
+See our [measurement methodology](https://docs.speedchecker.com/master/IxZJTvRs5pjae9qt6b2W/)
 
 ## What's next?
 Please contact us for more details and license requirements. Also you can download the latest framework version, the sample app to see detailed implementation in Xcode project as well as our Internet Speed Test application on App Store.
