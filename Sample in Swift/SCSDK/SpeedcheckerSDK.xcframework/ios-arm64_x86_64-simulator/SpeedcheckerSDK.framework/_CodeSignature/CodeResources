@@ -6,59 +6,35 @@
 	<dict>
 		<key>Headers/SpeedcheckerSDK-Swift.h</key>
 		<data>
-		E2Wo0KSiMVwWn8YbK6xAeooFaLg=
+		oW9tJ8iaHXr6+AYHNyHIq/Jr4mg=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		m1LS+LqofnJYYc8vyLVCrw6ZEpw=
+		zy5Y30ELv/aCALHkC8J8cYlJDiw=
 		</data>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		TBBQTpf2acWly+CvIgg206vIHhY=
+		evBto8Lq/CuxFFFE7mu+LJHPw0c=
 		</data>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		QKO4DwOHfOmL2g8BVL1vQkrVuXw=
+		ruS+UVQXZD/8e6T5g0Ctff3YEn0=
 		</data>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Lap+nE7OsLsMxUZR+zb3PIZG6mI=
-		</data>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		TBBQTpf2acWly+CvIgg206vIHhY=
-		</data>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64.swiftinterface</key>
-		<data>
-		QKO4DwOHfOmL2g8BVL1vQkrVuXw=
-		</data>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		Lap+nE7OsLsMxUZR+zb3PIZG6mI=
+		6LIta526z6K1BEcHrJFXx9d45aA=
 		</data>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		sKvmWiimftMM1WXE1+iAsy9jnqE=
+		fonsoYbNY+HF8a4deDUe6I1ToYs=
 		</data>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		eabjOnoN/bcYkjKi33hPmWZS91E=
+		aN3OsW7UL0uVu40c6/J7eCf1V4I=
 		</data>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		A3vgBuO1R+caUrL3qbozt4FkHug=
-		</data>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64.swiftdoc</key>
-		<data>
-		sKvmWiimftMM1WXE1+iAsy9jnqE=
-		</data>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64.swiftinterface</key>
-		<data>
-		eabjOnoN/bcYkjKi33hPmWZS91E=
-		</data>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64.swiftmodule</key>
-		<data>
-		A3vgBuO1R+caUrL3qbozt4FkHug=
+		9RINZQ+e+MgyiH3W98v2+9XyTF8=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -67,91 +43,49 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			awYI//f41eEfV/5mLvvCdfvpphXfr4NxsuUBdW3HRZk=
+			R7KTWKcsA7VwUOHxg1WvL6wqso0UWVIFhlPKIOEwENg=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KZkHUv5nmfGDBGv1iAsSleqoNpR9XisMj5cmtXSQIJA=
+			aFxjaK8szo5wu79akzgkaO5PL8KQ03rGLbyXcvy9RZY=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1x28oQ5MIrtUCzGc2sA42jIHg5OW/KHaDO68bTei/Us=
+			vZPkbLOL0vu6Air5i7c3aXVTMBPLGxzXXNCwjuescGo=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OdSPQ/qSK6DKmyVgOuWegg2q/nu69O1lbIZC9dT2oUM=
-			</data>
-		</dict>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			KZkHUv5nmfGDBGv1iAsSleqoNpR9XisMj5cmtXSQIJA=
-			</data>
-		</dict>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			1x28oQ5MIrtUCzGc2sA42jIHg5OW/KHaDO68bTei/Us=
-			</data>
-		</dict>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			OdSPQ/qSK6DKmyVgOuWegg2q/nu69O1lbIZC9dT2oUM=
+			vItULleOocriYog209iDb3dOO2inlSkbM1R+D2M8zgc=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Toi0tAu1AMdonriAJBtobJl1AOJA5Ki4DnocIkyXCzw=
+			tFb1DuChl5iyI1RozDhMI8/gUoJ6/+q+AwBhHvF0PtU=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			CDVSnNOrd9memhII0v2MtKrqlfVzyKQXvVfXtR14T8w=
+			0hArqt4bEbojpaaeeaALrcLYlrVtIvnZOaxH7BDnieA=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			X2jXoLUE8ZxYLqvjQcbsWFKLroVAT2ZHnsoXi5Mn1pk=
-			</data>
-		</dict>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Toi0tAu1AMdonriAJBtobJl1AOJA5Ki4DnocIkyXCzw=
-			</data>
-		</dict>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			CDVSnNOrd9memhII0v2MtKrqlfVzyKQXvVfXtR14T8w=
-			</data>
-		</dict>
-		<key>Modules/SpeedcheckerSDK.swiftmodule/x86_64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			X2jXoLUE8ZxYLqvjQcbsWFKLroVAT2ZHnsoXi5Mn1pk=
+			s7Z2713AnyRIGo4fgWT3DSFul0dGwJ9UKAC+0GbBed8=
 			</data>
 		</dict>
 	</dict>
