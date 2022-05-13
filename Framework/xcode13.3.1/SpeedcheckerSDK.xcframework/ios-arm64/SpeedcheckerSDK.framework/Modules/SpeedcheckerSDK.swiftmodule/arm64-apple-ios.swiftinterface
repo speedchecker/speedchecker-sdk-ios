@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SpeedcheckerSDK
+import BackgroundTasks
 import SystemConfiguration.CaptiveNetwork
 import CoreLocation
 import CoreTelephony
@@ -108,6 +109,10 @@ public struct SCNetwork {
   public func getNetworkSSID() -> Swift.String?
   public func getNetworkBSSID() -> Swift.String?
   public func getActiveConnection() -> Swift.String
+}
+@available(iOS 13, *)
+extension SpeedcheckerSDK.BackgroundTest {
+  @objc dynamic public func registerBGTask(_ locationManager: CoreLocation.CLLocationManager?)
 }
 extension Swift.String {
   public var md5: Swift.String {
@@ -632,12 +637,11 @@ public struct UPNPAction {
   @objc public func setBackgroundNetworkTesting(testsEnabled: Swift.Bool)
   @objc public func prepareLocationManager(locationManager: CoreLocation.CLLocationManager?)
   @objc public func applicationDidEnterBackground(locationManager: CoreLocation.CLLocationManager?)
+  @objc public func applicationDidBecomeActive(locationManager: CoreLocation.CLLocationManager?)
 }
 extension SpeedcheckerSDK.BackgroundTest {
   @objc dynamic public func didChangeAuthorization(manager: CoreLocation.CLLocationManager, status: CoreLocation.CLAuthorizationStatus)
   @objc dynamic public func didUpdateLocations(manager: CoreLocation.CLLocationManager, locations: [CoreLocation.CLLocation])
-  @objc dynamic public func didEnterRegion(manager: CoreLocation.CLLocationManager, region: CoreLocation.CLRegion)
-  @objc dynamic public func didExitRegion(manager: CoreLocation.CLLocationManager, region: CoreLocation.CLRegion)
 }
 public protocol UPNPActionable {
   associatedtype Response : Swift.Decodable, Swift.Encodable

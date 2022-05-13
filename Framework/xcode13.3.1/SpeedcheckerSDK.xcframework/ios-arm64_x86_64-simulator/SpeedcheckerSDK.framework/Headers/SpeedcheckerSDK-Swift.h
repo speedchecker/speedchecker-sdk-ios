@@ -227,6 +227,7 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 - (void)setBackgroundNetworkTestingWithTestsEnabled:(BOOL)testsEnabled;
 - (void)prepareLocationManagerWithLocationManager:(CLLocationManager * _Nullable)locationManager;
 - (void)applicationDidEnterBackgroundWithLocationManager:(CLLocationManager * _Nullable)locationManager;
+- (void)applicationDidBecomeActiveWithLocationManager:(CLLocationManager * _Nullable)locationManager;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -237,21 +238,20 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 @end
 
 
+
 @class CLLocation;
-@class CLRegion;
 
 @interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
 - (void)didChangeAuthorizationWithManager:(CLLocationManager * _Nonnull)manager status:(CLAuthorizationStatus)status;
 - (void)didUpdateLocationsWithManager:(CLLocationManager * _Nonnull)manager locations:(NSArray<CLLocation *> * _Nonnull)locations;
-- (void)didEnterRegionWithManager:(CLLocationManager * _Nonnull)manager region:(CLRegion * _Nonnull)region;
-- (void)didExitRegionWithManager:(CLLocationManager * _Nonnull)manager region:(CLRegion * _Nonnull)region;
 @end
 
 
-
+SWIFT_AVAILABILITY(ios,introduced=13)
 @interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
-- (void)runWithLocation:(CLLocation * _Nonnull)location completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)registerBGTask:(CLLocationManager * _Nullable)locationManager;
 @end
+
 
 enum SpeedTestError : NSInteger;
 @class SpeedTestResult;
@@ -287,6 +287,11 @@ SWIFT_PROTOCOL_NAMED("InternetSpeedTestDelegate")
 - (void)internetTestUploadStart;
 - (void)internetTestUploadFinish;
 - (void)internetTestUploadWithProgress:(double)progress speed:(SpeedTestSpeed * _Nonnull)speed;
+@end
+
+
+@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+- (void)runWithLocation:(CLLocation * _Nonnull)location completion:(void (^ _Nonnull)(BOOL))completion;
 @end
 
 
@@ -663,6 +668,7 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 - (void)setBackgroundNetworkTestingWithTestsEnabled:(BOOL)testsEnabled;
 - (void)prepareLocationManagerWithLocationManager:(CLLocationManager * _Nullable)locationManager;
 - (void)applicationDidEnterBackgroundWithLocationManager:(CLLocationManager * _Nullable)locationManager;
+- (void)applicationDidBecomeActiveWithLocationManager:(CLLocationManager * _Nullable)locationManager;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -673,21 +679,20 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 @end
 
 
+
 @class CLLocation;
-@class CLRegion;
 
 @interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
 - (void)didChangeAuthorizationWithManager:(CLLocationManager * _Nonnull)manager status:(CLAuthorizationStatus)status;
 - (void)didUpdateLocationsWithManager:(CLLocationManager * _Nonnull)manager locations:(NSArray<CLLocation *> * _Nonnull)locations;
-- (void)didEnterRegionWithManager:(CLLocationManager * _Nonnull)manager region:(CLRegion * _Nonnull)region;
-- (void)didExitRegionWithManager:(CLLocationManager * _Nonnull)manager region:(CLRegion * _Nonnull)region;
 @end
 
 
-
+SWIFT_AVAILABILITY(ios,introduced=13)
 @interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
-- (void)runWithLocation:(CLLocation * _Nonnull)location completion:(void (^ _Nonnull)(BOOL))completion;
+- (void)registerBGTask:(CLLocationManager * _Nullable)locationManager;
 @end
+
 
 enum SpeedTestError : NSInteger;
 @class SpeedTestResult;
@@ -723,6 +728,11 @@ SWIFT_PROTOCOL_NAMED("InternetSpeedTestDelegate")
 - (void)internetTestUploadStart;
 - (void)internetTestUploadFinish;
 - (void)internetTestUploadWithProgress:(double)progress speed:(SpeedTestSpeed * _Nonnull)speed;
+@end
+
+
+@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+- (void)runWithLocation:(CLLocation * _Nonnull)location completion:(void (^ _Nonnull)(BOOL))completion;
 @end
 
 
