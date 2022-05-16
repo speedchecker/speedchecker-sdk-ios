@@ -12,16 +12,31 @@
 		38E83E0324DBD7430064DCD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0124DBD7430064DCD5 /* Main.storyboard */; };
 		38E83E0524DBD7440064DCD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0424DBD7440064DCD5 /* Assets.xcassets */; };
 		38E83E0824DBD7440064DCD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E83E0624DBD7440064DCD5 /* LaunchScreen.storyboard */; };
-		A67814A72832830100988B9B /* DataCompression.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814A1283282F800988B9B /* DataCompression.xcframework */; };
-		A67814A82832830100988B9B /* DataCompression.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814A1283282F800988B9B /* DataCompression.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A67814A92832830200988B9B /* Socket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814A0283282F800988B9B /* Socket.xcframework */; };
-		A67814AA2832830200988B9B /* Socket.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814A0283282F800988B9B /* Socket.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A67814AB2832830300988B9B /* SpeedcheckerReportSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A678149D283282F800988B9B /* SpeedcheckerReportSDK.xcframework */; };
-		A67814AC2832830300988B9B /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A678149D283282F800988B9B /* SpeedcheckerReportSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A67814AD2832830400988B9B /* SpeedcheckerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A678149E283282F800988B9B /* SpeedcheckerSDK.xcframework */; };
-		A67814AE2832830400988B9B /* SpeedcheckerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A678149E283282F800988B9B /* SpeedcheckerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A67814AF2832830500988B9B /* XMLParsing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A678149F283282F800988B9B /* XMLParsing.xcframework */; };
-		A67814B02832830500988B9B /* XMLParsing.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A678149F283282F800988B9B /* XMLParsing.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A67814B82832864300988B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67814B72832864300988B9B /* AppDelegate.swift */; };
+		A67814BC2832864300988B9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67814BB2832864300988B9B /* ViewController.swift */; };
+		A67814BF2832864300988B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67814BD2832864300988B9B /* Main.storyboard */; };
+		A67814C12832864300988B9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A67814C02832864300988B9B /* Assets.xcassets */; };
+		A67814C42832864300988B9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67814C22832864300988B9B /* LaunchScreen.storyboard */; };
+		A67814DA2832868A00988B9B /* DataCompression.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CF2832868500988B9B /* DataCompression.xcframework */; };
+		A67814DB2832868A00988B9B /* DataCompression.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CF2832868500988B9B /* DataCompression.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A67814DC2832868C00988B9B /* Socket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CD2832868500988B9B /* Socket.xcframework */; };
+		A67814DD2832868C00988B9B /* Socket.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CD2832868500988B9B /* Socket.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A67814DE2832868D00988B9B /* SpeedcheckerReportSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CE2832868500988B9B /* SpeedcheckerReportSDK.xcframework */; };
+		A67814DF2832868D00988B9B /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CE2832868500988B9B /* SpeedcheckerReportSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A67814E02832868F00988B9B /* SpeedcheckerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CB2832868500988B9B /* SpeedcheckerSDK.xcframework */; };
+		A67814E12832868F00988B9B /* SpeedcheckerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CB2832868500988B9B /* SpeedcheckerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A67814E22832869000988B9B /* XMLParsing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CC2832868500988B9B /* XMLParsing.xcframework */; };
+		A67814E32832869000988B9B /* XMLParsing.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CC2832868500988B9B /* XMLParsing.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A67814E42832869400988B9B /* DataCompression.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CF2832868500988B9B /* DataCompression.xcframework */; };
+		A67814E52832869400988B9B /* DataCompression.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CF2832868500988B9B /* DataCompression.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A67814E72832869500988B9B /* Socket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CD2832868500988B9B /* Socket.xcframework */; };
+		A67814E82832869500988B9B /* Socket.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CD2832868500988B9B /* Socket.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A67814E92832869700988B9B /* SpeedcheckerReportSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CE2832868500988B9B /* SpeedcheckerReportSDK.xcframework */; };
+		A67814EA2832869700988B9B /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CE2832868500988B9B /* SpeedcheckerReportSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A67814EB2832869800988B9B /* SpeedcheckerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CB2832868500988B9B /* SpeedcheckerSDK.xcframework */; };
+		A67814EC2832869800988B9B /* SpeedcheckerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CB2832868500988B9B /* SpeedcheckerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A67814ED2832869900988B9B /* XMLParsing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CC2832868500988B9B /* XMLParsing.xcframework */; };
+		A67814EE2832869900988B9B /* XMLParsing.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A67814CC2832868500988B9B /* XMLParsing.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,11 +46,26 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A67814B02832830500988B9B /* XMLParsing.xcframework in Embed Frameworks */,
-				A67814AA2832830200988B9B /* Socket.xcframework in Embed Frameworks */,
-				A67814A82832830100988B9B /* DataCompression.xcframework in Embed Frameworks */,
-				A67814AE2832830400988B9B /* SpeedcheckerSDK.xcframework in Embed Frameworks */,
-				A67814AC2832830300988B9B /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */,
+				A67814E32832869000988B9B /* XMLParsing.xcframework in Embed Frameworks */,
+				A67814DD2832868C00988B9B /* Socket.xcframework in Embed Frameworks */,
+				A67814DB2832868A00988B9B /* DataCompression.xcframework in Embed Frameworks */,
+				A67814E12832868F00988B9B /* SpeedcheckerSDK.xcframework in Embed Frameworks */,
+				A67814DF2832868D00988B9B /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A67814E62832869400988B9B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A67814EE2832869900988B9B /* XMLParsing.xcframework in Embed Frameworks */,
+				A67814E82832869500988B9B /* Socket.xcframework in Embed Frameworks */,
+				A67814E52832869400988B9B /* DataCompression.xcframework in Embed Frameworks */,
+				A67814EC2832869800988B9B /* SpeedcheckerSDK.xcframework in Embed Frameworks */,
+				A67814EA2832869700988B9B /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,11 +80,18 @@
 		38E83E0424DBD7440064DCD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38E83E0724DBD7440064DCD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38E83E0924DBD7440064DCD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A678149D283282F800988B9B /* SpeedcheckerReportSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SpeedcheckerReportSDK.xcframework; sourceTree = "<group>"; };
-		A678149E283282F800988B9B /* SpeedcheckerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SpeedcheckerSDK.xcframework; sourceTree = "<group>"; };
-		A678149F283282F800988B9B /* XMLParsing.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = XMLParsing.xcframework; sourceTree = "<group>"; };
-		A67814A0283282F800988B9B /* Socket.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Socket.xcframework; sourceTree = "<group>"; };
-		A67814A1283282F800988B9B /* DataCompression.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DataCompression.xcframework; sourceTree = "<group>"; };
+		A67814B52832864300988B9B /* BackgroundTests Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BackgroundTests Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A67814B72832864300988B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A67814BB2832864300988B9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A67814BE2832864300988B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A67814C02832864300988B9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A67814C32832864300988B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A67814C52832864300988B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A67814CB2832868500988B9B /* SpeedcheckerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SpeedcheckerSDK.xcframework; sourceTree = "<group>"; };
+		A67814CC2832868500988B9B /* XMLParsing.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = XMLParsing.xcframework; sourceTree = "<group>"; };
+		A67814CD2832868500988B9B /* Socket.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Socket.xcframework; sourceTree = "<group>"; };
+		A67814CE2832868500988B9B /* SpeedcheckerReportSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SpeedcheckerReportSDK.xcframework; sourceTree = "<group>"; };
+		A67814CF2832868500988B9B /* DataCompression.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DataCompression.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +99,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A67814AF2832830500988B9B /* XMLParsing.xcframework in Frameworks */,
-				A67814A72832830100988B9B /* DataCompression.xcframework in Frameworks */,
-				A67814A92832830200988B9B /* Socket.xcframework in Frameworks */,
-				A67814AB2832830300988B9B /* SpeedcheckerReportSDK.xcframework in Frameworks */,
-				A67814AD2832830400988B9B /* SpeedcheckerSDK.xcframework in Frameworks */,
+				A67814E22832869000988B9B /* XMLParsing.xcframework in Frameworks */,
+				A67814DA2832868A00988B9B /* DataCompression.xcframework in Frameworks */,
+				A67814DC2832868C00988B9B /* Socket.xcframework in Frameworks */,
+				A67814E02832868F00988B9B /* SpeedcheckerSDK.xcframework in Frameworks */,
+				A67814DE2832868D00988B9B /* SpeedcheckerReportSDK.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A67814B22832864300988B9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A67814ED2832869900988B9B /* XMLParsing.xcframework in Frameworks */,
+				A67814E42832869400988B9B /* DataCompression.xcframework in Frameworks */,
+				A67814E72832869500988B9B /* Socket.xcframework in Frameworks */,
+				A67814EB2832869800988B9B /* SpeedcheckerSDK.xcframework in Frameworks */,
+				A67814E92832869700988B9B /* SpeedcheckerReportSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +127,7 @@
 			children = (
 				38E83E0F24DBD7AD0064DCD5 /* SCSDK */,
 				38E83DFA24DBD7430064DCD5 /* SpeedcheckerSDK Sample */,
+				A67814B62832864300988B9B /* BackgroundTests Sample */,
 				38E83DF924DBD7430064DCD5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				38E83DF824DBD7430064DCD5 /* SpeedcheckerSDK Sample.app */,
+				A67814B52832864300988B9B /* BackgroundTests Sample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,13 +157,26 @@
 		38E83E0F24DBD7AD0064DCD5 /* SCSDK */ = {
 			isa = PBXGroup;
 			children = (
-				A67814A1283282F800988B9B /* DataCompression.xcframework */,
-				A67814A0283282F800988B9B /* Socket.xcframework */,
-				A678149D283282F800988B9B /* SpeedcheckerReportSDK.xcframework */,
-				A678149E283282F800988B9B /* SpeedcheckerSDK.xcframework */,
-				A678149F283282F800988B9B /* XMLParsing.xcframework */,
+				A67814CF2832868500988B9B /* DataCompression.xcframework */,
+				A67814CD2832868500988B9B /* Socket.xcframework */,
+				A67814CE2832868500988B9B /* SpeedcheckerReportSDK.xcframework */,
+				A67814CB2832868500988B9B /* SpeedcheckerSDK.xcframework */,
+				A67814CC2832868500988B9B /* XMLParsing.xcframework */,
 			);
 			path = SCSDK;
+			sourceTree = "<group>";
+		};
+		A67814B62832864300988B9B /* BackgroundTests Sample */ = {
+			isa = PBXGroup;
+			children = (
+				A67814B72832864300988B9B /* AppDelegate.swift */,
+				A67814BB2832864300988B9B /* ViewController.swift */,
+				A67814BD2832864300988B9B /* Main.storyboard */,
+				A67814C02832864300988B9B /* Assets.xcassets */,
+				A67814C22832864300988B9B /* LaunchScreen.storyboard */,
+				A67814C52832864300988B9B /* Info.plist */,
+			);
+			path = "BackgroundTests Sample";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,17 +200,38 @@
 			productReference = 38E83DF824DBD7430064DCD5 /* SpeedcheckerSDK Sample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A67814B42832864300988B9B /* BackgroundTests Sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A67814C62832864300988B9B /* Build configuration list for PBXNativeTarget "BackgroundTests Sample" */;
+			buildPhases = (
+				A67814B12832864300988B9B /* Sources */,
+				A67814B22832864300988B9B /* Frameworks */,
+				A67814B32832864300988B9B /* Resources */,
+				A67814E62832869400988B9B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BackgroundTests Sample";
+			productName = "BackgroundTests Sample";
+			productReference = A67814B52832864300988B9B /* BackgroundTests Sample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		38E83DF024DBD7430064DCD5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1160;
 				TargetAttributes = {
 					38E83DF724DBD7430064DCD5 = {
 						CreatedOnToolsVersion = 11.6;
+					};
+					A67814B42832864300988B9B = {
+						CreatedOnToolsVersion = 13.3.1;
 					};
 				};
 			};
@@ -164,6 +249,7 @@
 			projectRoot = "";
 			targets = (
 				38E83DF724DBD7430064DCD5 /* SpeedcheckerSDK Sample */,
+				A67814B42832864300988B9B /* BackgroundTests Sample */,
 			);
 		};
 /* End PBXProject section */
@@ -179,6 +265,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A67814B32832864300988B9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A67814C42832864300988B9B /* LaunchScreen.storyboard in Resources */,
+				A67814C12832864300988B9B /* Assets.xcassets in Resources */,
+				A67814BF2832864300988B9B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -188,6 +284,15 @@
 			files = (
 				38E83E0024DBD7430064DCD5 /* ViewController.swift in Sources */,
 				38E83DFC24DBD7430064DCD5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A67814B12832864300988B9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A67814BC2832864300988B9B /* ViewController.swift in Sources */,
+				A67814B82832864300988B9B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +311,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				38E83E0724DBD7440064DCD5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A67814BD2832864300988B9B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A67814BE2832864300988B9B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A67814C22832864300988B9B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A67814C32832864300988B9B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -373,6 +494,74 @@
 			};
 			name = Release;
 		};
+		A67814C72832864300988B9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W4L7C7T8G2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BackgroundTests Sample/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "The app will run network tests in the background that may consume up to 100 MB from your mobile data plan. This anonymized data helps Internet providers to perform quality research and improve Internet infrastructure in your area.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "The app will run network tests in the background that may consume up to 100 MB from your mobile data plan. This anonymized data helps Internet providers to perform quality research and improve Internet infrastructure in your area.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide accurate speeds by using your nearest server.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.speedchecker.SpeedcheckerSDK-BGSample.BackgroundTests-Sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A67814C82832864300988B9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W4L7C7T8G2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BackgroundTests Sample/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "The app will run network tests in the background that may consume up to 100 MB from your mobile data plan. This anonymized data helps Internet providers to perform quality research and improve Internet infrastructure in your area.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "The app will run network tests in the background that may consume up to 100 MB from your mobile data plan. This anonymized data helps Internet providers to perform quality research and improve Internet infrastructure in your area.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide accurate speeds by using your nearest server.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.speedchecker.SpeedcheckerSDK-BGSample.BackgroundTests-Sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -390,6 +579,15 @@
 			buildConfigurations = (
 				38E83E0D24DBD7440064DCD5 /* Debug */,
 				38E83E0E24DBD7440064DCD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A67814C62832864300988B9B /* Build configuration list for PBXNativeTarget "BackgroundTests Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A67814C72832864300988B9B /* Debug */,
+				A67814C82832864300988B9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

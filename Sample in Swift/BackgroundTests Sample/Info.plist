@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.speedchecker.bgtests</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>processing</string>
+	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>The app will run network tests in the background that may consume up to 100 MB from your mobile data plan. This anonymized data helps Internet providers to perform quality research and improve Internet infrastructure in your area.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>The app will run network tests in the background that may consume up to 100 MB from your mobile data plan. This anonymized data helps Internet providers to perform quality research and improve Internet infrastructure in your area.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to provide accurate speeds by using your nearest server.</string>
+</dict>
+</plist>
