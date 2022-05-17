@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		iDOX/yk6ovEM4MXee/AEHpr6zqE=
+		OZrwrSlNbCuGZwrE9qBQddim/RU=
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		j+jqQDkD6ncC6w5aOp2b25M7oJ8=
+		2Ts+zv6q3hRaeC42X9LGbiqkjaY=
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		j+jqQDkD6ncC6w5aOp2b25M7oJ8=
+		2Ts+zv6q3hRaeC42X9LGbiqkjaY=
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		6HRRtMa0HrvZwqQtGgOTGgY5eVY=
+		eR2BBS6qaqF7+LPPc0xWKabs5pg=
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		6HRRtMa0HrvZwqQtGgOTGgY5eVY=
+		eR2BBS6qaqF7+LPPc0xWKabs5pg=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -88,7 +88,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nmXpMrm/cmI2D12XWsjljMTfC465sNy+kx54yYBCSWU=
+			aOrV7l1w/qj8KIZIQU36kPdjwh2aiR+3uyXjdxQR1xg=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/arm64.swiftdoc</key>
@@ -109,7 +109,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nmXpMrm/cmI2D12XWsjljMTfC465sNy+kx54yYBCSWU=
+			aOrV7l1w/qj8KIZIQU36kPdjwh2aiR+3uyXjdxQR1xg=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -130,7 +130,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xnOH7Q33BWa01oiyej+8FT4a0WKQDDT9eHuG9JI5g50=
+			bacLCtgvtHH7dbNQUTuy3fdvw59aLGFOzljEvCUPsiI=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -151,7 +151,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xnOH7Q33BWa01oiyej+8FT4a0WKQDDT9eHuG9JI5g50=
+			bacLCtgvtHH7dbNQUTuy3fdvw59aLGFOzljEvCUPsiI=
 			</data>
 		</dict>
 	</dict>

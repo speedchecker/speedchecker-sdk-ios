@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Zvkc0MRvWED5lsu0J8+CtQj8PmI=
+		l9u7Y8Xo5qM5PNWMWWrk2Kcld8s=
 		</data>
 		<key>Modules/XMLParsing.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/XMLParsing.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		a5VRIkJtMcfG/2h6vn+wUOiVDuM=
+		Vm/kSdP/defiB6ap70HtGULB/Oo=
 		</data>
 		<key>Modules/XMLParsing.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/XMLParsing.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		a5VRIkJtMcfG/2h6vn+wUOiVDuM=
+		Vm/kSdP/defiB6ap70HtGULB/Oo=
 		</data>
 		<key>Modules/XMLParsing.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/XMLParsing.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		9P84r866ui/1nc6qHqA8ojEMe+k=
+		/uNBwJ0wpJpvSuP1ElKRZkiztU8=
 		</data>
 		<key>Modules/XMLParsing.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/XMLParsing.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		9P84r866ui/1nc6qHqA8ojEMe+k=
+		/uNBwJ0wpJpvSuP1ElKRZkiztU8=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -88,7 +88,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ahUwWeiOguMtdF8NwExjRZSTOmgE5BdRgmQarKUMg08=
+			x62AILyYhUJLOieu4hvTT99+d3s3KZiyKrqH6e+gwh8=
 			</data>
 		</dict>
 		<key>Modules/XMLParsing.swiftmodule/arm64.swiftdoc</key>
@@ -109,7 +109,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ahUwWeiOguMtdF8NwExjRZSTOmgE5BdRgmQarKUMg08=
+			x62AILyYhUJLOieu4hvTT99+d3s3KZiyKrqH6e+gwh8=
 			</data>
 		</dict>
 		<key>Modules/XMLParsing.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -130,7 +130,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iKiyvPohEFUlIBftnIxU4kgPgs8oIVuELfhBeyG70sI=
+			x9QvzxvJJMrku9IIfses9UVp5+tesB0Z11QeEyR6opA=
 			</data>
 		</dict>
 		<key>Modules/XMLParsing.swiftmodule/x86_64.swiftdoc</key>
@@ -151,7 +151,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iKiyvPohEFUlIBftnIxU4kgPgs8oIVuELfhBeyG70sI=
+			x9QvzxvJJMrku9IIfses9UVp5+tesB0Z11QeEyR6opA=
 			</data>
 		</dict>
 	</dict>

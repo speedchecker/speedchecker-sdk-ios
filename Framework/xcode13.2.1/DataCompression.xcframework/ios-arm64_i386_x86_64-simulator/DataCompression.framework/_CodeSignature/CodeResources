@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bQi0EmK1+1jvmNlQxcpQZLo3Efo=
+		vapNigy/DXv4HdAKnRDdyMCXjO8=
 		</data>
 		<key>Modules/DataCompression.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/DataCompression.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		hOPsd7WhA5P9mHv45qEBdWmCGss=
+		NGjsNDyGJUGlSaz3CDdN3GGEgMg=
 		</data>
 		<key>Modules/DataCompression.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/DataCompression.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		hOPsd7WhA5P9mHv45qEBdWmCGss=
+		NGjsNDyGJUGlSaz3CDdN3GGEgMg=
 		</data>
 		<key>Modules/DataCompression.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/DataCompression.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ipzJQnC3uvcikBM9GgmORmulFP8=
+		MuhdRsAmZreyn82bxjGuxgzZHzk=
 		</data>
 		<key>Modules/DataCompression.swiftmodule/i386.swiftdoc</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/DataCompression.swiftmodule/i386.swiftmodule</key>
 		<data>
-		ipzJQnC3uvcikBM9GgmORmulFP8=
+		MuhdRsAmZreyn82bxjGuxgzZHzk=
 		</data>
 		<key>Modules/DataCompression.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Modules/DataCompression.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		1s0feC/vY0fEunrQoQt9Rrxqj9Y=
+		LyaJCYcBs8rnneSaf5qbputbfms=
 		</data>
 		<key>Modules/DataCompression.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -82,7 +82,7 @@
 		</data>
 		<key>Modules/DataCompression.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		1s0feC/vY0fEunrQoQt9Rrxqj9Y=
+		LyaJCYcBs8rnneSaf5qbputbfms=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -124,11 +124,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hOPsd7WhA5P9mHv45qEBdWmCGss=
+			NGjsNDyGJUGlSaz3CDdN3GGEgMg=
 			</data>
 			<key>hash2</key>
 			<data>
-			aP2ECu8YD8zo/tZA1KAEUl66c90/kzZ1ll4KMsl9NU4=
+			tyqi4Y4e6/RCI0QlnDVLeoVtnXzR436phTy2COTmIIU=
 			</data>
 		</dict>
 		<key>Modules/DataCompression.swiftmodule/arm64.swiftdoc</key>
@@ -157,11 +157,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hOPsd7WhA5P9mHv45qEBdWmCGss=
+			NGjsNDyGJUGlSaz3CDdN3GGEgMg=
 			</data>
 			<key>hash2</key>
 			<data>
-			aP2ECu8YD8zo/tZA1KAEUl66c90/kzZ1ll4KMsl9NU4=
+			tyqi4Y4e6/RCI0QlnDVLeoVtnXzR436phTy2COTmIIU=
 			</data>
 		</dict>
 		<key>Modules/DataCompression.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
@@ -190,11 +190,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ipzJQnC3uvcikBM9GgmORmulFP8=
+			MuhdRsAmZreyn82bxjGuxgzZHzk=
 			</data>
 			<key>hash2</key>
 			<data>
-			HfuCBu5hcUfOTkX9DvKWWQUVcogFb8DL4+9JeMrnjIY=
+			jUVnQMje21VmpbPi4jC0hmcRzlUhhV2Tp1ts9tkk+fM=
 			</data>
 		</dict>
 		<key>Modules/DataCompression.swiftmodule/i386.swiftdoc</key>
@@ -223,11 +223,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ipzJQnC3uvcikBM9GgmORmulFP8=
+			MuhdRsAmZreyn82bxjGuxgzZHzk=
 			</data>
 			<key>hash2</key>
 			<data>
-			HfuCBu5hcUfOTkX9DvKWWQUVcogFb8DL4+9JeMrnjIY=
+			jUVnQMje21VmpbPi4jC0hmcRzlUhhV2Tp1ts9tkk+fM=
 			</data>
 		</dict>
 		<key>Modules/DataCompression.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -256,11 +256,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1s0feC/vY0fEunrQoQt9Rrxqj9Y=
+			LyaJCYcBs8rnneSaf5qbputbfms=
 			</data>
 			<key>hash2</key>
 			<data>
-			nQd2dHeF9kVuL2pTztzytXD4VTGt7JumLx0HyHWYGtE=
+			VIg63ivLePLIi/negKwINsjnTXzL8ZcWq81yeFYnHZ0=
 			</data>
 		</dict>
 		<key>Modules/DataCompression.swiftmodule/x86_64.swiftdoc</key>
@@ -289,11 +289,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1s0feC/vY0fEunrQoQt9Rrxqj9Y=
+			LyaJCYcBs8rnneSaf5qbputbfms=
 			</data>
 			<key>hash2</key>
 			<data>
-			nQd2dHeF9kVuL2pTztzytXD4VTGt7JumLx0HyHWYGtE=
+			VIg63ivLePLIi/negKwINsjnTXzL8ZcWq81yeFYnHZ0=
 			</data>
 		</dict>
 	</dict>
