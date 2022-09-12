@@ -1,0 +1,4 @@
+framework module XMLParsing {
+  header "XMLParsing-Swift.h"
+  requires objc
+}

@@ -1,0 +1,4 @@
+framework module DataCompression {
+  header "DataCompression-Swift.h"
+  requires objc
+}
