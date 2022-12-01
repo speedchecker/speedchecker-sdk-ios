@@ -23395,6 +23395,66 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "timeToFirstByte",
+            "printedName": "timeToFirstByte",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK20SCDataTestControllerPAAE15timeToFirstByteSdSgvp",
+            "mangledName": "$s15SpeedcheckerSDK20SCDataTestControllerPAAE15timeToFirstByteSdSgvp",
+            "moduleName": "SpeedcheckerSDK",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Double?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Double",
+                        "printedName": "Swift.Double",
+                        "usr": "s:Sd"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK20SCDataTestControllerPAAE15timeToFirstByteSdSgvg",
+                "mangledName": "$s15SpeedcheckerSDK20SCDataTestControllerPAAE15timeToFirstByteSdSgvg",
+                "moduleName": "SpeedcheckerSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : SpeedcheckerSDK.SCDataTestController>",
+                "sugared_genericSig": "<Self where Self : SpeedcheckerSDK.SCDataTestController>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "getTestTaskIndexBySessionTask",
             "printedName": "getTestTaskIndexBySessionTask(_:)",
@@ -23600,6 +23660,50 @@
             "moduleName": "SpeedcheckerSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : SpeedcheckerSDK.SCDataTestController>",
             "sugared_genericSig": "<Self where Self : SpeedcheckerSDK.SCDataTestController>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getTaskStatusOnDidComplete",
+            "printedName": "getTaskStatusOnDidComplete(task:error:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SCTestStatus",
+                "printedName": "SpeedcheckerSDK.SCTestStatus",
+                "usr": "s:15SpeedcheckerSDK12SCTestStatusO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URLSessionTask",
+                "printedName": "Foundation.URLSessionTask",
+                "usr": "c:objc(cs)NSURLSessionTask"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Error?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15SpeedcheckerSDK20SCDataTestControllerPAAE26getTaskStatusOnDidComplete4task5errorAA06SCTestH0OSo012NSURLSessionG0C_s5Error_pSgtF",
+            "mangledName": "$s15SpeedcheckerSDK20SCDataTestControllerPAAE26getTaskStatusOnDidComplete4task5errorAA06SCTestH0OSo012NSURLSessionG0C_s5Error_pSgtF",
+            "moduleName": "SpeedcheckerSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : SpeedcheckerSDK.SCDataTestController>",
+            "sugared_genericSig": "<Self where Self : SpeedcheckerSDK.SCDataTestController>",
+            "declAttributes": [
+              "RawDocComment"
+            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           }
@@ -29145,6 +29249,46 @@
           {
             "kind": "Function",
             "name": "urlSession",
+            "printedName": "urlSession(_:task:didFinishCollecting:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URLSession",
+                "printedName": "Foundation.URLSession",
+                "usr": "c:objc(cs)NSURLSession"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URLSessionTask",
+                "printedName": "Foundation.URLSessionTask",
+                "usr": "c:objc(cs)NSURLSessionTask"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URLSessionTaskMetrics",
+                "printedName": "Foundation.URLSessionTaskMetrics",
+                "usr": "c:objc(cs)NSURLSessionTaskMetrics"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@SpeedcheckerSDK@objc(cs)SCDownloadTestController(im)URLSession:task:didFinishCollectingMetrics:",
+            "mangledName": "$s15SpeedcheckerSDK24SCDownloadTestControllerC10urlSession_4task19didFinishCollectingySo12NSURLSessionC_So0L4TaskCSo0lM7MetricsCtF",
+            "moduleName": "SpeedcheckerSDK",
+            "isOpen": true,
+            "objc_name": "URLSession:task:didFinishCollectingMetrics:",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "urlSession",
             "printedName": "urlSession(_:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:)",
             "children": [
               {
@@ -29943,6 +30087,149 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "metrics",
+            "printedName": "metrics",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Foundation.URLSessionTaskTransactionMetrics]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Foundation.URLSessionTaskTransactionMetrics]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "URLSessionTaskTransactionMetrics",
+                        "printedName": "Foundation.URLSessionTaskTransactionMetrics",
+                        "usr": "c:objc(cs)NSURLSessionTaskTransactionMetrics"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK18SCDownloadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvp",
+            "mangledName": "$s15SpeedcheckerSDK18SCDownloadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvp",
+            "moduleName": "SpeedcheckerSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 4,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Foundation.URLSessionTaskTransactionMetrics]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Foundation.URLSessionTaskTransactionMetrics]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URLSessionTaskTransactionMetrics",
+                            "printedName": "Foundation.URLSessionTaskTransactionMetrics",
+                            "usr": "c:objc(cs)NSURLSessionTaskTransactionMetrics"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK18SCDownloadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvg",
+                "mangledName": "$s15SpeedcheckerSDK18SCDownloadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvg",
+                "moduleName": "SpeedcheckerSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Foundation.URLSessionTaskTransactionMetrics]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Foundation.URLSessionTaskTransactionMetrics]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URLSessionTaskTransactionMetrics",
+                            "printedName": "Foundation.URLSessionTaskTransactionMetrics",
+                            "usr": "c:objc(cs)NSURLSessionTaskTransactionMetrics"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK18SCDownloadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvs",
+                "mangledName": "$s15SpeedcheckerSDK18SCDownloadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvs",
+                "moduleName": "SpeedcheckerSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK18SCDownloadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvM",
+                "mangledName": "$s15SpeedcheckerSDK18SCDownloadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvM",
+                "moduleName": "SpeedcheckerSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(scope:)",
@@ -29968,6 +30255,61 @@
               "RawDocComment"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "timeToFirstByte",
+            "printedName": "timeToFirstByte",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK18SCDownloadTestTaskV15timeToFirstByteSdSgvp",
+            "mangledName": "$s15SpeedcheckerSDK18SCDownloadTestTaskV15timeToFirstByteSdSgvp",
+            "moduleName": "SpeedcheckerSDK",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Double?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Double",
+                        "printedName": "Swift.Double",
+                        "usr": "s:Sd"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK18SCDownloadTestTaskV15timeToFirstByteSdSgvg",
+                "mangledName": "$s15SpeedcheckerSDK18SCDownloadTestTaskV15timeToFirstByteSdSgvg",
+                "moduleName": "SpeedcheckerSDK",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Struct",
@@ -31370,6 +31712,33 @@
             "declKind": "Func",
             "usr": "s:15SpeedcheckerSDK16SCDownloadTesterC15getThreadCountsSSyF",
             "mangledName": "$s15SpeedcheckerSDK16SCDownloadTesterC15getThreadCountsSSyF",
+            "moduleName": "SpeedcheckerSDK",
+            "isOpen": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getTimeToFirstByteMs",
+            "printedName": "getTimeToFirstByteMs()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15SpeedcheckerSDK16SCDownloadTesterC20getTimeToFirstByteMsSiSgyF",
+            "mangledName": "$s15SpeedcheckerSDK16SCDownloadTesterC20getTimeToFirstByteMsSiSgyF",
             "moduleName": "SpeedcheckerSDK",
             "isOpen": true,
             "funcSelfKind": "NonMutating"
@@ -41710,6 +42079,296 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "Atomic",
+        "printedName": "Atomic",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "queue",
+            "printedName": "queue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DispatchQueue",
+                "printedName": "Dispatch.DispatchQueue",
+                "usr": "c:objc(cs)OS_dispatch_queue"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK6AtomicC5queue33_0CB5F92ACF0CC9FA93913C95AF9D773ALLSo012OS_dispatch_D0Cvp",
+            "mangledName": "$s15SpeedcheckerSDK6AtomicC5queue33_0CB5F92ACF0CC9FA93913C95AF9D773ALLSo012OS_dispatch_D0Cvp",
+            "moduleName": "SpeedcheckerSDK",
+            "isInternal": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "fixedbinaryorder": 0,
+            "hasStorage": true
+          },
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK6AtomicC5value33_0CB5F92ACF0CC9FA93913C95AF9D773ALLxvp",
+            "mangledName": "$s15SpeedcheckerSDK6AtomicC5value33_0CB5F92ACF0CC9FA93913C95AF9D773ALLxvp",
+            "moduleName": "SpeedcheckerSDK",
+            "isInternal": true,
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "fixedbinaryorder": 1,
+            "hasStorage": true
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(wrappedValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Atomic",
+                "printedName": "SpeedcheckerSDK.Atomic<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:15SpeedcheckerSDK6AtomicC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15SpeedcheckerSDK6AtomicC12wrappedValueACyxGx_tcfc",
+            "mangledName": "$s15SpeedcheckerSDK6AtomicC12wrappedValueACyxGx_tcfc",
+            "moduleName": "SpeedcheckerSDK",
+            "genericSig": "<τ_0_0>",
+            "sugared_genericSig": "<Value>",
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "wrappedValue",
+            "printedName": "wrappedValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK6AtomicC12wrappedValuexvp",
+            "mangledName": "$s15SpeedcheckerSDK6AtomicC12wrappedValuexvp",
+            "moduleName": "SpeedcheckerSDK",
+            "isOpen": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK6AtomicC12wrappedValuexvg",
+                "mangledName": "$s15SpeedcheckerSDK6AtomicC12wrappedValuexvg",
+                "moduleName": "SpeedcheckerSDK",
+                "genericSig": "<τ_0_0>",
+                "sugared_genericSig": "<Value>",
+                "isOpen": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK6AtomicC12wrappedValuexvs",
+                "mangledName": "$s15SpeedcheckerSDK6AtomicC12wrappedValuexvs",
+                "moduleName": "SpeedcheckerSDK",
+                "genericSig": "<τ_0_0>",
+                "sugared_genericSig": "<Value>",
+                "isOpen": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK6AtomicC12wrappedValuexvM",
+                "mangledName": "$s15SpeedcheckerSDK6AtomicC12wrappedValuexvM",
+                "moduleName": "SpeedcheckerSDK",
+                "genericSig": "<τ_0_0>",
+                "sugared_genericSig": "<Value>",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "projectedValue",
+            "printedName": "projectedValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Atomic",
+                "printedName": "SpeedcheckerSDK.Atomic<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:15SpeedcheckerSDK6AtomicC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK6AtomicC14projectedValueACyxGvp",
+            "mangledName": "$s15SpeedcheckerSDK6AtomicC14projectedValueACyxGvp",
+            "moduleName": "SpeedcheckerSDK",
+            "isOpen": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Atomic",
+                    "printedName": "SpeedcheckerSDK.Atomic<τ_0_0>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      }
+                    ],
+                    "usr": "s:15SpeedcheckerSDK6AtomicC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK6AtomicC14projectedValueACyxGvg",
+                "mangledName": "$s15SpeedcheckerSDK6AtomicC14projectedValueACyxGvg",
+                "moduleName": "SpeedcheckerSDK",
+                "genericSig": "<τ_0_0>",
+                "sugared_genericSig": "<Value>",
+                "isOpen": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "mutate",
+            "printedName": "mutate(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(inout τ_0_0) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InOut",
+                    "printedName": "inout τ_0_0"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15SpeedcheckerSDK6AtomicC6mutateyyyxzXEF",
+            "mangledName": "$s15SpeedcheckerSDK6AtomicC6mutateyyyxzXEF",
+            "moduleName": "SpeedcheckerSDK",
+            "genericSig": "<τ_0_0>",
+            "sugared_genericSig": "<Value>",
+            "isOpen": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:15SpeedcheckerSDK6AtomicC",
+        "mangledName": "$s15SpeedcheckerSDK6AtomicC",
+        "moduleName": "SpeedcheckerSDK",
+        "genericSig": "<τ_0_0>",
+        "sugared_genericSig": "<Value>",
+        "isOpen": true,
+        "declAttributes": [
+          "PropertyWrapper"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SpeedcheckerSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "SCSpeed",
         "printedName": "SCSpeed",
         "children": [
@@ -41996,6 +42655,340 @@
         "sugared_genericSig": "<Self : AnyObject, Self.SpeedContainerType : SpeedcheckerSDK.SCSpeedContainer, Self.SpeedType : SpeedcheckerSDK.SCSpeed>",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SpeedcheckerSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Network",
+        "printedName": "Network",
+        "declKind": "Import",
+        "moduleName": "SpeedcheckerSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "SpeedcheckerSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SCLocalNetworkAuthorization",
+        "printedName": "SCLocalNetworkAuthorization",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SCLocalNetworkAuthorization",
+                "printedName": "SpeedcheckerSDK.SCLocalNetworkAuthorization",
+                "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationCACycfc",
+            "mangledName": "$s15SpeedcheckerSDK27SCLocalNetworkAuthorizationCACycfc",
+            "moduleName": "SpeedcheckerSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "requestAuthorization",
+            "printedName": "requestAuthorization(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Result<Swift.Bool, SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError>) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<Swift.Bool, SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthorizationError",
+                        "printedName": "SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError",
+                        "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC07requestE010completionyys6ResultOySbAC0E5ErrorOGc_tF",
+            "mangledName": "$s15SpeedcheckerSDK27SCLocalNetworkAuthorizationC07requestE010completionyys6ResultOySbAC0E5ErrorOGc_tF",
+            "moduleName": "SpeedcheckerSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "AuthorizationError",
+            "printedName": "AuthorizationError",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "wifiNotEnabled",
+                "printedName": "wifiNotEnabled",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError.Type) -> SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthorizationError",
+                        "printedName": "SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError",
+                        "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AuthorizationError",
+                            "printedName": "SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError",
+                            "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO14wifiNotEnabledyA2EmF",
+                "mangledName": "$s15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO14wifiNotEnabledyA2EmF",
+                "moduleName": "SpeedcheckerSDK"
+              },
+              {
+                "kind": "Var",
+                "name": "gatewayIPResolution",
+                "printedName": "gatewayIPResolution",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError.Type) -> SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthorizationError",
+                        "printedName": "SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError",
+                        "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AuthorizationError",
+                            "printedName": "SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError",
+                            "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO19gatewayIPResolutionyA2EmF",
+                "mangledName": "$s15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO19gatewayIPResolutionyA2EmF",
+                "moduleName": "SpeedcheckerSDK"
+              },
+              {
+                "kind": "Var",
+                "name": "connectionFailed",
+                "printedName": "connectionFailed",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError.Type) -> (Network.NWError) -> SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Network.NWError) -> SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AuthorizationError",
+                            "printedName": "SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError",
+                            "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NWError",
+                            "printedName": "Network.NWError",
+                            "usr": "s:7Network7NWErrorO"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AuthorizationError",
+                            "printedName": "SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError",
+                            "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO16connectionFailedyAE0D07NWErrorOcAEmF",
+                "mangledName": "$s15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO16connectionFailedyAE0D07NWErrorOcAEmF",
+                "moduleName": "SpeedcheckerSDK"
+              },
+              {
+                "kind": "Var",
+                "name": "errorDescription",
+                "printedName": "errorDescription",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO16errorDescriptionSSSgvp",
+                "mangledName": "$s15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO16errorDescriptionSSSgvp",
+                "moduleName": "SpeedcheckerSDK",
+                "declAttributes": [
+                  "AccessControl"
+                ],
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.String?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO16errorDescriptionSSSgvg",
+                    "mangledName": "$s15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO16errorDescriptionSSSgvg",
+                    "moduleName": "SpeedcheckerSDK",
+                    "accessorKind": "get"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO",
+            "mangledName": "$s15SpeedcheckerSDK27SCLocalNetworkAuthorizationC0E5ErrorO",
+            "moduleName": "SpeedcheckerSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "LocalizedError",
+                "printedName": "LocalizedError",
+                "usr": "s:10Foundation14LocalizedErrorP",
+                "mangledName": "$s10Foundation14LocalizedErrorP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Error",
+                "printedName": "Error",
+                "usr": "s:s5ErrorP",
+                "mangledName": "$ss5ErrorP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Sendable",
+                "printedName": "Sendable",
+                "usr": "s:s8SendableP",
+                "mangledName": "$ss8SendableP"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:15SpeedcheckerSDK27SCLocalNetworkAuthorizationC",
+        "mangledName": "$s15SpeedcheckerSDK27SCLocalNetworkAuthorizationC",
+        "moduleName": "SpeedcheckerSDK",
+        "isOpen": true,
+        "intro_iOS": "14.2",
+        "declAttributes": [
+          "AccessControl",
+          "Available"
         ]
       },
       {
@@ -42653,6 +43646,203 @@
           },
           {
             "kind": "Var",
+            "name": "metrics",
+            "printedName": "metrics",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Foundation.URLSessionTaskTransactionMetrics]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Foundation.URLSessionTaskTransactionMetrics]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "URLSessionTaskTransactionMetrics",
+                        "printedName": "Foundation.URLSessionTaskTransactionMetrics",
+                        "usr": "c:objc(cs)NSURLSessionTaskTransactionMetrics"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK15SCSpeedTestTaskP7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvp",
+            "mangledName": "$s15SpeedcheckerSDK15SCSpeedTestTaskP7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvp",
+            "moduleName": "SpeedcheckerSDK",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Foundation.URLSessionTaskTransactionMetrics]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Foundation.URLSessionTaskTransactionMetrics]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URLSessionTaskTransactionMetrics",
+                            "printedName": "Foundation.URLSessionTaskTransactionMetrics",
+                            "usr": "c:objc(cs)NSURLSessionTaskTransactionMetrics"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK15SCSpeedTestTaskP7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvg",
+                "mangledName": "$s15SpeedcheckerSDK15SCSpeedTestTaskP7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvg",
+                "moduleName": "SpeedcheckerSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : SpeedcheckerSDK.SCSpeedTestTask>",
+                "sugared_genericSig": "<Self where Self : SpeedcheckerSDK.SCSpeedTestTask>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Foundation.URLSessionTaskTransactionMetrics]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Foundation.URLSessionTaskTransactionMetrics]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URLSessionTaskTransactionMetrics",
+                            "printedName": "Foundation.URLSessionTaskTransactionMetrics",
+                            "usr": "c:objc(cs)NSURLSessionTaskTransactionMetrics"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK15SCSpeedTestTaskP7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvs",
+                "mangledName": "$s15SpeedcheckerSDK15SCSpeedTestTaskP7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvs",
+                "moduleName": "SpeedcheckerSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : SpeedcheckerSDK.SCSpeedTestTask>",
+                "sugared_genericSig": "<Self where Self : SpeedcheckerSDK.SCSpeedTestTask>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK15SCSpeedTestTaskP7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvM",
+                "mangledName": "$s15SpeedcheckerSDK15SCSpeedTestTaskP7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvM",
+                "moduleName": "SpeedcheckerSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : SpeedcheckerSDK.SCSpeedTestTask>",
+                "sugared_genericSig": "<Self where Self : SpeedcheckerSDK.SCSpeedTestTask>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "timeToFirstByte",
+            "printedName": "timeToFirstByte",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK15SCSpeedTestTaskP15timeToFirstByteSdSgvp",
+            "mangledName": "$s15SpeedcheckerSDK15SCSpeedTestTaskP15timeToFirstByteSdSgvp",
+            "moduleName": "SpeedcheckerSDK",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Double?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Double",
+                        "printedName": "Swift.Double",
+                        "usr": "s:Sd"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK15SCSpeedTestTaskP15timeToFirstByteSdSgvg",
+                "mangledName": "$s15SpeedcheckerSDK15SCSpeedTestTaskP15timeToFirstByteSdSgvg",
+                "moduleName": "SpeedcheckerSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : SpeedcheckerSDK.SCSpeedTestTask>",
+                "sugared_genericSig": "<Self where Self : SpeedcheckerSDK.SCSpeedTestTask>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "progress",
             "printedName": "progress",
             "children": [
@@ -42700,6 +43890,63 @@
                 "declKind": "Accessor",
                 "usr": "s:15SpeedcheckerSDK15SCSpeedTestTaskPAAE8progressSdSgvg",
                 "mangledName": "$s15SpeedcheckerSDK15SCSpeedTestTaskPAAE8progressSdSgvg",
+                "moduleName": "SpeedcheckerSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : SpeedcheckerSDK.SCSpeedTestTask>",
+                "sugared_genericSig": "<Self where Self : SpeedcheckerSDK.SCSpeedTestTask>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "tcpTime",
+            "printedName": "tcpTime",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK15SCSpeedTestTaskPAAE7tcpTimeSdSgvp",
+            "mangledName": "$s15SpeedcheckerSDK15SCSpeedTestTaskPAAE7tcpTimeSdSgvp",
+            "moduleName": "SpeedcheckerSDK",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Double?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Double",
+                        "printedName": "Swift.Double",
+                        "usr": "s:Sd"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK15SCSpeedTestTaskPAAE7tcpTimeSdSgvg",
+                "mangledName": "$s15SpeedcheckerSDK15SCSpeedTestTaskPAAE7tcpTimeSdSgvg",
                 "moduleName": "SpeedcheckerSDK",
                 "genericSig": "<τ_0_0 where τ_0_0 : SpeedcheckerSDK.SCSpeedTestTask>",
                 "sugared_genericSig": "<Self where Self : SpeedcheckerSDK.SCSpeedTestTask>",
@@ -43237,6 +44484,69 @@
           },
           {
             "kind": "Var",
+            "name": "timeToFirstByteMs",
+            "printedName": "timeToFirstByteMs",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK11SCTakenTestV17timeToFirstByteMsSiSgvp",
+            "mangledName": "$s15SpeedcheckerSDK11SCTakenTestV17timeToFirstByteMsSiSgvp",
+            "moduleName": "SpeedcheckerSDK",
+            "declAttributes": [
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 8,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK11SCTakenTestV17timeToFirstByteMsSiSgvg",
+                "mangledName": "$s15SpeedcheckerSDK11SCTakenTestV17timeToFirstByteMsSiSgvg",
+                "moduleName": "SpeedcheckerSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "server",
             "printedName": "server",
             "children": [
@@ -43262,7 +44572,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 8,
+            "fixedbinaryorder": 9,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -43325,7 +44635,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 9,
+            "fixedbinaryorder": 10,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -43388,7 +44698,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 10,
+            "fixedbinaryorder": 11,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -43451,7 +44761,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 11,
+            "fixedbinaryorder": 12,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -43514,7 +44824,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 12,
+            "fixedbinaryorder": 13,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -43577,7 +44887,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 13,
+            "fixedbinaryorder": 14,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -43640,7 +44950,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 14,
+            "fixedbinaryorder": 15,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -43703,7 +45013,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 15,
+            "fixedbinaryorder": 16,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -43766,7 +45076,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 16,
+            "fixedbinaryorder": 17,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -43829,7 +45139,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 17,
+            "fixedbinaryorder": 18,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -43892,7 +45202,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 18,
+            "fixedbinaryorder": 19,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -43955,7 +45265,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 19,
+            "fixedbinaryorder": 20,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -44019,7 +45329,7 @@
               "HasStorage",
               "RawDocComment"
             ],
-            "fixedbinaryorder": 20,
+            "fixedbinaryorder": 21,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -44082,7 +45392,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 21,
+            "fixedbinaryorder": 22,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -44145,7 +45455,7 @@
             "declAttributes": [
               "HasStorage"
             ],
-            "fixedbinaryorder": 22,
+            "fixedbinaryorder": 23,
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -44184,7 +45494,7 @@
           {
             "kind": "Function",
             "name": "initWithResult",
-            "printedName": "initWithResult(_:download:upload:server:network:takenTime:uploadSamples:downloadSamples:linkSpeedSamples:pingSamples:uploadAmount:downloadAmount:uploadThreadCounts:downloadThreadCounts:options:)",
+            "printedName": "initWithResult(_:download:upload:server:network:takenTime:timeToFirstByteMs:uploadSamples:downloadSamples:linkSpeedSamples:pingSamples:uploadAmount:downloadAmount:uploadThreadCounts:downloadThreadCounts:options:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -44227,6 +45537,20 @@
                 "name": "Int",
                 "printedName": "Swift.Int",
                 "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeNominal",
@@ -44292,8 +45616,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15SpeedcheckerSDK11SCTakenTestV14initWithResult_8download6upload6server7network9takenTime0I7Samples0hN009linkSpeedN004pingN00I6Amount0hR00I12ThreadCounts0hsT07optionsAcA09SCLatencyP0V_AA06SCDataP0VAvA8SCServerVAA9SCNetworkVSiS4Ss5Int64VA0_S2SAA0pD7OptionsVSgtFZ",
-            "mangledName": "$s15SpeedcheckerSDK11SCTakenTestV14initWithResult_8download6upload6server7network9takenTime0I7Samples0hN009linkSpeedN004pingN00I6Amount0hR00I12ThreadCounts0hsT07optionsAcA09SCLatencyP0V_AA06SCDataP0VAvA8SCServerVAA9SCNetworkVSiS4Ss5Int64VA0_S2SAA0pD7OptionsVSgtFZ",
+            "usr": "s:15SpeedcheckerSDK11SCTakenTestV14initWithResult_8download6upload6server7network9takenTime17timeToFirstByteMs0I7Samples0hS009linkSpeedS004pingS00I6Amount0hW00I12ThreadCounts0hxY07optionsAcA09SCLatencyU0V_AA06SCDataU0VAwA8SCServerVAA9SCNetworkVS2iSgS4Ss5Int64VA2_S2SAA0uD7OptionsVSgtFZ",
+            "mangledName": "$s15SpeedcheckerSDK11SCTakenTestV14initWithResult_8download6upload6server7network9takenTime17timeToFirstByteMs0I7Samples0hS009linkSpeedS004pingS00I6Amount0hW00I12ThreadCounts0hxY07optionsAcA09SCLatencyU0V_AA06SCDataU0VAwA8SCServerVAA9SCNetworkVS2iSgS4Ss5Int64VA2_S2SAA0uD7OptionsVSgtFZ",
             "moduleName": "SpeedcheckerSDK",
             "static": true,
             "declAttributes": [
@@ -44304,7 +45628,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(ID:rating:createdTime:network:latencyType:latencyInMs:downloadSpeedResult:uploadSpeedResult:server:location:provider:uploadSamples:downloadSamples:linkSpeedSamples:pingSamples:uploadAmount:downloadAmount:uploadThreadCounts:downloadThreadCounts:takenTime:sdkVersion:options:user:)",
+            "printedName": "init(ID:rating:createdTime:network:latencyType:latencyInMs:downloadSpeedResult:uploadSpeedResult:timeToFirstByteMs:server:location:provider:uploadSamples:downloadSamples:linkSpeedSamples:pingSamples:uploadAmount:downloadAmount:uploadThreadCounts:downloadThreadCounts:takenTime:sdkVersion:options:user:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -44420,6 +45744,20 @@
                     "name": "SCSpeedResult",
                     "printedName": "SpeedcheckerSDK.SCSpeedResult",
                     "usr": "s:15SpeedcheckerSDK13SCSpeedResultV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
                   }
                 ],
                 "usr": "s:Sq"
@@ -44636,8 +45974,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15SpeedcheckerSDK11SCTakenTestV2ID6rating11createdTime7network11latencyType0J4InMs19downloadSpeedResult06uploadoP06server8location8provider0Q7Samples0nU004linkoU004pingU00Q6Amount0nX00Q12ThreadCounts0nyZ005takenH010sdkVersion7options4userACSiSg_A_10Foundation4DateVSgAA9SCNetworkVSgAA09SCLatencyoK0OSgA_AA07SCSpeedP0VSgA12_AA8SCServerVSgAA10SCLocationVSgAA25SCInternetServiceProviderVSgSSSgA22_A22_A22_s5Int64VSgA25_A22_A22_A_A22_AA0oD7OptionsVSgAA6SCUserVSgtcfc",
-            "mangledName": "$s15SpeedcheckerSDK11SCTakenTestV2ID6rating11createdTime7network11latencyType0J4InMs19downloadSpeedResult06uploadoP06server8location8provider0Q7Samples0nU004linkoU004pingU00Q6Amount0nX00Q12ThreadCounts0nyZ005takenH010sdkVersion7options4userACSiSg_A_10Foundation4DateVSgAA9SCNetworkVSgAA09SCLatencyoK0OSgA_AA07SCSpeedP0VSgA12_AA8SCServerVSgAA10SCLocationVSgAA25SCInternetServiceProviderVSgSSSgA22_A22_A22_s5Int64VSgA25_A22_A22_A_A22_AA0oD7OptionsVSgAA6SCUserVSgtcfc",
+            "usr": "s:15SpeedcheckerSDK11SCTakenTestV2ID6rating11createdTime7network11latencyType0J4InMs19downloadSpeedResult06uploadoP0015timeToFirstByteM06server8location8provider0Q7Samples0nY004linkoY004pingY00Q6Amount0N6Amount0Q12ThreadCounts0N12ThreadCounts05takenH010sdkVersion7options4userACSiSg_A0_10Foundation4DateVSgAA9SCNetworkVSgAA09SCLatencyoK0OSgA0_AA07SCSpeedP0VSgA13_A0_AA8SCServerVSgAA10SCLocationVSgAA25SCInternetServiceProviderVSgSSSgA23_A23_A23_s5Int64VSgA26_A23_A23_A0_A23_AA0oD7OptionsVSgAA6SCUserVSgtcfc",
+            "mangledName": "$s15SpeedcheckerSDK11SCTakenTestV2ID6rating11createdTime7network11latencyType0J4InMs19downloadSpeedResult06uploadoP0015timeToFirstByteM06server8location8provider0Q7Samples0nY004linkoY004pingY00Q6Amount0N6Amount0Q12ThreadCounts0N12ThreadCounts05takenH010sdkVersion7options4userACSiSg_A0_10Foundation4DateVSgAA9SCNetworkVSgAA09SCLatencyoK0OSgA0_AA07SCSpeedP0VSgA13_A0_AA8SCServerVSgAA10SCLocationVSgAA25SCInternetServiceProviderVSgSSSgA23_A23_A23_s5Int64VSgA26_A23_A23_A0_A23_AA0oD7OptionsVSgAA6SCUserVSgtcfc",
             "moduleName": "SpeedcheckerSDK",
             "implicit": true,
             "init_kind": "Designated"
@@ -52844,6 +54182,149 @@
           },
           {
             "kind": "Var",
+            "name": "metrics",
+            "printedName": "metrics",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Foundation.URLSessionTaskTransactionMetrics]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Foundation.URLSessionTaskTransactionMetrics]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "URLSessionTaskTransactionMetrics",
+                        "printedName": "Foundation.URLSessionTaskTransactionMetrics",
+                        "usr": "c:objc(cs)NSURLSessionTaskTransactionMetrics"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK16SCUploadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvp",
+            "mangledName": "$s15SpeedcheckerSDK16SCUploadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvp",
+            "moduleName": "SpeedcheckerSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 4,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Foundation.URLSessionTaskTransactionMetrics]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Foundation.URLSessionTaskTransactionMetrics]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URLSessionTaskTransactionMetrics",
+                            "printedName": "Foundation.URLSessionTaskTransactionMetrics",
+                            "usr": "c:objc(cs)NSURLSessionTaskTransactionMetrics"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK16SCUploadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvg",
+                "mangledName": "$s15SpeedcheckerSDK16SCUploadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvg",
+                "moduleName": "SpeedcheckerSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Foundation.URLSessionTaskTransactionMetrics]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Foundation.URLSessionTaskTransactionMetrics]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URLSessionTaskTransactionMetrics",
+                            "printedName": "Foundation.URLSessionTaskTransactionMetrics",
+                            "usr": "c:objc(cs)NSURLSessionTaskTransactionMetrics"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK16SCUploadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvs",
+                "mangledName": "$s15SpeedcheckerSDK16SCUploadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvs",
+                "moduleName": "SpeedcheckerSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK16SCUploadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvM",
+                "mangledName": "$s15SpeedcheckerSDK16SCUploadTestTaskV7metricsSaySo012NSURLSessionE18TransactionMetricsCGSgvM",
+                "moduleName": "SpeedcheckerSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "output",
             "printedName": "output",
             "children": [
@@ -52870,7 +54351,7 @@
               "HasInitialValue",
               "HasStorage"
             ],
-            "fixedbinaryorder": 4,
+            "fixedbinaryorder": 5,
             "hasStorage": true,
             "accessors": [
               {
@@ -52987,6 +54468,61 @@
               "RawDocComment"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "timeToFirstByte",
+            "printedName": "timeToFirstByte",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Double?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK16SCUploadTestTaskV15timeToFirstByteSdSgvp",
+            "mangledName": "$s15SpeedcheckerSDK16SCUploadTestTaskV15timeToFirstByteSdSgvp",
+            "moduleName": "SpeedcheckerSDK",
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Double?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Double",
+                        "printedName": "Swift.Double",
+                        "usr": "s:Sd"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK16SCUploadTestTaskV15timeToFirstByteSdSgvg",
+                "mangledName": "$s15SpeedcheckerSDK16SCUploadTestTaskV15timeToFirstByteSdSgvg",
+                "moduleName": "SpeedcheckerSDK",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Struct",
@@ -54459,6 +55995,33 @@
             "declKind": "Func",
             "usr": "s:15SpeedcheckerSDK14SCUploadTesterC15getThreadCountsSSyF",
             "mangledName": "$s15SpeedcheckerSDK14SCUploadTesterC15getThreadCountsSSyF",
+            "moduleName": "SpeedcheckerSDK",
+            "isOpen": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getTimeToFirstByteMs",
+            "printedName": "getTimeToFirstByteMs()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15SpeedcheckerSDK14SCUploadTesterC20getTimeToFirstByteMsSiSgyF",
+            "mangledName": "$s15SpeedcheckerSDK14SCUploadTesterC20getTimeToFirstByteMsSiSgyF",
             "moduleName": "SpeedcheckerSDK",
             "isOpen": true,
             "funcSelfKind": "NonMutating"
@@ -58599,6 +60162,125 @@
           },
           {
             "kind": "Var",
+            "name": "timeToFirstByteMs",
+            "printedName": "timeToFirstByteMs",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15SpeedcheckerSDK16SpeedTestContextV17timeToFirstByteMsSiSgvp",
+            "mangledName": "$s15SpeedcheckerSDK16SpeedTestContextV17timeToFirstByteMsSiSgvp",
+            "moduleName": "SpeedcheckerSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 13,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK16SpeedTestContextV17timeToFirstByteMsSiSgvg",
+                "mangledName": "$s15SpeedcheckerSDK16SpeedTestContextV17timeToFirstByteMsSiSgvg",
+                "moduleName": "SpeedcheckerSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK16SpeedTestContextV17timeToFirstByteMsSiSgvs",
+                "mangledName": "$s15SpeedcheckerSDK16SpeedTestContextV17timeToFirstByteMsSiSgvs",
+                "moduleName": "SpeedcheckerSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15SpeedcheckerSDK16SpeedTestContextV17timeToFirstByteMsSiSgvM",
+                "mangledName": "$s15SpeedcheckerSDK16SpeedTestContextV17timeToFirstByteMsSiSgvM",
+                "moduleName": "SpeedcheckerSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "linkSpeedSamples",
             "printedName": "linkSpeedSamples",
             "children": [
@@ -58633,7 +60315,7 @@
               "HasInitialValue",
               "HasStorage"
             ],
-            "fixedbinaryorder": 13,
+            "fixedbinaryorder": 14,
             "hasStorage": true,
             "accessors": [
               {
@@ -58776,7 +60458,7 @@
               "HasInitialValue",
               "HasStorage"
             ],
-            "fixedbinaryorder": 14,
+            "fixedbinaryorder": 15,
             "hasStorage": true,
             "accessors": [
               {
@@ -58911,7 +60593,7 @@
               "HasInitialValue",
               "HasStorage"
             ],
-            "fixedbinaryorder": 15,
+            "fixedbinaryorder": 16,
             "hasStorage": true,
             "accessors": [
               {
@@ -59030,7 +60712,7 @@
               "HasInitialValue",
               "HasStorage"
             ],
-            "fixedbinaryorder": 16,
+            "fixedbinaryorder": 17,
             "hasStorage": true,
             "accessors": [
               {
@@ -59149,7 +60831,7 @@
               "HasInitialValue",
               "HasStorage"
             ],
-            "fixedbinaryorder": 17,
+            "fixedbinaryorder": 18,
             "hasStorage": true,
             "accessors": [
               {
@@ -59268,7 +60950,7 @@
               "HasInitialValue",
               "HasStorage"
             ],
-            "fixedbinaryorder": 18,
+            "fixedbinaryorder": 19,
             "hasStorage": true,
             "accessors": [
               {
@@ -59387,7 +61069,7 @@
               "HasInitialValue",
               "HasStorage"
             ],
-            "fixedbinaryorder": 19,
+            "fixedbinaryorder": 20,
             "hasStorage": true,
             "accessors": [
               {
@@ -59481,7 +61163,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(userID:clientID:servers:server:latency:download:downloadSamples:downloadAmount:upload:uploadSamples:uploadAmount:downloadThreadCounts:uploadThreadCounts:linkSpeedSamples:pingSamples:takenTest:network:startTime:isBackground:options:)",
+            "printedName": "init(userID:clientID:servers:server:latency:download:downloadSamples:downloadAmount:upload:uploadSamples:uploadAmount:downloadThreadCounts:uploadThreadCounts:timeToFirstByteMs:linkSpeedSamples:pingSamples:takenTest:network:startTime:isBackground:options:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -59695,6 +61377,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
                 "printedName": "[Swift.Double]?",
                 "children": [
                   {
@@ -59815,8 +61512,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15SpeedcheckerSDK16SpeedTestContextV6userID06clientG07servers6server7latency8download0L7Samples0L6Amount6upload0oM00oN00L12ThreadCounts0opQ004linkcM004pingM005takenD07network9startTime12isBackground7optionsACSiSg_AXSayAA8SCServerVGSgAZSgAA09SCLatencyC0VSgAA06SCDataC0VSgSSSgs5Int64VSgA7_A8_A11_A8_A8_SaySdGSgA13_AA07SCTakenD0VSgAA9SCNetworkVSgSdSgSbSgAA0cD7OptionsVSgtcfc",
-            "mangledName": "$s15SpeedcheckerSDK16SpeedTestContextV6userID06clientG07servers6server7latency8download0L7Samples0L6Amount6upload0oM00oN00L12ThreadCounts0opQ004linkcM004pingM005takenD07network9startTime12isBackground7optionsACSiSg_AXSayAA8SCServerVGSgAZSgAA09SCLatencyC0VSgAA06SCDataC0VSgSSSgs5Int64VSgA7_A8_A11_A8_A8_SaySdGSgA13_AA07SCTakenD0VSgAA9SCNetworkVSgSdSgSbSgAA0cD7OptionsVSgtcfc",
+            "usr": "s:15SpeedcheckerSDK16SpeedTestContextV6userID06clientG07servers6server7latency8download0L7Samples0L6Amount6upload0oM00oN00L12ThreadCounts0opQ017timeToFirstByteMs04linkcM004pingM005takenD07network9startTime12isBackground7optionsACSiSg_AYSayAA8SCServerVGSgA_SgAA09SCLatencyC0VSgAA06SCDataC0VSgSSSgs5Int64VSgA8_A9_A12_A9_A9_AYSaySdGSgA14_AA07SCTakenD0VSgAA9SCNetworkVSgSdSgSbSgAA0cD7OptionsVSgtcfc",
+            "mangledName": "$s15SpeedcheckerSDK16SpeedTestContextV6userID06clientG07servers6server7latency8download0L7Samples0L6Amount6upload0oM00oN00L12ThreadCounts0opQ017timeToFirstByteMs04linkcM004pingM005takenD07network9startTime12isBackground7optionsACSiSg_AYSayAA8SCServerVGSgA_SgAA09SCLatencyC0VSgAA06SCDataC0VSgSSSgs5Int64VSgA8_A9_A12_A9_A9_AYSaySdGSgA14_AA07SCTakenD0VSgAA9SCNetworkVSgSdSgSbSgAA0cD7OptionsVSgtcfc",
             "moduleName": "SpeedcheckerSDK",
             "implicit": true,
             "init_kind": "Designated"
@@ -62201,6 +63898,57 @@
           },
           {
             "kind": "Var",
+            "name": "timeToFirstByteMs",
+            "printedName": "timeToFirstByteMs",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SpeedcheckerSDK@objc(cs)SpeedTestResult(py)timeToFirstByteMs",
+            "mangledName": "$s15SpeedcheckerSDK15SpeedTestResultC17timeToFirstByteMsSivp",
+            "moduleName": "SpeedcheckerSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SpeedcheckerSDK@objc(cs)SpeedTestResult(im)timeToFirstByteMs",
+                "mangledName": "$s15SpeedcheckerSDK15SpeedTestResultC17timeToFirstByteMsSivg",
+                "moduleName": "SpeedcheckerSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "ipAddress",
             "printedName": "ipAddress",
             "children": [
@@ -62521,7 +64269,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(network:server:latencyType:latencyInMs:jitter:downloadSpeed:uploadSpeed:ipAddress:ispName:date:)",
+            "printedName": "init(network:server:latencyType:latencyInMs:jitter:downloadSpeed:uploadSpeed:timeToFirstByteMs:ipAddress:ispName:date:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -62573,6 +64321,12 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Optional",
                 "printedName": "Swift.String?",
                 "children": [
@@ -62615,8 +64369,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15SpeedcheckerSDK15SpeedTestResultC7network6server11latencyType0H4InMs6jitter08downloadC006uploadC09ipAddress7ispName4dateAcA0cD7NetworkC_AA0cD6ServerCAA0cd7LatencyI0OSiSdAA0cdC0CAUSSSgAV10Foundation4DateVSgtcfc",
-            "mangledName": "$s15SpeedcheckerSDK15SpeedTestResultC7network6server11latencyType0H4InMs6jitter08downloadC006uploadC09ipAddress7ispName4dateAcA0cD7NetworkC_AA0cD6ServerCAA0cd7LatencyI0OSiSdAA0cdC0CAUSSSgAV10Foundation4DateVSgtcfc",
+            "usr": "s:15SpeedcheckerSDK15SpeedTestResultC7network6server11latencyType0H4InMs6jitter08downloadC006uploadC0015timeToFirstByteK09ipAddress7ispName4dateAcA0cD7NetworkC_AA0cD6ServerCAA0cd7LatencyI0OSiSdAA0cdC0CAVSiSSSgAW10Foundation4DateVSgtcfc",
+            "mangledName": "$s15SpeedcheckerSDK15SpeedTestResultC7network6server11latencyType0H4InMs6jitter08downloadC006uploadC0015timeToFirstByteK09ipAddress7ispName4dateAcA0cD7NetworkC_AA0cD6ServerCAA0cd7LatencyI0OSiSdAA0cdC0CAVSiSSSgAW10Foundation4DateVSgtcfc",
             "moduleName": "SpeedcheckerSDK",
             "declAttributes": [
               "RawDocComment"
@@ -62626,7 +64380,7 @@
           {
             "kind": "Function",
             "name": "create",
-            "printedName": "create(withPlain:latencyType:latencyInMs:jitter:downloadInBps:uploadInBps:ipAddress:ispName:networkType:serverID:serverDomain:serverCityName:serverCountryCode:)",
+            "printedName": "create(withPlain:latencyType:latencyInMs:jitter:downloadInBps:uploadInBps:timeToFirstByteMs:ipAddress:ispName:networkType:serverID:serverDomain:serverCityName:serverCountryCode:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -62677,6 +64431,12 @@
                 "name": "Double",
                 "printedName": "Swift.Double",
                 "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
               },
               {
                 "kind": "TypeNominal",
@@ -62770,8 +64530,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15SpeedcheckerSDK15SpeedTestResultC6create9withPlain11latencyType0I4InMs6jitter08downloadK3Bps06uploadkO09ipAddress7ispName07networkJ08serverID0V6Domain0v4CityT00V11CountryCodeAC10Foundation4DateV_SSSgSiS3dA3USiA3UtFZ",
-            "mangledName": "$s15SpeedcheckerSDK15SpeedTestResultC6create9withPlain11latencyType0I4InMs6jitter08downloadK3Bps06uploadkO09ipAddress7ispName07networkJ08serverID0V6Domain0v4CityT00V11CountryCodeAC10Foundation4DateV_SSSgSiS3dA3USiA3UtFZ",
+            "usr": "s:15SpeedcheckerSDK15SpeedTestResultC6create9withPlain11latencyType0I4InMs6jitter08downloadK3Bps06uploadkO0015timeToFirstByteL09ipAddress7ispName07networkJ08serverID0Z6Domain0z4CityX00Z11CountryCodeAC10Foundation4DateV_SSSgSiS3dSiA3VSiA3VtFZ",
+            "mangledName": "$s15SpeedcheckerSDK15SpeedTestResultC6create9withPlain11latencyType0I4InMs6jitter08downloadK3Bps06uploadkO0015timeToFirstByteL09ipAddress7ispName07networkJ08serverID0Z6Domain0z4CityX00Z11CountryCodeAC10Foundation4DateV_SSSgSiS3dSiA3VSiA3VtFZ",
             "moduleName": "SpeedcheckerSDK",
             "static": true,
             "declAttributes": [
@@ -89665,7 +91425,7 @@
       "kind": "StringLiteral",
       "offset": 996,
       "length": 8,
-      "value": "\"1.5.59\""
+      "value": "\"1.5.61\""
     },
     {
       "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/Foundation\/SCLogger.swift",
@@ -90377,35 +92137,35 @@
     {
       "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/InternetTest\/InternetSpeedTest.swift",
       "kind": "BooleanLiteral",
-      "offset": 20324,
+      "offset": 20411,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/InternetTest\/InternetSpeedTest.swift",
       "kind": "BooleanLiteral",
-      "offset": 21082,
+      "offset": 21169,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/InternetTest\/InternetSpeedTest.swift",
       "kind": "BooleanLiteral",
-      "offset": 24765,
+      "offset": 24852,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/InternetTest\/InternetSpeedTest.swift",
       "kind": "BooleanLiteral",
-      "offset": 25369,
+      "offset": 25456,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/InternetTest\/InternetSpeedTest.swift",
       "kind": "BooleanLiteral",
-      "offset": 26401,
+      "offset": 26488,
       "length": 5,
       "value": "false"
     },
@@ -90569,6 +92329,41 @@
       "offset": 1500,
       "length": 1,
       "value": "1"
+    },
+    {
+      "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/Foundation\/Atomic.swift",
+      "kind": "StringLiteral",
+      "offset": 195,
+      "length": 25,
+      "value": "\"com.speedchecker.atomic\""
+    },
+    {
+      "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/Foundation\/SCLocalNetworkAuthorization.swift",
+      "kind": "StringLiteral",
+      "offset": 426,
+      "length": 29,
+      "value": "\"SCLocalNetworkAuthorization\""
+    },
+    {
+      "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/Foundation\/SCLocalNetworkAuthorization.swift",
+      "kind": "BooleanLiteral",
+      "offset": 483,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/Foundation\/SCLocalNetworkAuthorization.swift",
+      "kind": "Array",
+      "offset": 554,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/Foundation\/SCLocalNetworkAuthorization.swift",
+      "kind": "BooleanLiteral",
+      "offset": 887,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/predragbogdanic\/Documents\/Xcode Projects\/SpeedChecker.nosync\/SpeedcheckerReportSDK-swift. \/speedcheckerreportsdk-swift\/.build\/checkouts\/speedcheckersdk-swift\/Sources\/SpeedcheckerSDK\/InternetTest\/SCSpeedResult.swift",

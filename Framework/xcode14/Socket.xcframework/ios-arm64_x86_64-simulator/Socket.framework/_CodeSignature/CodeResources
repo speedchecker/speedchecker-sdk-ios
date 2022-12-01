@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		dDRvNrl1qZY1QGqLX9eDtWctJBw=
+		HuxVskWnndNtvIfVwiP3wsy7iRI=
 		</data>
 		<key>Modules/Socket.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/Socket.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		vTpziciZdin2tSboEPABa5foAIs=
+		2Ac0jgqVoCwAp/52Y80OkX9SdVE=
 		</data>
 		<key>Modules/Socket.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/Socket.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		RQQBv64bBUvGf4uKbzJzmCHbMXk=
+		iBv4NTQG0FPaKSSqY6LzfeOFPaQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -118,11 +118,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vTpziciZdin2tSboEPABa5foAIs=
+			2Ac0jgqVoCwAp/52Y80OkX9SdVE=
 			</data>
 			<key>hash2</key>
 			<data>
-			qq88PBMbEyxaE66G7YDFr0Mq7Xy9jWvEFLBGcG+1KmM=
+			v39hnbOch4omxJ0ru9xNBiL4EIjj72mTPylk4nKQTUQ=
 			</data>
 		</dict>
 		<key>Modules/Socket.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -173,11 +173,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RQQBv64bBUvGf4uKbzJzmCHbMXk=
+			iBv4NTQG0FPaKSSqY6LzfeOFPaQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			T9z3kxlPDDVgGuVBHFiqex1+yPOZThK7+cXM1htr9b0=
+			KugYXMhFe0Iuj/51LxBGhBXLNFZElxsZNpWlUIXbvp8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

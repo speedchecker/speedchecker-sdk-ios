@@ -9,6 +9,7 @@ import CoreTelephony
 import Darwin
 import DataCompression
 import Foundation
+import Network
 import NetworkExtension
 import Swift
 import SystemConfiguration
@@ -442,6 +443,24 @@ public protocol SCServerSelecterDelegate {
   func serverSelecter(_ selecter: SpeedcheckerSDK.SCServerSelecter, status: SpeedcheckerSDK.SCTestStatus)
   func serverSelecter(_ selecter: SpeedcheckerSDK.SCServerSelecter, didSelect server: SpeedcheckerSDK.SCServer, latency: SpeedcheckerSDK.SCLatencySpeed?, latencies: [Swift.Double])
 }
+@available(iOS 14.2, *)
+public class SCLocalNetworkAuthorization {
+  public typealias AuthorizationResult = Swift.Result<Swift.Bool, SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationError>
+  public init()
+  @objc deinit
+  public func requestAuthorization(completion: @escaping (SpeedcheckerSDK.SCLocalNetworkAuthorization.AuthorizationResult) -> Swift.Void)
+}
+@available(iOS 14.2, *)
+extension SpeedcheckerSDK.SCLocalNetworkAuthorization {
+  public enum AuthorizationError : Foundation.LocalizedError {
+    case wifiNotEnabled
+    case gatewayIPResolution
+    case connectionFailed(Network.NWError)
+    public var errorDescription: Swift.String? {
+      get
+    }
+  }
+}
 public enum SCTestStatus {
   case ready
   case progress
@@ -504,11 +523,12 @@ public enum SCTestStatus {
   @objc final public let jitter: Swift.Double
   @objc final public let downloadSpeed: SpeedcheckerSDK.SpeedTestSpeed
   @objc final public let uploadSpeed: SpeedcheckerSDK.SpeedTestSpeed
+  @objc final public let timeToFirstByteMs: Swift.Int
   @objc final public let ipAddress: Swift.String?
   @objc final public let ispName: Swift.String?
   @objc final public let date: Foundation.Date?
   @objc public var userCityName: Swift.String?
-  public static func create(withPlain date: Foundation.Date, latencyType: Swift.String?, latencyInMs: Swift.Int, jitter: Swift.Double, downloadInBps: Swift.Double, uploadInBps: Swift.Double, ipAddress: Swift.String?, ispName: Swift.String?, networkType: Swift.String?, serverID: Swift.Int, serverDomain: Swift.String?, serverCityName: Swift.String?, serverCountryCode: Swift.String?) -> SpeedcheckerSDK.SpeedTestResult
+  public static func create(withPlain date: Foundation.Date, latencyType: Swift.String?, latencyInMs: Swift.Int, jitter: Swift.Double, downloadInBps: Swift.Double, uploadInBps: Swift.Double, timeToFirstByteMs: Swift.Int, ipAddress: Swift.String?, ispName: Swift.String?, networkType: Swift.String?, serverID: Swift.Int, serverDomain: Swift.String?, serverCityName: Swift.String?, serverCountryCode: Swift.String?) -> SpeedcheckerSDK.SpeedTestResult
   @objc deinit
 }
 extension SpeedcheckerSDK.SpeedTestResult {

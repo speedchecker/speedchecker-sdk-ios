@@ -424,6 +424,8 @@ SWIFT_CLASS_NAMED("SpeedTestResult")
 @property (nonatomic, readonly) double jitter;
 @property (nonatomic, readonly, strong) SpeedTestSpeed * _Nonnull downloadSpeed;
 @property (nonatomic, readonly, strong) SpeedTestSpeed * _Nonnull uploadSpeed;
+/// Amount of time in milliseconds between starting download test and receiving 1’st byte of data from the server
+@property (nonatomic, readonly) NSInteger timeToFirstByteMs;
 @property (nonatomic, readonly, copy) NSString * _Nullable ipAddress;
 @property (nonatomic, readonly, copy) NSString * _Nullable ispName;
 @property (nonatomic, readonly, copy) NSDate * _Nullable date;

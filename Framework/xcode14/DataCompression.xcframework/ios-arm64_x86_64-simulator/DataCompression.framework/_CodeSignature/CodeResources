@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UMGkbTtzyXvAbJvhraJmo6QNfNI=
+		LeL/GZ/+BiqKfEhGAy1JpsNxpow=
 		</data>
 		<key>Modules/DataCompression.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/DataCompression.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		vvTy3/+zunVs0sgzSU2LgC8zmYA=
+		FuhANX4ph9E+vF0Fo2TT4CBquhQ=
 		</data>
 		<key>Modules/DataCompression.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/DataCompression.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		g7fPW0siuhrAm5wi715lyJXXjdE=
+		ZFgju1imdV6C0sSGAg/n6ucrdH4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -118,11 +118,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vvTy3/+zunVs0sgzSU2LgC8zmYA=
+			FuhANX4ph9E+vF0Fo2TT4CBquhQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			wXVTGDBa3AdVUm3guyaJqIENb9IL3RgoNrxf+DAMrx0=
+			UraHkArSMwQOu7PGBL7DYpR+XzjJYCxGZ50mC6CQNkc=
 			</data>
 		</dict>
 		<key>Modules/DataCompression.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -173,11 +173,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			g7fPW0siuhrAm5wi715lyJXXjdE=
+			ZFgju1imdV6C0sSGAg/n6ucrdH4=
 			</data>
 			<key>hash2</key>
 			<data>
-			m2liospUnQzdcT+GyYxmh9nzlDtNc57U0kkdyd9zw5U=
+			/hJT3o+VMb7orobZKQVSLDPpeL1GXlKXHeopC+QPeVo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
