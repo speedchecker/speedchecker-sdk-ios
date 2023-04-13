@@ -12,7 +12,10 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "SpeedcheckerSDK",
-            targets: ["SpeedcheckerSDK", "SpeedcheckerReportSDK", "XMLParsing", "Socket", "DataCompression"]),
+            targets: ["SpeedcheckerSDK", "XMLParsing", "Socket", "DataCompression"]),
+            .library(
+            name: "SpeedcheckerReportSDK",
+            targets: ["SpeedcheckerSDK", "SpeedcheckerReportSDK", "XMLParsing", "Socket", "DataCompression"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
