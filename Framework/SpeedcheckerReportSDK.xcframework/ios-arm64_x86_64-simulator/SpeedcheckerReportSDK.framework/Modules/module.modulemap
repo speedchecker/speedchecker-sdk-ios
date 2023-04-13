@@ -1,0 +1,4 @@
+framework module SpeedcheckerReportSDK {
+  header "SpeedcheckerReportSDK-Swift.h"
+  requires objc
+}

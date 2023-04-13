@@ -1,0 +1,4 @@
+framework module Socket {
+  header "Socket-Swift.h"
+  requires objc
+}

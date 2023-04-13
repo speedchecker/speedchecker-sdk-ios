@@ -23,23 +23,23 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .binaryTarget(
             name: "SpeedcheckerSDK",
-            path: "Framework/xcode14.1/SpeedcheckerSDK.xcframework"
+            path: "Framework/SpeedcheckerSDK.xcframework"
         ),
         .binaryTarget(
             name: "SpeedcheckerReportSDK",
-            path: "Framework/xcode14.1/SpeedcheckerReportSDK.xcframework"
+            path: "Framework/SpeedcheckerReportSDK.xcframework"
         ),
         .binaryTarget(
             name: "XMLParsing",
-            path: "Framework/xcode14.1/XMLParsing.xcframework"
+            path: "Framework/XMLParsing.xcframework"
         ),
         .binaryTarget(
             name: "Socket",
-            path: "Framework/xcode14.1/Socket.xcframework"
+            path: "Framework/Socket.xcframework"
         ),
         .binaryTarget(
             name: "DataCompression",
-            path: "Framework/xcode14.1/DataCompression.xcframework"
+            path: "Framework/DataCompression.xcframework"
         ),
     ]
 )

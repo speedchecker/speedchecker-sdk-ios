@@ -1,0 +1,289 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Socket
+import Darwin
+import Foundation
+import Swift
+import _Concurrency
+@_hasMissingDesignatedInitializers public class Socket : Socket.SocketReader, Socket.SocketWriter {
+  public static let SOCKET_MINIMUM_READ_BUFFER_SIZE: Swift.Int
+  public static let SOCKET_DEFAULT_READ_BUFFER_SIZE: Swift.Int
+  public static let SOCKET_DEFAULT_SSL_READ_BUFFER_SIZE: Swift.Int
+  public static let SOCKET_MAXIMUM_SSL_READ_BUFFER_SIZE: Swift.Int
+  public static let SOCKET_DEFAULT_MAX_BACKLOG: Swift.Int
+  public static let SOCKET_MAX_DARWIN_BACKLOG: Swift.Int
+  public static let SOCKET_INVALID_PORT: Swift.Int32
+  public static let SOCKET_INVALID_DESCRIPTOR: Swift.Int32
+  public static let INADDR_ANY: Darwin.in_addr_t
+  public static let NO_HOSTNAME: Swift.String
+  public static let SOCKET_ERR_DOMAIN: Swift.String
+  public static let SOCKET_ERR_UNABLE_TO_CREATE_SOCKET: Swift.Int
+  public static let SOCKET_ERR_BAD_DESCRIPTOR: Swift.Int
+  public static let SOCKET_ERR_ALREADY_CONNECTED: Swift.Int
+  public static let SOCKET_ERR_NOT_CONNECTED: Swift.Int
+  public static let SOCKET_ERR_NOT_LISTENING: Swift.Int
+  public static let SOCKET_ERR_ACCEPT_FAILED: Swift.Int
+  public static let SOCKET_ERR_SETSOCKOPT_FAILED: Swift.Int
+  public static let SOCKET_ERR_BIND_FAILED: Swift.Int
+  public static let SOCKET_ERR_INVALID_HOSTNAME: Swift.Int
+  public static let SOCKET_ERR_INVALID_PORT: Swift.Int
+  public static let SOCKET_ERR_GETADDRINFO_FAILED: Swift.Int
+  public static let SOCKET_ERR_CONNECT_FAILED: Swift.Int
+  public static let SOCKET_ERR_MISSING_CONNECTION_DATA: Swift.Int
+  public static let SOCKET_ERR_SELECT_FAILED: Swift.Int
+  public static let SOCKET_ERR_LISTEN_FAILED: Swift.Int
+  public static let SOCKET_ERR_INVALID_BUFFER: Swift.Int
+  public static let SOCKET_ERR_INVALID_BUFFER_SIZE: Swift.Int
+  public static let SOCKET_ERR_RECV_FAILED: Swift.Int
+  public static let SOCKET_ERR_RECV_BUFFER_TOO_SMALL: Swift.Int
+  public static let SOCKET_ERR_WRITE_FAILED: Swift.Int
+  public static let SOCKET_ERR_GET_FCNTL_FAILED: Swift.Int
+  public static let SOCKET_ERR_SET_FCNTL_FAILED: Swift.Int
+  public static let SOCKET_ERR_NOT_IMPLEMENTED: Swift.Int
+  public static let SOCKET_ERR_NOT_SUPPORTED_YET: Swift.Int
+  public static let SOCKET_ERR_BAD_SIGNATURE_PARAMETERS: Swift.Int
+  public static let SOCKET_ERR_INTERNAL: Swift.Int
+  public static let SOCKET_ERR_WRONG_PROTOCOL: Swift.Int
+  public static let SOCKET_ERR_NOT_ACTIVE: Swift.Int
+  public static let SOCKET_ERR_CONNECTION_RESET: Swift.Int
+  public static let SOCKET_ERR_SET_RECV_TIMEOUT_FAILED: Swift.Int
+  public static let SOCKET_ERR_SET_WRITE_TIMEOUT_FAILED: Swift.Int
+  public static let SOCKET_ERR_CONNECT_TIMEOUT: Swift.Int
+  public static let SOCKET_ERR_GETSOCKOPT_FAILED: Swift.Int
+  public static let SOCKET_ERR_INVALID_DELEGATE_CALL: Swift.Int
+  public static let SOCKET_ERR_MISSING_SIGNATURE: Swift.Int
+  public static let SOCKET_ERR_PARAMETER_ERROR: Swift.Int
+  public static let isLittleEndian: Swift.Bool
+  public enum ProtocolFamily {
+    case inet
+    case inet6
+    case unix
+    public static func == (a: Socket.Socket.ProtocolFamily, b: Socket.Socket.ProtocolFamily) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum SocketType {
+    case stream
+    case datagram
+    public static func == (a: Socket.Socket.SocketType, b: Socket.Socket.SocketType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum SocketProtocol : Swift.Int32 {
+    case tcp
+    case udp
+    case unix
+    public init?(rawValue: Swift.Int32)
+    public typealias RawValue = Swift.Int32
+    public var rawValue: Swift.Int32 {
+      get
+    }
+  }
+  public enum Address {
+    case ipv4(Darwin.sockaddr_in)
+    case ipv6(Darwin.sockaddr_in6)
+    case unix(Darwin.sockaddr_un)
+    public var size: Swift.Int {
+      get
+    }
+    public var family: Socket.Socket.ProtocolFamily {
+      get
+    }
+  }
+  public struct Signature : Swift.CustomStringConvertible {
+    public var protocolFamily: Socket.Socket.ProtocolFamily {
+      get
+    }
+    public var socketType: Socket.Socket.SocketType {
+      get
+    }
+    public var proto: Socket.Socket.SocketProtocol {
+      get
+    }
+    public var hostname: Swift.String? {
+      get
+    }
+    public var port: Swift.Int32 {
+      get
+    }
+    public var path: Swift.String? {
+      get
+    }
+    public var address: Socket.Socket.Address? {
+      get
+    }
+    public var isSecure: Swift.Bool {
+      get
+    }
+    public var isBound: Swift.Bool {
+      get
+    }
+    public var description: Swift.String {
+      get
+    }
+    public init?(protocolFamily: Swift.Int32, socketType: Swift.Int32, proto: Swift.Int32, address: Socket.Socket.Address?) throws
+    public init?(socketType: Socket.Socket.SocketType, proto: Socket.Socket.SocketProtocol, address: Socket.Socket.Address, hostname: Swift.String?, port: Swift.Int32?) throws
+    public init?(protocolFamily: Socket.Socket.ProtocolFamily, socketType: Socket.Socket.SocketType, proto: Socket.Socket.SocketProtocol, hostname: Swift.String?, port: Swift.Int32?) throws
+    public init?(socketType: Socket.Socket.SocketType, proto: Socket.Socket.SocketProtocol, path: Swift.String?) throws
+  }
+  public struct Error : Swift.Error, Swift.CustomStringConvertible {
+    public let domain: Swift.String
+    public var errorCode: Swift.Int32 {
+      get
+    }
+    public var errorReason: Swift.String? {
+      get
+    }
+    public var description: Swift.String {
+      get
+    }
+    public var bufferSizeNeeded: Swift.Int32 {
+      get
+    }
+  }
+  public var socketfd: Swift.Int32 {
+    get
+  }
+  public var signature: Socket.Socket.Signature? {
+    get
+  }
+  public var delegate: Socket.SSLServiceDelegate? {
+    get
+    set
+  }
+  public var readBufferSize: Swift.Int {
+    get
+    set
+  }
+  public var maxBacklogSize: Swift.Int
+  public var isConnected: Swift.Bool {
+    get
+  }
+  public var isBlocking: Swift.Bool {
+    get
+  }
+  public var isListening: Swift.Bool {
+    get
+  }
+  public var remoteConnectionClosed: Swift.Bool {
+    get
+  }
+  public var isActive: Swift.Bool {
+    get
+  }
+  public var isServer: Swift.Bool {
+    get
+  }
+  public var isSecure: Swift.Bool {
+    get
+  }
+  public var listeningPort: Swift.Int32 {
+    get
+  }
+  public var remoteHostname: Swift.String {
+    get
+  }
+  public var remotePort: Swift.Int32 {
+    get
+  }
+  public var remotePath: Swift.String? {
+    get
+  }
+  public class func create(family: Socket.Socket.ProtocolFamily = .inet, type: Socket.Socket.SocketType = .stream, proto: Socket.Socket.SocketProtocol = .tcp) throws -> Socket.Socket
+  public class func create(connectedUsing signature: Socket.Socket.Signature) throws -> Socket.Socket
+  public class func create(fromNativeHandle nativeHandle: Swift.Int32, address: Socket.Socket.Address?) throws -> Socket.Socket
+  public class func hostnameAndPort(from address: Socket.Socket.Address) -> (hostname: Swift.String, port: Swift.Int32)?
+  public class func checkStatus(for sockets: [Socket.Socket]) throws -> (readables: [Socket.Socket], writables: [Socket.Socket])
+  public class func wait(for sockets: [Socket.Socket], timeout: Swift.UInt, waitForever: Swift.Bool = false) throws -> [Socket.Socket]?
+  public class func createAddress(for host: Swift.String, on port: Swift.Int32) -> Socket.Socket.Address?
+  @objc deinit
+  public func acceptClientConnection(invokeDelegate: Swift.Bool = true) throws -> Socket.Socket
+  public func invokeDelegateOnAccept(for newSocket: Socket.Socket) throws
+  public func acceptConnection() throws
+  public func close()
+  public func connect(to host: Swift.String, port: Swift.Int32, timeout: Swift.UInt = 0, familyOnly: Swift.Bool = false) throws
+  public func connect(to path: Swift.String) throws
+  public func connect(using signature: Socket.Socket.Signature) throws
+  public func listen(on port: Swift.Int, maxBacklogSize: Swift.Int = Socket.SOCKET_DEFAULT_MAX_BACKLOG, allowPortReuse: Swift.Bool = true, node: Swift.String? = nil) throws
+  public func listen(on path: Swift.String, maxBacklogSize: Swift.Int = Socket.SOCKET_DEFAULT_MAX_BACKLOG) throws
+  public func listen(forMessage buffer: Swift.UnsafeMutablePointer<Swift.CChar>, bufSize: Swift.Int, on port: Swift.Int, maxBacklogSize: Swift.Int = Socket.SOCKET_DEFAULT_MAX_BACKLOG) throws -> (bytesRead: Swift.Int, address: Socket.Socket.Address?)
+  public func listen(forMessage data: Foundation.NSMutableData, on port: Swift.Int, maxBacklogSize: Swift.Int = Socket.SOCKET_DEFAULT_MAX_BACKLOG) throws -> (bytesRead: Swift.Int, address: Socket.Socket.Address?)
+  public func listen(forMessage data: inout Foundation.Data, on port: Swift.Int, maxBacklogSize: Swift.Int = Socket.SOCKET_DEFAULT_MAX_BACKLOG) throws -> (bytesRead: Swift.Int, address: Socket.Socket.Address?)
+  public func read(into buffer: Swift.UnsafeMutablePointer<Swift.CChar>, bufSize: Swift.Int, truncate: Swift.Bool = false) throws -> Swift.Int
+  public func readString() throws -> Swift.String?
+  public func read(into data: Foundation.NSMutableData) throws -> Swift.Int
+  public func read(into data: inout Foundation.Data) throws -> Swift.Int
+  public func readDatagram(into buffer: Swift.UnsafeMutablePointer<Swift.CChar>, bufSize: Swift.Int) throws -> (bytesRead: Swift.Int, address: Socket.Socket.Address?)
+  public func readDatagram(into data: Foundation.NSMutableData) throws -> (bytesRead: Swift.Int, address: Socket.Socket.Address?)
+  public func readDatagram(into data: inout Foundation.Data) throws -> (bytesRead: Swift.Int, address: Socket.Socket.Address?)
+  @discardableResult
+  public func write(from buffer: Swift.UnsafeRawPointer, bufSize: Swift.Int) throws -> Swift.Int
+  @discardableResult
+  public func write(from data: Foundation.NSData) throws -> Swift.Int
+  @discardableResult
+  public func write(from data: Foundation.Data) throws -> Swift.Int
+  @discardableResult
+  public func write(from string: Swift.String) throws -> Swift.Int
+  @discardableResult
+  public func write(from buffer: Swift.UnsafeRawPointer, bufSize: Swift.Int, to address: Socket.Socket.Address) throws -> Swift.Int
+  @discardableResult
+  public func write(from data: Foundation.NSData, to address: Socket.Socket.Address) throws -> Swift.Int
+  @discardableResult
+  public func write(from data: Foundation.Data, to address: Socket.Socket.Address) throws -> Swift.Int
+  @discardableResult
+  public func write(from string: Swift.String, to address: Socket.Socket.Address) throws -> Swift.Int
+  public func isReadableOrWritable(waitForever: Swift.Bool = false, timeout: Swift.UInt = 0) throws -> (readable: Swift.Bool, writable: Swift.Bool)
+  public func setBlocking(mode shouldBlock: Swift.Bool) throws
+  public func setReadTimeout(value: Swift.UInt = 0) throws
+  public func setWriteTimeout(value: Swift.UInt = 0) throws
+  public func udpBroadcast(enable: Swift.Bool) throws
+}
+public protocol SocketReader {
+  func readString() throws -> Swift.String?
+  func read(into data: inout Foundation.Data) throws -> Swift.Int
+  func read(into data: Foundation.NSMutableData) throws -> Swift.Int
+}
+public protocol SocketWriter {
+  @discardableResult
+  func write(from data: Foundation.Data) throws -> Swift.Int
+  @discardableResult
+  func write(from data: Foundation.NSData) throws -> Swift.Int
+  @discardableResult
+  func write(from string: Swift.String) throws -> Swift.Int
+}
+public protocol SSLServiceDelegate {
+  func initialize(asServer: Swift.Bool) throws
+  func deinitialize()
+  func onAccept(socket: Socket.Socket) throws
+  func onConnect(socket: Socket.Socket) throws
+  func send(buffer: Swift.UnsafeRawPointer, bufSize: Swift.Int) throws -> Swift.Int
+  func recv(buffer: Swift.UnsafeMutableRawPointer, bufSize: Swift.Int) throws -> Swift.Int
+}
+public enum SSLError : Swift.Error, Swift.CustomStringConvertible {
+  case success
+  case retryNeeded
+  case fail(Swift.Int, Swift.String)
+  public var errCode: Swift.Int {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+}
+extension Darwin.fd_set {
+  public mutating func zero()
+  public mutating func set(_ fd: Swift.Int32)
+  public mutating func clear(_ fd: Swift.Int32)
+  public mutating func isSet(_ fd: Swift.Int32) -> Swift.Bool
+}
+extension Socket.Socket.ProtocolFamily : Swift.Equatable {}
+extension Socket.Socket.ProtocolFamily : Swift.Hashable {}
+extension Socket.Socket.SocketType : Swift.Equatable {}
+extension Socket.Socket.SocketType : Swift.Hashable {}
+extension Socket.Socket.SocketProtocol : Swift.Equatable {}
+extension Socket.Socket.SocketProtocol : Swift.Hashable {}
+extension Socket.Socket.SocketProtocol : Swift.RawRepresentable {}
