@@ -11,21 +11,30 @@ The embedded framework version of the Speedchecker Speed Test supports its own A
 - detailed statistics and reports by Speedchecker
 
 ## Requirements
-  - Xcode 11.6 or later
+  - Xcode 13.3.1 or later
   - Swift 5
-  - Development Target 12.1 or later
+  - Development Target 11.0 or later
 
 ## Installation
-1. Place the SpeedcheckerSDK.xcframework and all other frameworks from SDK folder into your Xcode project. We recommend you to copy it rather than to reference from an other location.
-2. In your application target, go to General tab, section Frameworks, Libraries, and Embedded Content, and set "Embed & Sign" for all added frameworks.
-3. Go to Build Phases tab and recheck it’s added in Link Binary With Libraries and also in the Embedded Frameworks section.
-4. Now the SpeedcheckerSDK framework should be importable to your code.
-	#### Swift
-    ```swift
-    import SpeedcheckerSDK
-    ```
-    
-5. You can download our [sample app](https://github.com/speedchecker/speedchecker-sdk-ios/tree/master/Sample%20in%20Swift) to get better understanding how it works or review [API documentation](https://github.com/speedchecker/speedchecker-sdk-ios/wiki/API-documentation)
+
+### Swift Package Manager
+
+1. File > Add Packages...
+2. Add `https://github.com/speedchecker/speedchecker-sdk-ios`
+3. Select "Up to Next Major" with "1.5.61"
+
+### Manually
+
+1. Place the `SpeedcheckerSDK.xcframework` and all other frameworks from [Framework folder](https://github.com/speedchecker/speedchecker-sdk-ios/tree/master/Framework) into your Xcode project. We recommend you to copy it rather than to reference from an other location.
+2. In your application target, go to the _General tab_, section _Frameworks, Libraries, and Embedded Content_, and set "Embed & Sign" for all added frameworks.
+3. Go to _Build Phases_ tab and recheck it’s added in _Link Binary With Libraries_ and also in the _Embedded Frameworks_ section.
+
+ Now the SpeedcheckerSDK framework should be importable to your code.
+#### Swift
+```swift
+import SpeedcheckerSDK
+```    
+You can download our [Sample App](https://github.com/speedchecker/speedchecker-sdk-ios/tree/master/Sample%20in%20Swift) to get better understanding how it works or review [API documentation](https://github.com/speedchecker/speedchecker-sdk-ios/wiki/API-documentation)
 
 ## Licence 
 SpeedChecker is offering different types of licences
