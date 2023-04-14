@@ -225,6 +225,7 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 @interface BackgroundTest : NSObject
 - (nonnull instancetype)initWithClientID:(NSInteger)clientID url:(NSString * _Nullable)url testsEnabled:(BOOL)testsEnabled OBJC_DESIGNATED_INITIALIZER;
 - (void)setBackgroundNetworkTestingWithTestsEnabled:(BOOL)testsEnabled;
+- (BOOL)getBackgroundNetworkTestingEnabled SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareLocationManagerWithLocationManager:(CLLocationManager * _Nullable)locationManager;
 - (void)applicationDidEnterBackgroundWithLocationManager:(CLLocationManager * _Nullable)locationManager;
 - (void)applicationDidBecomeActiveWithLocationManager:(CLLocationManager * _Nullable)locationManager;
@@ -233,10 +234,10 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 @end
 
 
+
 @interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
 - (void)loadConfigWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions completion:(void (^ _Nonnull)(BOOL))completion;
 @end
-
 
 @class CLLocation;
 
@@ -245,18 +246,18 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 - (void)didUpdateLocationsWithManager:(CLLocationManager * _Nonnull)manager locations:(NSArray<CLLocation *> * _Nonnull)locations;
 @end
 
+
+SWIFT_AVAILABILITY(ios,introduced=13)
+@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+- (void)registerBGTask:(CLLocationManager * _Nullable)locationManager;
+@end
+
 @class UIViewController;
 @class UIView;
 
 @interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
 + (NSArray<NSString *> * _Nonnull)getLogs SWIFT_WARN_UNUSED_RESULT;
 + (void)shareLogsFromViewController:(UIViewController * _Nonnull)viewController presentationSourceView:(UIView * _Nonnull)sourceView;
-@end
-
-
-SWIFT_AVAILABILITY(ios,introduced=13)
-@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
-- (void)registerBGTask:(CLLocationManager * _Nullable)locationManager;
 @end
 
 
@@ -319,7 +320,7 @@ SWIFT_CLASS_NAMED("InternetSpeedTest")
 /// The function starts a new speed test process.
 - (void)start:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
 /// The function starts a free test if geolocation is enabled
-- (void)startTest:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
+- (void)startTest:(void (^ _Nonnull)(enum SpeedTestError))completion;
 /// The function finishes the current speed test process.
 - (void)forceFinish:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
 - (SpeedTestNetwork * _Nonnull)currentNetwork SWIFT_WARN_UNUSED_RESULT;
@@ -340,6 +341,24 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull cust
 + (void)bgTestAbilityWithCompletion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL, BOOL, BOOL, BOOL, BOOL))completion;
 @end
 
+
+
+SWIFT_CLASS("_TtC15SpeedcheckerSDK16SCLocationHelper")
+@interface SCLocationHelper : NSObject
+- (BOOL)isPermisionStatusDetermined SWIFT_WARN_UNUSED_RESULT;
+/// Check if location services are enabled
+- (BOOL)locationServicesEnabled SWIFT_WARN_UNUSED_RESULT;
+/// Check if location services are enabled, use background thread so UI is not blocked.
+- (void)locationServicesEnabled:(void (^ _Nonnull)(BOOL))completion;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+@interface SCLocationHelper (SWIFT_EXTENSION(SpeedcheckerSDK)) <CLLocationManagerDelegate>
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
+@end
 
 /// The set of possible errors occur in the <code>InternetSpeedTest</code> object.
 typedef SWIFT_ENUM_NAMED(NSInteger, SpeedTestError, "SpeedTestError", open) {
@@ -394,6 +413,10 @@ SWIFT_CLASS_NAMED("SpeedTestResult")
 @property (nonatomic, readonly, copy) NSString * _Nullable ispName;
 @property (nonatomic, readonly, copy) NSDate * _Nullable date;
 @property (nonatomic, copy) NSString * _Nullable userCityName;
+/// Data transferred during download. In MB (megabytes).
+@property (nonatomic, readonly) double downloadTransferredMb;
+/// Data transferred during upload. In MB (megabytes).
+@property (nonatomic, readonly) double uploadTransferredMb;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -675,6 +698,7 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 @interface BackgroundTest : NSObject
 - (nonnull instancetype)initWithClientID:(NSInteger)clientID url:(NSString * _Nullable)url testsEnabled:(BOOL)testsEnabled OBJC_DESIGNATED_INITIALIZER;
 - (void)setBackgroundNetworkTestingWithTestsEnabled:(BOOL)testsEnabled;
+- (BOOL)getBackgroundNetworkTestingEnabled SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareLocationManagerWithLocationManager:(CLLocationManager * _Nullable)locationManager;
 - (void)applicationDidEnterBackgroundWithLocationManager:(CLLocationManager * _Nullable)locationManager;
 - (void)applicationDidBecomeActiveWithLocationManager:(CLLocationManager * _Nullable)locationManager;
@@ -683,10 +707,10 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 @end
 
 
+
 @interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
 - (void)loadConfigWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions completion:(void (^ _Nonnull)(BOOL))completion;
 @end
-
 
 @class CLLocation;
 
@@ -695,18 +719,18 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 - (void)didUpdateLocationsWithManager:(CLLocationManager * _Nonnull)manager locations:(NSArray<CLLocation *> * _Nonnull)locations;
 @end
 
+
+SWIFT_AVAILABILITY(ios,introduced=13)
+@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+- (void)registerBGTask:(CLLocationManager * _Nullable)locationManager;
+@end
+
 @class UIViewController;
 @class UIView;
 
 @interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
 + (NSArray<NSString *> * _Nonnull)getLogs SWIFT_WARN_UNUSED_RESULT;
 + (void)shareLogsFromViewController:(UIViewController * _Nonnull)viewController presentationSourceView:(UIView * _Nonnull)sourceView;
-@end
-
-
-SWIFT_AVAILABILITY(ios,introduced=13)
-@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
-- (void)registerBGTask:(CLLocationManager * _Nullable)locationManager;
 @end
 
 
@@ -769,7 +793,7 @@ SWIFT_CLASS_NAMED("InternetSpeedTest")
 /// The function starts a new speed test process.
 - (void)start:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
 /// The function starts a free test if geolocation is enabled
-- (void)startTest:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
+- (void)startTest:(void (^ _Nonnull)(enum SpeedTestError))completion;
 /// The function finishes the current speed test process.
 - (void)forceFinish:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
 - (SpeedTestNetwork * _Nonnull)currentNetwork SWIFT_WARN_UNUSED_RESULT;
@@ -790,6 +814,24 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull cust
 + (void)bgTestAbilityWithCompletion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL, BOOL, BOOL, BOOL, BOOL))completion;
 @end
 
+
+
+SWIFT_CLASS("_TtC15SpeedcheckerSDK16SCLocationHelper")
+@interface SCLocationHelper : NSObject
+- (BOOL)isPermisionStatusDetermined SWIFT_WARN_UNUSED_RESULT;
+/// Check if location services are enabled
+- (BOOL)locationServicesEnabled SWIFT_WARN_UNUSED_RESULT;
+/// Check if location services are enabled, use background thread so UI is not blocked.
+- (void)locationServicesEnabled:(void (^ _Nonnull)(BOOL))completion;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+@interface SCLocationHelper (SWIFT_EXTENSION(SpeedcheckerSDK)) <CLLocationManagerDelegate>
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
+@end
 
 /// The set of possible errors occur in the <code>InternetSpeedTest</code> object.
 typedef SWIFT_ENUM_NAMED(NSInteger, SpeedTestError, "SpeedTestError", open) {
@@ -844,6 +886,10 @@ SWIFT_CLASS_NAMED("SpeedTestResult")
 @property (nonatomic, readonly, copy) NSString * _Nullable ispName;
 @property (nonatomic, readonly, copy) NSDate * _Nullable date;
 @property (nonatomic, copy) NSString * _Nullable userCityName;
+/// Data transferred during download. In MB (megabytes).
+@property (nonatomic, readonly) double downloadTransferredMb;
+/// Data transferred during upload. In MB (megabytes).
+@property (nonatomic, readonly) double uploadTransferredMb;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
