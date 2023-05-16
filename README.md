@@ -60,7 +60,7 @@ SpeedChecker is offering different types of licences
 | Required data sharing | - | - |
 | - | Custom measurement servers | Custom measurement servers |
 | - | - | Background data collection |
-| Cost: FREE | Cost: 1,200 EUR per app per year | Cost: [Enquire](https://www.speedchecker.com/contact-us.html) |
+| Cost: FREE | Cost: [Enquire](https://www.speedchecker.com/contact-us.html) | Cost: [Enquire](https://www.speedchecker.com/contact-us.html) |
 
 ## FAQ
 
