@@ -16,14 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.requestAlwaysAuthorization()
-            locationManager.startUpdatingLocation()
-        }
-        
+        requestLocationAuthorization()
     }
 
     @IBAction func runSpeedTestTouched(_ sender: UIButton) {
@@ -42,6 +35,19 @@ class ViewController: UIViewController {
 //              print(error)
 //          }
 //        }
+    }
+    
+    func requestLocationAuthorization() {
+        DispatchQueue.global().async {
+            guard CLLocationManager.locationServicesEnabled() else {
+                return
+            }
+            DispatchQueue.main.async { [weak self] in
+                self?.locationManager.delegate = self
+                self?.locationManager.requestWhenInUseAuthorization()
+                self?.locationManager.requestAlwaysAuthorization()
+            }
+        }
     }
     
 }

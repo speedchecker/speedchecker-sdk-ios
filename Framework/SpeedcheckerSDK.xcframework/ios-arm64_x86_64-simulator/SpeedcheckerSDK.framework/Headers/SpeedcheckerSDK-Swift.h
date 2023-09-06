@@ -223,27 +223,35 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS_NAMED("BackgroundTest")
 @interface BackgroundTest : NSObject
+/// Initiate BackgroundTest
+/// \param clientID Int id value
+///
+/// \param url Value used for background test configuration
+///
+/// \param testsEnabled value which tells if test is enabled on init
+///
 - (nonnull instancetype)initWithClientID:(NSInteger)clientID url:(NSString * _Nullable)url testsEnabled:(BOOL)testsEnabled OBJC_DESIGNATED_INITIALIZER;
 - (void)setBackgroundNetworkTestingWithTestsEnabled:(BOOL)testsEnabled;
 - (BOOL)getBackgroundNetworkTestingEnabled SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareLocationManagerWithLocationManager:(CLLocationManager * _Nullable)locationManager;
-- (void)applicationDidEnterBackgroundWithLocationManager:(CLLocationManager * _Nullable)locationManager;
-- (void)applicationDidBecomeActiveWithLocationManager:(CLLocationManager * _Nullable)locationManager;
+- (void)applicationDidEnterBackgroundWithLocationManager:(CLLocationManager * _Nullable)locationManager SWIFT_UNAVAILABLE_MSG("Function has been removed, there is no longer needed to use it.");
+- (void)applicationDidBecomeActiveWithLocationManager:(CLLocationManager * _Nullable)locationManager SWIFT_UNAVAILABLE_MSG("Function has been removed, there is no longer needed to use it.");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
 
-@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
-- (void)loadConfigWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions completion:(void (^ _Nonnull)(BOOL))completion;
-@end
-
 @class CLLocation;
 
 @interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
 - (void)didChangeAuthorizationWithManager:(CLLocationManager * _Nonnull)manager status:(CLAuthorizationStatus)status;
 - (void)didUpdateLocationsWithManager:(CLLocationManager * _Nonnull)manager locations:(NSArray<CLLocation *> * _Nonnull)locations;
+@end
+
+
+@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+- (void)loadConfigWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions completion:(void (^ _Nonnull)(BOOL))completion;
 @end
 
 
@@ -298,17 +306,6 @@ SWIFT_PROTOCOL_NAMED("InternetSpeedTestDelegate")
 @end
 
 
-@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
-- (void)runWithLocation:(CLLocation * _Nonnull)location completion:(void (^ _Nonnull)(BOOL))completion;
-@end
-
-
-SWIFT_CLASS("_TtC15SpeedcheckerSDK8HTTPPing")
-@interface HTTPPing : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 @class SpeedTestNetwork;
 
 /// The controller manages the speed test process. See also <code>InternetSpeedTestDelegate</code>
@@ -332,6 +329,13 @@ SWIFT_CLASS_NAMED("InternetSpeedTest")
 
 
 @interface InternetSpeedTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL debugLogsEnabled;)
++ (BOOL)debugLogsEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setDebugLogsEnabled:(BOOL)value;
+@end
+
+
+@interface InternetSpeedTest (SWIFT_EXTENSION(SpeedcheckerSDK))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull customerId;)
 + (NSString * _Nonnull)customerId SWIFT_WARN_UNUSED_RESULT;
 + (void)setCustomerId:(NSString * _Nonnull)newValue;
@@ -346,9 +350,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull cust
 SWIFT_CLASS("_TtC15SpeedcheckerSDK16SCLocationHelper")
 @interface SCLocationHelper : NSObject
 - (BOOL)isPermisionStatusDetermined SWIFT_WARN_UNUSED_RESULT;
-/// Check if location services are enabled
+/// Check if location services are enabled. Will check if the location is enabled for this app and also globaly on device.
 - (BOOL)locationServicesEnabled SWIFT_WARN_UNUSED_RESULT;
-/// Check if location services are enabled, use background thread so UI is not blocked.
+/// Check if location services are enabled, use background thread so UI is not blocked.  Will check if the location is enabled for this app and also globaly on device.
 - (void)locationServicesEnabled:(void (^ _Nonnull)(BOOL))completion;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -358,6 +362,20 @@ SWIFT_CLASS("_TtC15SpeedcheckerSDK16SCLocationHelper")
 @interface SCLocationHelper (SWIFT_EXTENSION(SpeedcheckerSDK)) <CLLocationManagerDelegate>
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
+@end
+
+
+/// This model holds an information about the packets loss during speed test.
+SWIFT_CLASS("_TtC15SpeedcheckerSDK12SCPacketLoss")
+@interface SCPacketLoss : NSObject
+/// Percentage of packets lost in download direction. Values: 0-100.
+@property (nonatomic, readonly) double packetLossDownload;
+/// Percentage of packets lost in upload direction. Values: 0-100.
+@property (nonatomic, readonly) double packetLossUpload;
+/// Percentage of packets lost. Average of packetLossDownload and packetLossUpload. Values: 0-100.
+@property (nonatomic, readonly) double packetLoss;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 /// The set of possible errors occur in the <code>InternetSpeedTest</code> object.
@@ -396,6 +414,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SpeedTestNetworkType, "SpeedTestNetworkType"
   SpeedTestNetworkTypeCellular = 2,
 };
 
+@class NSNumber;
 @class NSDate;
 
 SWIFT_CLASS_NAMED("SpeedTestResult")
@@ -409,6 +428,10 @@ SWIFT_CLASS_NAMED("SpeedTestResult")
 @property (nonatomic, readonly, strong) SpeedTestSpeed * _Nonnull uploadSpeed;
 /// Amount of time in milliseconds between starting download test and receiving 1’st byte of data from the server
 @property (nonatomic, readonly) NSInteger timeToFirstByteMs;
+/// Packet loss percentage measured during speed test. Floating point value from 0 to 100.
+@property (nonatomic, readonly, strong) NSNumber * _Nullable packetLossPercentage SWIFT_UNAVAILABLE_MSG("Please use `packetLoss` property which provides more details about packets lost");
+/// Packet loss measured during speed test.
+@property (nonatomic, readonly, strong) SCPacketLoss * _Nullable packetLoss;
 @property (nonatomic, readonly, copy) NSString * _Nullable ipAddress;
 @property (nonatomic, readonly, copy) NSString * _Nullable ispName;
 @property (nonatomic, readonly, copy) NSDate * _Nullable date;
@@ -696,27 +719,35 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS_NAMED("BackgroundTest")
 @interface BackgroundTest : NSObject
+/// Initiate BackgroundTest
+/// \param clientID Int id value
+///
+/// \param url Value used for background test configuration
+///
+/// \param testsEnabled value which tells if test is enabled on init
+///
 - (nonnull instancetype)initWithClientID:(NSInteger)clientID url:(NSString * _Nullable)url testsEnabled:(BOOL)testsEnabled OBJC_DESIGNATED_INITIALIZER;
 - (void)setBackgroundNetworkTestingWithTestsEnabled:(BOOL)testsEnabled;
 - (BOOL)getBackgroundNetworkTestingEnabled SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareLocationManagerWithLocationManager:(CLLocationManager * _Nullable)locationManager;
-- (void)applicationDidEnterBackgroundWithLocationManager:(CLLocationManager * _Nullable)locationManager;
-- (void)applicationDidBecomeActiveWithLocationManager:(CLLocationManager * _Nullable)locationManager;
+- (void)applicationDidEnterBackgroundWithLocationManager:(CLLocationManager * _Nullable)locationManager SWIFT_UNAVAILABLE_MSG("Function has been removed, there is no longer needed to use it.");
+- (void)applicationDidBecomeActiveWithLocationManager:(CLLocationManager * _Nullable)locationManager SWIFT_UNAVAILABLE_MSG("Function has been removed, there is no longer needed to use it.");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
 
-@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
-- (void)loadConfigWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions completion:(void (^ _Nonnull)(BOOL))completion;
-@end
-
 @class CLLocation;
 
 @interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
 - (void)didChangeAuthorizationWithManager:(CLLocationManager * _Nonnull)manager status:(CLAuthorizationStatus)status;
 - (void)didUpdateLocationsWithManager:(CLLocationManager * _Nonnull)manager locations:(NSArray<CLLocation *> * _Nonnull)locations;
+@end
+
+
+@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+- (void)loadConfigWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions completion:(void (^ _Nonnull)(BOOL))completion;
 @end
 
 
@@ -771,17 +802,6 @@ SWIFT_PROTOCOL_NAMED("InternetSpeedTestDelegate")
 @end
 
 
-@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
-- (void)runWithLocation:(CLLocation * _Nonnull)location completion:(void (^ _Nonnull)(BOOL))completion;
-@end
-
-
-SWIFT_CLASS("_TtC15SpeedcheckerSDK8HTTPPing")
-@interface HTTPPing : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 @class SpeedTestNetwork;
 
 /// The controller manages the speed test process. See also <code>InternetSpeedTestDelegate</code>
@@ -805,6 +825,13 @@ SWIFT_CLASS_NAMED("InternetSpeedTest")
 
 
 @interface InternetSpeedTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL debugLogsEnabled;)
++ (BOOL)debugLogsEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setDebugLogsEnabled:(BOOL)value;
+@end
+
+
+@interface InternetSpeedTest (SWIFT_EXTENSION(SpeedcheckerSDK))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull customerId;)
 + (NSString * _Nonnull)customerId SWIFT_WARN_UNUSED_RESULT;
 + (void)setCustomerId:(NSString * _Nonnull)newValue;
@@ -819,9 +846,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull cust
 SWIFT_CLASS("_TtC15SpeedcheckerSDK16SCLocationHelper")
 @interface SCLocationHelper : NSObject
 - (BOOL)isPermisionStatusDetermined SWIFT_WARN_UNUSED_RESULT;
-/// Check if location services are enabled
+/// Check if location services are enabled. Will check if the location is enabled for this app and also globaly on device.
 - (BOOL)locationServicesEnabled SWIFT_WARN_UNUSED_RESULT;
-/// Check if location services are enabled, use background thread so UI is not blocked.
+/// Check if location services are enabled, use background thread so UI is not blocked.  Will check if the location is enabled for this app and also globaly on device.
 - (void)locationServicesEnabled:(void (^ _Nonnull)(BOOL))completion;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -831,6 +858,20 @@ SWIFT_CLASS("_TtC15SpeedcheckerSDK16SCLocationHelper")
 @interface SCLocationHelper (SWIFT_EXTENSION(SpeedcheckerSDK)) <CLLocationManagerDelegate>
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
+@end
+
+
+/// This model holds an information about the packets loss during speed test.
+SWIFT_CLASS("_TtC15SpeedcheckerSDK12SCPacketLoss")
+@interface SCPacketLoss : NSObject
+/// Percentage of packets lost in download direction. Values: 0-100.
+@property (nonatomic, readonly) double packetLossDownload;
+/// Percentage of packets lost in upload direction. Values: 0-100.
+@property (nonatomic, readonly) double packetLossUpload;
+/// Percentage of packets lost. Average of packetLossDownload and packetLossUpload. Values: 0-100.
+@property (nonatomic, readonly) double packetLoss;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 /// The set of possible errors occur in the <code>InternetSpeedTest</code> object.
@@ -869,6 +910,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SpeedTestNetworkType, "SpeedTestNetworkType"
   SpeedTestNetworkTypeCellular = 2,
 };
 
+@class NSNumber;
 @class NSDate;
 
 SWIFT_CLASS_NAMED("SpeedTestResult")
@@ -882,6 +924,10 @@ SWIFT_CLASS_NAMED("SpeedTestResult")
 @property (nonatomic, readonly, strong) SpeedTestSpeed * _Nonnull uploadSpeed;
 /// Amount of time in milliseconds between starting download test and receiving 1’st byte of data from the server
 @property (nonatomic, readonly) NSInteger timeToFirstByteMs;
+/// Packet loss percentage measured during speed test. Floating point value from 0 to 100.
+@property (nonatomic, readonly, strong) NSNumber * _Nullable packetLossPercentage SWIFT_UNAVAILABLE_MSG("Please use `packetLoss` property which provides more details about packets lost");
+/// Packet loss measured during speed test.
+@property (nonatomic, readonly, strong) SCPacketLoss * _Nullable packetLoss;
 @property (nonatomic, readonly, copy) NSString * _Nullable ipAddress;
 @property (nonatomic, readonly, copy) NSString * _Nullable ispName;
 @property (nonatomic, readonly, copy) NSDate * _Nullable date;

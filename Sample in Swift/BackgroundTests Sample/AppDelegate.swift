@@ -37,15 +37,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Register BGProcessingTask
         backgroundTest?.registerBGTask(locationManager)
         
+        // For demo purpose here we request both when-in-use and always location permissions
+        // You can ask user for permissions in a place that you find most appropriate regarding your app UI
+        requestLocationPermissions()
+        
         return true
     }
     
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        backgroundTest?.applicationDidEnterBackground(locationManager: locationManager)
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        backgroundTest?.applicationDidBecomeActive(locationManager: locationManager)
+    // MARK: - Helpers
+    private func requestLocationPermissions() {
+        DispatchQueue.global().async {
+            guard CLLocationManager.locationServicesEnabled() else {
+                return
+            }
+            DispatchQueue.main.async { [weak self] in
+                self?.locationManager?.requestWhenInUseAuthorization()
+                self?.locationManager?.requestAlwaysAuthorization()
+            }
+        }
     }
 }
 
