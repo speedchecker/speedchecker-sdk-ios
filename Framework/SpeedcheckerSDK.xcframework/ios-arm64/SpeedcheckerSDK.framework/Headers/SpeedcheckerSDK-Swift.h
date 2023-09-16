@@ -252,18 +252,18 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 - (void)loadConfigWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions completion:(void (^ _Nonnull)(BOOL))completion;
 @end
 
-
-SWIFT_AVAILABILITY(ios,introduced=13)
-@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
-- (void)registerBGTask:(CLLocationManager * _Nullable)locationManager;
-@end
-
 @class UIViewController;
 @class UIView;
 
 @interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
 + (NSArray<NSString *> * _Nonnull)getLogs SWIFT_WARN_UNUSED_RESULT;
 + (void)shareLogsFromViewController:(UIViewController * _Nonnull)viewController presentationSourceView:(UIView * _Nonnull)sourceView;
+@end
+
+
+SWIFT_AVAILABILITY(ios,introduced=13)
+@interface BackgroundTest (SWIFT_EXTENSION(SpeedcheckerSDK))
+- (void)registerBGTask:(CLLocationManager * _Nullable)locationManager;
 @end
 
 
@@ -376,6 +376,12 @@ SWIFT_CLASS("_TtC15SpeedcheckerSDK12SCPacketLoss")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+/// The model holds a physical server information.
+typedef SWIFT_ENUM(NSInteger, SCServerType, open) {
+  SCServerTypeSpeedchecker = 0,
+  SCServerTypeOokla = 1,
+};
+
 /// The set of possible errors occur in the <code>InternetSpeedTest</code> object.
 typedef SWIFT_ENUM_NAMED(NSInteger, SpeedTestError, "SpeedTestError", open) {
   SpeedTestErrorOk = 0,
@@ -412,7 +418,6 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SpeedTestNetworkType, "SpeedTestNetworkType"
   SpeedTestNetworkTypeCellular = 2,
 };
 
-@class NSNumber;
 @class NSDate;
 
 SWIFT_CLASS_NAMED("SpeedTestResult")
@@ -426,8 +431,6 @@ SWIFT_CLASS_NAMED("SpeedTestResult")
 @property (nonatomic, readonly, strong) SpeedTestSpeed * _Nonnull uploadSpeed;
 /// Amount of time in milliseconds between starting download test and receiving 1’st byte of data from the server
 @property (nonatomic, readonly) NSInteger timeToFirstByteMs;
-/// Packet loss percentage measured during speed test. Floating point value from 0 to 100.
-@property (nonatomic, readonly, strong) NSNumber * _Nullable packetLossPercentage SWIFT_UNAVAILABLE_MSG("Please use `packetLoss` property which provides more details about packets lost");
 /// Packet loss measured during speed test.
 @property (nonatomic, readonly, strong) SCPacketLoss * _Nullable packetLoss;
 @property (nonatomic, readonly, copy) NSString * _Nullable ipAddress;
@@ -453,15 +456,21 @@ SWIFT_CLASS_NAMED("SpeedTestResult")
 @property (nonatomic, readonly, copy) NSString * _Nonnull cellMNC;
 @end
 
+@class NSNumber;
 
 /// The model holds a physical server information.
 SWIFT_CLASS_NAMED("SpeedTestServer")
 @interface SpeedTestServer : NSObject
+@property (nonatomic, readonly) enum SCServerType type;
 @property (nonatomic, readonly, copy) NSString * _Nullable scheme;
 @property (nonatomic, readonly, copy) NSString * _Nullable domain;
+@property (nonatomic, readonly, copy) NSString * _Nullable downloadFolderPath;
+@property (nonatomic, readonly, copy) NSString * _Nullable uploadFolderPath;
+@property (nonatomic, readonly, copy) NSString * _Nullable uploadScript;
 @property (nonatomic, readonly, copy) NSString * _Nullable countryCode;
 @property (nonatomic, readonly, copy) NSString * _Nullable cityName;
 @property (nonatomic, readonly, copy) NSString * _Nullable country;
+- (nonnull instancetype)initWithID:(NSNumber * _Nullable)ID type:(enum SCServerType)type scheme:(NSString * _Nullable)scheme domain:(NSString * _Nullable)domain port:(NSNumber * _Nullable)port downloadFolderPath:(NSString * _Nullable)downloadFolderPath uploadFolderPath:(NSString * _Nullable)uploadFolderPath uploadScript:(NSString * _Nullable)uploadScript countryCode:(NSString * _Nullable)countryCode cityName:(NSString * _Nullable)cityName;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

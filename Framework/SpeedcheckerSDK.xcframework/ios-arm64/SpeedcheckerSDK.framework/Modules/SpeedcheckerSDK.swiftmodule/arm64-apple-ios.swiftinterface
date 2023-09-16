@@ -398,12 +398,12 @@ public struct SCLocation {
 extension SpeedcheckerSDK.BackgroundTest {
   @objc dynamic public func loadConfig(launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]?, completion: @escaping (Swift.Bool) -> Swift.Void)
 }
-public enum SCServerType {
+@objc public enum SCServerType : Swift.Int {
   case speedchecker
   case ookla
-  public static func == (a: SpeedcheckerSDK.SCServerType, b: SpeedcheckerSDK.SCServerType) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
     get
   }
 }
@@ -522,8 +522,6 @@ public enum SCTestStatus {
   @objc final public let downloadSpeed: SpeedcheckerSDK.SpeedTestSpeed
   @objc final public let uploadSpeed: SpeedcheckerSDK.SpeedTestSpeed
   @objc final public let timeToFirstByteMs: Swift.Int
-  @available(*, unavailable, message: "Please use `packetLoss` property which provides more details about packets lost")
-  @objc final public let packetLossPercentage: Foundation.NSNumber?
   @objc final public let packetLoss: SpeedcheckerSDK.SCPacketLoss?
   @objc final public let ipAddress: Swift.String?
   @objc final public let ispName: Swift.String?
@@ -559,19 +557,20 @@ extension SpeedcheckerSDK.SpeedTestResult {
 }
 @objc(SpeedTestServer) public class SpeedTestServer : ObjectiveC.NSObject {
   final public let ID: Swift.Int?
-  final public let type: SpeedcheckerSDK.SCServerType
+  @objc final public let type: SpeedcheckerSDK.SCServerType
   @objc final public let scheme: Swift.String?
   @objc final public let domain: Swift.String?
   final public let port: Swift.Int?
-  final public let downloadFolderPath: Swift.String?
-  final public let uploadFolderPath: Swift.String?
-  final public let uploadScript: Swift.String?
+  @objc final public let downloadFolderPath: Swift.String?
+  @objc final public let uploadFolderPath: Swift.String?
+  @objc final public let uploadScript: Swift.String?
   @objc final public let countryCode: Swift.String?
   @objc final public let cityName: Swift.String?
   @objc public var country: Swift.String? {
     @objc get
   }
   public init(ID: Swift.Int?, type: SpeedcheckerSDK.SCServerType = .speedchecker, scheme: Swift.String?, domain: Swift.String?, port: Swift.Int? = nil, downloadFolderPath: Swift.String? = nil, uploadFolderPath: Swift.String? = nil, uploadScript: Swift.String? = nil, countryCode: Swift.String?, cityName: Swift.String?)
+  @objc convenience public init(ID: Foundation.NSNumber?, type: SpeedcheckerSDK.SCServerType, scheme: Swift.String?, domain: Swift.String?, port: Foundation.NSNumber?, downloadFolderPath: Swift.String?, uploadFolderPath: Swift.String?, uploadScript: Swift.String?, countryCode: Swift.String?, cityName: Swift.String?)
   @objc deinit
 }
 @objc(SpeedTestSpeed) public class SpeedTestSpeed : ObjectiveC.NSObject {
@@ -927,6 +926,7 @@ extension SpeedcheckerSDK.SCLatencySpeedType : Swift.Hashable {}
 extension SpeedcheckerSDK.SCLatencySpeed : Swift.Equatable {}
 extension SpeedcheckerSDK.SCServerType : Swift.Equatable {}
 extension SpeedcheckerSDK.SCServerType : Swift.Hashable {}
+extension SpeedcheckerSDK.SCServerType : Swift.RawRepresentable {}
 extension SpeedcheckerSDK.SCTestStatus : Swift.Equatable {}
 extension SpeedcheckerSDK.SCTestStatus : Swift.Hashable {}
 extension SpeedcheckerSDK.SpeedTestError : Swift.Equatable {}
