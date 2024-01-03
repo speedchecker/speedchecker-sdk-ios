@@ -222,13 +222,13 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS_NAMED("BackgroundTest")
 @interface BackgroundTest : NSObject
 /// Initiate BackgroundTest
-/// \param clientID Int id value
+/// \param licenseKey Used to enable paid functionality
 ///
 /// \param url Value used for background test configuration
 ///
 /// \param testsEnabled value which tells if test is enabled on init
 ///
-- (nonnull instancetype)initWithClientID:(NSInteger)clientID url:(NSString * _Nullable)url testsEnabled:(BOOL)testsEnabled OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLicenseKey:(NSString * _Nullable)licenseKey url:(NSString * _Nullable)url testsEnabled:(BOOL)testsEnabled OBJC_DESIGNATED_INITIALIZER;
 - (void)setBackgroundNetworkTestingWithTestsEnabled:(BOOL)testsEnabled;
 - (BOOL)getBackgroundNetworkTestingEnabled SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareLocationManagerWithLocationManager:(CLLocationManager * _Nullable)locationManager;
@@ -237,6 +237,7 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 
@@ -309,13 +310,15 @@ SWIFT_PROTOCOL_NAMED("InternetSpeedTestDelegate")
 /// The controller manages the speed test process. See also <code>InternetSpeedTestDelegate</code>
 SWIFT_CLASS_NAMED("InternetSpeedTest")
 @interface InternetSpeedTest : NSObject
-- (nonnull instancetype)initWithClientID:(NSInteger)clientID userID:(NSInteger)userID isBackground:(BOOL)isBackground delegate:(id <InternetSpeedTestDelegate> _Nonnull)delegate OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLicenseKey:(NSString * _Nullable)licenseKey delegate:(id <InternetSpeedTestDelegate> _Nonnull)delegate;
 /// The function starts a new speed test process. Optinally with a specified list of servers.
 - (void)start:(NSArray<SpeedTestServer *> * _Nonnull)servers completion:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
 /// The function starts a new speed test process.
 - (void)start:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
 /// The function starts a free test if geolocation is enabled
-- (void)startTest:(void (^ _Nonnull)(enum SpeedTestError))completion;
+- (void)startTest:(void (^ _Nonnull)(enum SpeedTestError))completion SWIFT_UNAVAILABLE_MSG("'startTest' has been renamed to 'startFreeTest:'");
+/// The function starts a free test if geolocation is enabled
+- (void)startFreeTest:(void (^ _Nonnull)(enum SpeedTestError))completion;
 /// The function finishes the current speed test process.
 - (void)forceFinish:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
 - (SpeedTestNetwork * _Nonnull)currentNetwork SWIFT_WARN_UNUSED_RESULT;
@@ -392,6 +395,8 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SpeedTestError, "SpeedTestError", open) {
   SpeedTestErrorNotSaved = 5,
   SpeedTestErrorCancelled = 6,
   SpeedTestErrorLocationUndefined = 7,
+  SpeedTestErrorAppISPMismatch = 8,
+  SpeedTestErrorInvalidlicenseKey = 9,
 };
 
 typedef SWIFT_ENUM_NAMED(NSInteger, SpeedTestLatencyType, "SpeedTestLatencyType", open) {

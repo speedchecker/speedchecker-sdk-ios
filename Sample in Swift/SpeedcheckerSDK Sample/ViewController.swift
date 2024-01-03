@@ -22,17 +22,17 @@ class ViewController: UIViewController {
     @IBAction func runSpeedTestTouched(_ sender: UIButton) {
         // to use free version, your app should have location access
         internetTest = InternetSpeedTest(delegate: self)
-        internetTest?.startTest() { (error) in
+        internetTest?.startFreeTest() { (error) in
             if error != .ok {
-                print(error)
+                print("Error: \(error.rawValue)")
             }
         }
         
         // to use paid version, your app does not need location access
-//        internetTest = InternetSpeedTest(clientID: 0, userID: 0, delegate: self)
+//        internetTest = InternetSpeedTest(licenseKey: "Your license key", delegate: self)
 //        internetTest?.start() { (error) in
 //          if error != .ok {
-//              print(error)
+//              print("Error: \(error.rawValue)")
 //          }
 //        }
     }
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
 
 extension ViewController: InternetSpeedTestDelegate {
     func internetTestError(error: SpeedTestError) {
-        print(error)
+        print("Error: \(error.rawValue)")
     }
     
     func internetTestFinish(result: SpeedTestResult) {
@@ -96,10 +96,7 @@ extension ViewController: InternetSpeedTestDelegate {
     func internetTestUpload(progress: Double, speed: SpeedTestSpeed) {
         print("Upload: \(speed.descriptionInMbps)")
     }
-    
-    
 }
 
 extension ViewController: CLLocationManagerDelegate {
-    
 }

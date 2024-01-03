@@ -17,9 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var locationManager: CLLocationManager? = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Init BackgroundTest with your clientID
+        // Init BackgroundTest with your license key and config URL
         if backgroundTest == nil {
-            backgroundTest = BackgroundTest(clientID: 0)
+            let configURL = "" // use your config URL
+            backgroundTest = BackgroundTest(licenseKey: "Your license key", url: configURL)
         }
         
         // Load your configuration

@@ -22,7 +22,7 @@ public enum ReportCompletionResult {
 public typealias ReportCompletionHandler = (SpeedcheckerReportSDK.ReportCompletionResult) -> Swift.Void
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SpeedcheckerReport : ObjectiveC.NSObject {
   public static let shared: SpeedcheckerReportSDK.SpeedcheckerReport
-  public func initialize()
+  public func initialize(licenseKey: Swift.String)
   public func reportConnectionIssue(type: SpeedcheckerReportSDK.SRIssueType, phoneNumber: Swift.String, comment: Swift.String?, userValue: Swift.String?, completion: @escaping SpeedcheckerReportSDK.ReportCompletionHandler)
   public func speedTest(delegate: SpeedcheckerSDK.InternetSpeedTestDelegate, completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   public func speedTestStop(completion: @escaping (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)

@@ -10,7 +10,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		tsC03dYDK9eD5lP449dhl1cq25k=
+		IYYqfNBm7N0naWACItnY9NbdRjo=
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		qeZxKDaqrX4WEqSmtuUQwUA3/RI=
+		ckIGi+roXJ1ipe7krHJB9ycPWjA=
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		wffMp8JWad4HhjOYC77FbjhVHfU=
+		5mJ+EwWC7qVcck/TxIJ6ryGvyp8=
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		U337XWt77e7eK2CAAPJRm5TINq8=
+		/c4bKnkJkIVIc2ZnCrFDOgM919M=
 		</data>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		oIxvUQ+tT0tnQbw3BsMsbVJEIHk=
+		UNrdkLhT7DeS6y3frOOy6pGSRuE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -61,14 +61,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			A+4n6UQblDNKCYI6vf9q1RmJ12jAEFe9+8m44zIxA30=
+			D+ngdGlNBRsMGGNfQCJTecfLDMW0uQIKaw5erPvqZ/c=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			F78rUyOgpCSX2aqjXvzfR+o4XDqRtcTnxGB5JXI+M50=
+			XeNBuERdNroqiFwY/TE/CRE+DWGJy3krpQCIy3tO6SM=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -82,14 +82,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VJohdWi4qjNmm6uvy49BDhYs1MCE2MIoJTj9UEtDtVM=
+			8p4yk4Og/TGVB/XZHmn9p7JiXLEyDW9DYOrAqEFJbEI=
 			</data>
 		</dict>
 		<key>Modules/SpeedcheckerReportSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kmnU5b1dUMdR2GLAqaEM6EFLzv9TI0RbmGyzGcKOYt8=
+			NovZADcnV5bAbsQWaMmQeXsK/WtY02LbtEyloEQYJXg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

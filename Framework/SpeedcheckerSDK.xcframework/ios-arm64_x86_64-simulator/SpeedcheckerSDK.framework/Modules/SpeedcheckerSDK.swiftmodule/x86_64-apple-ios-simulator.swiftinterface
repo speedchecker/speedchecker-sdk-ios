@@ -3,6 +3,7 @@
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SpeedcheckerSDK
 import BackgroundTasks
 import SystemConfiguration.CaptiveNetwork
+import CommonCrypto
 import CoreLocation
 import CoreTelephony
 import Darwin
@@ -46,7 +47,7 @@ public class SCSignalHelper {
   public func getSignalStrengh() -> (cellStrength: SpeedcheckerSDK.SCIssueSignalMeasurementStrength?, wiFiStrength: SpeedcheckerSDK.SCIssueSignalMeasurementStrength?)
   @objc deinit
 }
-public enum SCError : Swift.Error {
+public enum SCError : Foundation.LocalizedError {
   case invalidSettings
   case invalidEnvironment
   case invalidArgument
@@ -54,6 +55,10 @@ public enum SCError : Swift.Error {
   case requestFailed
   case invalidResponse
   case responseFailed
+  case appISPMismatch
+  public var errorDescription: Swift.String? {
+    get
+  }
   public static func == (a: SpeedcheckerSDK.SCError, b: SpeedcheckerSDK.SCError) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -276,19 +281,19 @@ public enum ConnectionIssue : Swift.Int {
     get
   }
 }
-@objc(InternetSpeedTest) public class InternetSpeedTest : ObjectiveC.NSObject {
-  final public let userID: Swift.Int
-  final public let clientID: Swift.Int
+@_hasMissingDesignatedInitializers @objc(InternetSpeedTest) public class InternetSpeedTest : ObjectiveC.NSObject {
+  final public let licenseKey: Swift.String?
   public var delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?
   public static var testInProgress: Swift.Bool {
     get
   }
-  @objc public init(clientID: Swift.Int = 0, userID: Swift.Int = 0, isBackground: Swift.Bool = false, delegate: SpeedcheckerSDK.InternetSpeedTestDelegate)
-  public init(clientID: Swift.Int = 0, userID: Swift.Int = 0, isBackground: Swift.Bool = false, bgdlTimeMs: Swift.Int? = nil, bgulTimeMs: Swift.Int? = nil, bgskipTimeMs: Swift.Int? = nil, delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?)
+  @objc convenience public init(licenseKey: Swift.String? = nil, delegate: SpeedcheckerSDK.InternetSpeedTestDelegate)
   @objc open func start(_ servers: [SpeedcheckerSDK.SpeedTestServer], completion: (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
   open func start(_ servers: [SpeedcheckerSDK.SCServer], completion: (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
   @objc open func start(_ completion: (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
+  @available(*, unavailable, renamed: "startFreeTest")
   @objc open func startTest(_ completion: @escaping (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
+  @objc open func startFreeTest(_ completion: @escaping (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
   open func startWithOptions(_ options: SpeedcheckerSDK.SpeedTestOptions, _ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   open func startWithOptions(_ options: SpeedcheckerSDK.SpeedTestOptions, servers: [SpeedcheckerSDK.SpeedTestServer], _ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
   public func startWithOptions(_ options: SpeedcheckerSDK.SpeedTestOptions, servers: [SpeedcheckerSDK.SCServer], _ completion: (SpeedcheckerSDK.SpeedTestError?) -> Swift.Void)
@@ -322,9 +327,6 @@ extension SpeedcheckerSDK.InternetSpeedTest {
   @objc func internetTestUploadStart()
   @objc func internetTestUploadFinish()
   @objc func internetTestUpload(progress: Swift.Double, speed: SpeedcheckerSDK.SpeedTestSpeed)
-}
-public struct SCClient {
-  public init(ID: Swift.Int?, applicationHash: Swift.String? = nil, name: Swift.String? = nil)
 }
 @_hasMissingDesignatedInitializers public class SCDataController {
   @objc deinit
@@ -431,7 +433,7 @@ public struct SCServer : Swift.Equatable {
 }
 public func == (lhs: SpeedcheckerSDK.SCServer, rhs: SpeedcheckerSDK.SCServer) -> Swift.Bool
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SCServerDataController : SpeedcheckerSDK.SCDataController {
-  public static func getServers(for client: SpeedcheckerSDK.SCClient? = nil, completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void)
+  public static func getServers(completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void)
   public static func getAllServers(_ completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void)
   public static func getCustomServers(from link: Swift.String, completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void)
   public static func getOoklaServers(_ completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void)
@@ -479,6 +481,8 @@ public enum SCTestStatus {
   case notSaved
   case cancelled
   case locationUndefined
+  case appISPMismatch
+  case invalidlicenseKey
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -668,7 +672,7 @@ public struct SCConfigFileSettings : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
 }
 @objc(BackgroundTest) public class BackgroundTest : ObjectiveC.NSObject {
-  @objc public init(clientID: Swift.Int, url: Swift.String? = nil, testsEnabled: Swift.Bool = true)
+  @objc public init(licenseKey: Swift.String? = nil, url: Swift.String? = nil, testsEnabled: Swift.Bool = true)
   @objc deinit
   @objc public func setBackgroundNetworkTesting(testsEnabled: Swift.Bool)
   @objc public func getBackgroundNetworkTestingEnabled() -> Swift.Bool
