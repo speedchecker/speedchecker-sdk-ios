@@ -26,7 +26,8 @@ public struct SpeedTestOptions {
   public let uploadSampleTimeMs: Swift.Int
   public let additionalThreadsCount: Swift.Int
   public let connectionTimeoutMs: Swift.Int
-  public init(downloadTimeMs: Swift.Int = 10000, uploadTimeMs: Swift.Int = 10000, downloadThreadsCount: Swift.Int? = nil, uploadThreadsCount: Swift.Int? = nil, downloadSampleTimeMs: Swift.Int = 100, uploadSampleTimeMs: Swift.Int = 100, additionalThreadsCount: Swift.Int = 10, connectionTimeoutMs: Swift.Int = 10000)
+  public let sendResultsToSpeedChecker: Swift.Bool
+  public init(downloadTimeMs: Swift.Int = 10000, uploadTimeMs: Swift.Int = 10000, downloadThreadsCount: Swift.Int? = nil, uploadThreadsCount: Swift.Int? = nil, downloadSampleTimeMs: Swift.Int = 100, uploadSampleTimeMs: Swift.Int = 100, additionalThreadsCount: Swift.Int = 10, connectionTimeoutMs: Swift.Int = 10000, sendResultsToSpeedChecker: Swift.Bool = true)
 }
 public enum SCIssueSignalMeasurementStrength : Swift.Int, Swift.Codable {
   case weak
@@ -106,7 +107,9 @@ public struct SCNetwork {
   public var cellularCountryCode: Swift.String? {
     get
   }
+  @available(iOS, deprecated: 13.0, message: "Use `getGatewayIP(_ completion:)` instead.")
   public static func getGatewayIP() -> Swift.String
+  public static func getGatewayIP(_ completion: @escaping (Swift.String?) -> Swift.Void)
   public static func getNetworkDataInfo() -> (linkSpeed: Swift.UInt32?, sentPackages: Swift.UInt32?, sentBytes: Swift.UInt32?, recvPackages: Swift.UInt32?, recvBytes: Swift.UInt32?)?
   public static func currentNetwork() -> SpeedcheckerSDK.SCNetwork
   public init(status: SpeedcheckerSDK.SCNetworkStatus)
@@ -283,11 +286,12 @@ public enum ConnectionIssue : Swift.Int {
 }
 @_hasMissingDesignatedInitializers @objc(InternetSpeedTest) public class InternetSpeedTest : ObjectiveC.NSObject {
   final public let licenseKey: Swift.String?
-  public var delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?
+  weak public var delegate: SpeedcheckerSDK.InternetSpeedTestDelegate?
   public static var testInProgress: Swift.Bool {
     get
   }
   @objc convenience public init(licenseKey: Swift.String? = nil, delegate: SpeedcheckerSDK.InternetSpeedTestDelegate)
+  @objc deinit
   @objc open func start(_ servers: [SpeedcheckerSDK.SpeedTestServer], completion: (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
   open func start(_ servers: [SpeedcheckerSDK.SCServer], completion: (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
   @objc open func start(_ completion: (SpeedcheckerSDK.SpeedTestError) -> Swift.Void)
@@ -301,8 +305,6 @@ public enum ConnectionIssue : Swift.Int {
   @objc open func currentNetwork() -> SpeedcheckerSDK.SpeedTestNetwork
   public static func clearTempDirectory()
   public func speedTestServers(_ servers: [SpeedcheckerSDK.SCServer]?) -> [SpeedcheckerSDK.SpeedTestServer]?
-  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
-  @objc deinit
 }
 extension SpeedcheckerSDK.InternetSpeedTest {
   @objc public static var customerId: Swift.String {
@@ -822,7 +824,7 @@ public class WifiSpeedTest {
   public func start()
   @objc deinit
 }
-public protocol WifiSpeedTestDelegate {
+public protocol WifiSpeedTestDelegate : AnyObject {
   func wifiTest(finish error: SpeedcheckerSDK.SCTestError)
   func wifiTest(finish speed: SpeedcheckerSDK.SpeedTestSpeed)
   func wifiTest(latency: Swift.Int)

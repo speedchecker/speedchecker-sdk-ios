@@ -322,7 +322,6 @@ SWIFT_CLASS_NAMED("InternetSpeedTest")
 /// The function finishes the current speed test process.
 - (void)forceFinish:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
 - (SpeedTestNetwork * _Nonnull)currentNetwork SWIFT_WARN_UNUSED_RESULT;
-- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
