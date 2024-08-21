@@ -344,6 +344,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull cust
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull customerTag;)
 + (NSString * _Nonnull)customerTag SWIFT_WARN_UNUSED_RESULT;
 + (void)setCustomerTag:(NSString * _Nonnull)newValue;
+/// MSISDN persisted value.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable msisdn;)
++ (NSString * _Nullable)msisdn SWIFT_WARN_UNUSED_RESULT;
++ (void)setMsisdn:(NSString * _Nullable)newValue;
+/// UserID persisted value.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable userID;)
++ (NSString * _Nullable)userID SWIFT_WARN_UNUSED_RESULT;
++ (void)setUserID:(NSString * _Nullable)newValue;
 + (void)bgTestAbilityWithCompletion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL, BOOL, BOOL, BOOL, BOOL))completion;
 @end
 
@@ -853,6 +861,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull cust
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull customerTag;)
 + (NSString * _Nonnull)customerTag SWIFT_WARN_UNUSED_RESULT;
 + (void)setCustomerTag:(NSString * _Nonnull)newValue;
+/// MSISDN persisted value.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable msisdn;)
++ (NSString * _Nullable)msisdn SWIFT_WARN_UNUSED_RESULT;
++ (void)setMsisdn:(NSString * _Nullable)newValue;
+/// UserID persisted value.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable userID;)
++ (NSString * _Nullable)userID SWIFT_WARN_UNUSED_RESULT;
++ (void)setUserID:(NSString * _Nullable)newValue;
 + (void)bgTestAbilityWithCompletion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL, BOOL, BOOL, BOOL, BOOL))completion;
 @end
 

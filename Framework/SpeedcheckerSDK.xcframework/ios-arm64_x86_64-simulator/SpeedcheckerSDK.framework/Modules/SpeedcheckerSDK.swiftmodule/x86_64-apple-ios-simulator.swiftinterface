@@ -315,6 +315,14 @@ extension SpeedcheckerSDK.InternetSpeedTest {
     @objc get
     @objc set
   }
+  @objc public static var msisdn: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public static var userID: Swift.String? {
+    @objc get
+    @objc set
+  }
   @objc public static func bgTestAbility(completion: @escaping (Swift.String, Swift.Bool, Swift.Bool, Swift.Bool, Swift.Bool, Swift.Bool) -> Swift.Void)
 }
 @objc(InternetSpeedTestDelegate) public protocol InternetSpeedTestDelegate {
