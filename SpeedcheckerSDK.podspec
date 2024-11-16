@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "SpeedcheckerSDK"
-  spec.version      = "2.0.4"
+  spec.version      = "2.0.5"
   spec.summary      = "Free speed test for your own app."
 
    spec.description  = <<-DESC
@@ -22,7 +22,7 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "11.0"
   spec.swift_version = "5.0"
 
-  spec.source       = { :git => "https://github.com/speedchecker/speedchecker-sdk-ios.git", :tag => "2.0.4" }
+  spec.source       = { :git => "https://github.com/speedchecker/speedchecker-sdk-ios.git", :tag => "2.0.5" }
 
   spec.vendored_frameworks = "Framework/DataCompression.xcframework", "Framework/Socket.xcframework", "Framework/SpeedcheckerReportSDK.xcframework", "Framework/SpeedcheckerSDK.xcframework", "Framework/XMLParsing.xcframework"
 
