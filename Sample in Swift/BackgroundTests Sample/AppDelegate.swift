@@ -37,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Register BGProcessingTask
         backgroundTest?.registerBGTask(locationManager)
         
-        // For demo purpose here we request both when-in-use and always location permissions
-        // You can ask user for permissions in a place that you find most appropriate regarding your app UI
+        // For demo purposes, request both When‑In‑Use and Always location permissions at launch
+        // In your app, move this to whatever point in the UI feels most natural
         requestLocationPermissions()
         
         return true

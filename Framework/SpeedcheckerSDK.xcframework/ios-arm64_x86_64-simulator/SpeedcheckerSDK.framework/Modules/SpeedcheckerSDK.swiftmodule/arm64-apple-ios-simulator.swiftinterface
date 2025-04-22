@@ -1,20 +1,21 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
-// swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SpeedcheckerSDK
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SpeedcheckerSDK
+import AVFoundation
 import BackgroundTasks
 import SystemConfiguration.CaptiveNetwork
 import CommonCrypto
+import CoreData
 import CoreLocation
 import CoreTelephony
 import Darwin
-import DataCompression
 import Foundation
 import Network
 import NetworkExtension
 import Swift
 import SystemConfiguration
 import UIKit
-import XMLParsing
+import WebKit
 import _Concurrency
 import os
 public struct SpeedTestOptions {
@@ -29,23 +30,21 @@ public struct SpeedTestOptions {
   public let sendResultsToSpeedChecker: Swift.Bool
   public init(downloadTimeMs: Swift.Int = 10000, uploadTimeMs: Swift.Int = 10000, downloadThreadsCount: Swift.Int? = nil, uploadThreadsCount: Swift.Int? = nil, downloadSampleTimeMs: Swift.Int = 100, uploadSampleTimeMs: Swift.Int = 100, additionalThreadsCount: Swift.Int = 10, connectionTimeoutMs: Swift.Int = 10000, sendResultsToSpeedChecker: Swift.Bool = true)
 }
-public enum SCIssueSignalMeasurementStrength : Swift.Int, Swift.Codable {
-  case weak
-  case ok
-  case veryGood
-  case excellent
-  public func convertToDB() -> Swift.Int
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
+public enum SCCellularTechnology : Swift.String, Swift.Codable {
+  case _2G
+  case _3G
+  case _4G
+  case _5G
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
     get
   }
 }
 public class SCSignalHelper {
   public init()
   public func getWiFiInfo() -> (ssid: Swift.String, bssid: Swift.String)
-  public func getCellularInfo() -> (id: Swift.String, mcc: Swift.String, mnc: Swift.String, technology: Swift.String)
-  public func getSignalStrengh() -> (cellStrength: SpeedcheckerSDK.SCIssueSignalMeasurementStrength?, wiFiStrength: SpeedcheckerSDK.SCIssueSignalMeasurementStrength?)
+  public func getCellularInfo() -> (id: Swift.String, mcc: Swift.String, mnc: Swift.String, technology: SpeedcheckerSDK.SCCellularTechnology?)
   @objc deinit
 }
 public enum SCError : Foundation.LocalizedError {
@@ -57,6 +56,7 @@ public enum SCError : Foundation.LocalizedError {
   case invalidResponse
   case responseFailed
   case appISPMismatch
+  case cancelled
   public var errorDescription: Swift.String? {
     get
   }
@@ -115,32 +115,48 @@ public struct SCNetwork {
   public init(status: SpeedcheckerSDK.SCNetworkStatus)
   public func getNetworkSSID() -> Swift.String?
   public func getNetworkBSSID() -> Swift.String?
-  public func getActiveConnection() -> Swift.String
+  public func getActiveConnection() -> SpeedcheckerSDK.SCActiveConnection?
 }
-public struct SCConfigFileSettingsServers : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+extension SpeedcheckerSDK.BackgroundTest {
+  @objc dynamic public func loadConfig(launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]?, completion: @escaping (Swift.Bool) -> Swift.Void)
 }
-extension SpeedcheckerSDK.InternetSpeedTest {
-  @objc public static var debugLogsEnabled: Swift.Bool
+extension SpeedcheckerSDK.BackgroundTest {
+  @objc public static func getLogs() -> [Swift.String]
+  @objc public static func shareLogs(fromViewController viewController: UIKit.UIViewController, presentationSourceView sourceView: UIKit.UIView)
+}
+@objc(BackgroundTest) public class BackgroundTest : ObjectiveC.NSObject {
+  @objc public init(licenseKey: Swift.String? = nil, url: Swift.String? = nil, testsEnabled: Swift.Bool = true)
+  @objc public func setBackgroundNetworkTesting(testsEnabled: Swift.Bool)
+  @objc public func getBackgroundNetworkTestingEnabled() -> Swift.Bool
+  @objc public func prepareLocationManager(locationManager: CoreLocation.CLLocationManager?)
+  @available(*, unavailable, message: "Function has been removed, there is no longer needed to use it.")
+  @objc public func applicationDidEnterBackground(locationManager: CoreLocation.CLLocationManager?)
+  @available(*, unavailable, message: "Function has been removed, there is no longer needed to use it.")
+  @objc public func applicationDidBecomeActive(locationManager: CoreLocation.CLLocationManager?)
+  @objc deinit
+}
+extension SpeedcheckerSDK.BackgroundTest {
+  @objc dynamic public func didChangeAuthorization(manager: CoreLocation.CLLocationManager, status: CoreLocation.CLAuthorizationStatus)
+  @objc dynamic public func didUpdateLocations(manager: CoreLocation.CLLocationManager, locations: [CoreLocation.CLLocation])
 }
 @available(iOS 13, *)
 extension SpeedcheckerSDK.BackgroundTest {
   @objc dynamic public func registerBGTask(_ locationManager: CoreLocation.CLLocationManager?)
 }
-extension Swift.String {
-  public var md5: Swift.String {
-    get
-  }
+extension SpeedcheckerSDK.LaunchTest {
+  @objc public static func getLogs() -> [Swift.String]
+  @objc public static func shareLogs(fromViewController viewController: UIKit.UIViewController, presentationSourceView sourceView: UIKit.UIView)
 }
-public struct SCConfigFileSettingsResults : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+@objc public class LaunchTest : ObjectiveC.NSObject {
+  @objc public init(licenseKey: Swift.String? = nil, url: Swift.String? = nil, enabled: Swift.Bool = true, logsEnabled: Swift.Bool = false)
+  @objc public func setup(launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]?)
+  @objc public func setEnabled(_ enabled: Swift.Bool)
+  @objc deinit
 }
 public typealias Observer = ((_ response: SpeedcheckerSDK.PingResponse) -> Swift.Void)
 public typealias FinishedCallback = ((_ result: SpeedcheckerSDK.PingResult) -> Swift.Void)
 public protocol PingDelegate : AnyObject {
-  func didReceive(response: SpeedcheckerSDK.PingResponse)
+  func didReceive(response: SpeedcheckerSDK.PingResponse, pinger: SpeedcheckerSDK.SwiftyPing)
 }
 public enum PingError : Swift.Error, Swift.Equatable {
   case responseTimeout
@@ -149,7 +165,6 @@ public enum PingError : Swift.Error, Swift.Equatable {
   case invalidType(received: SpeedcheckerSDK.ICMPType.RawValue)
   case invalidCode(received: Swift.UInt8)
   case identifierMismatch(received: Swift.UInt16, expected: Swift.UInt16)
-  case invalidSequenceIndex(received: Swift.UInt16, expected: Swift.UInt16)
   case unknownHostError
   case addressLookupError
   case hostNotFound
@@ -252,13 +267,14 @@ public struct PingResult {
     get
   }
   public let roundtrip: SpeedcheckerSDK.PingResult.Roundtrip?
+  public let transmittedPackageBytes: Swift.Int
 }
 public struct PingConfiguration {
   public let pingInterval: Foundation.TimeInterval
   public let timeoutInterval: Foundation.TimeInterval
   public var handleBackgroundTransitions: Swift.Bool
   public var timeToLive: Swift.Int?
-  public var payloadSize: Swift.Int
+  public let payloadSize: Swift.Int
   public var haltAfterTarget: Swift.Bool
   public init(interval: Foundation.TimeInterval = 1, with timeout: Foundation.TimeInterval = 5)
   public init(interval: Foundation.TimeInterval)
@@ -268,6 +284,22 @@ extension Foundation.Data {
     get
   }
   public var socketAddressInternet: Darwin.sockaddr_in {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc public class SCPacketLoss : ObjectiveC.NSObject {
+  final public let packetLossDownload: Swift.Double?
+  final public let packetLossUpload: Swift.Double?
+  @objc final public let packetLoss: Swift.Double
+  convenience public init(packetLossDownload: Swift.Double, packetLossUpload: Swift.Double)
+  convenience public init(packetLoss: Swift.Double)
+  @objc deinit
+}
+extension SpeedcheckerSDK.InternetSpeedTest {
+  @objc public static var debugLogsEnabled: Swift.Bool
+}
+extension Swift.String {
+  public var md5: Swift.String {
     get
   }
 }
@@ -342,23 +374,21 @@ extension SpeedcheckerSDK.InternetSpeedTest {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc final public class SCLocationHelper : ObjectiveC.NSObject {
+  @objc override dynamic public init()
   @objc final public func isPermisionStatusDetermined() -> Swift.Bool
   @objc final public func locationServicesEnabled() -> Swift.Bool
   @objc final public func locationServicesEnabled(_ completion: @escaping (Swift.Bool) -> Swift.Void)
-  @objc override dynamic public init()
   @objc deinit
 }
 extension SpeedcheckerSDK.SCLocationHelper : CoreLocation.CLLocationManagerDelegate {
   @objc final public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [CoreLocation.CLLocation])
   @objc final public func locationManager(_ manager: CoreLocation.CLLocationManager, didFailWithError error: Swift.Error)
 }
-public struct SCConfigFile : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
 public enum SCLatencySpeedType {
   case http
   case icmp
+  case tcp
+  case udp
   public static func == (a: SpeedcheckerSDK.SCLatencySpeedType, b: SpeedcheckerSDK.SCLatencySpeedType) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -374,25 +404,7 @@ extension SpeedcheckerSDK.SCLatencySpeed {
   }
 }
 public func == (lhs: SpeedcheckerSDK.SCLatencySpeed, rhs: SpeedcheckerSDK.SCLatencySpeed) -> Swift.Bool
-public struct SCConfigCommand : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-@_hasMissingDesignatedInitializers @objc public class SCPacketLoss : ObjectiveC.NSObject {
-  @objc final public let packetLossDownload: Swift.Double
-  @objc final public let packetLossUpload: Swift.Double
-  @objc public var packetLoss: Swift.Double {
-    @objc get
-  }
-  @objc deinit
-}
-extension SpeedcheckerSDK.BackgroundTest {
-  @objc public static func getLogs() -> [Swift.String]
-  @objc public static func shareLogs(fromViewController viewController: UIKit.UIViewController, presentationSourceView sourceView: UIKit.UIView)
-}
-@_hasMissingDesignatedInitializers public class SCLatencyTestController : SpeedcheckerSDK.PingDelegate {
-  public static var pingInterval: Foundation.TimeInterval?
-  public func didReceive(response: SpeedcheckerSDK.PingResponse)
+@_hasMissingDesignatedInitializers public class SCLatencyTestController {
   @objc deinit
 }
 public struct SCLocation {
@@ -406,9 +418,6 @@ public struct SCLocation {
     get
   }
   public init(latitude: Swift.Double?, longitude: Swift.Double?, accuracyInMeters: Swift.Int?, ipAddress: Swift.String?, countryCode: Swift.String?, cityName: Swift.String?)
-}
-extension SpeedcheckerSDK.BackgroundTest {
-  @objc dynamic public func loadConfig(launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]?, completion: @escaping (Swift.Bool) -> Swift.Void)
 }
 @objc public enum SCServerType : Swift.Int {
   case speedchecker
@@ -443,15 +452,15 @@ public struct SCServer : Swift.Equatable {
 }
 public func == (lhs: SpeedcheckerSDK.SCServer, rhs: SpeedcheckerSDK.SCServer) -> Swift.Bool
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SCServerDataController : SpeedcheckerSDK.SCDataController {
-  public static func getServers(completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void)
-  public static func getAllServers(_ completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void)
-  public static func getCustomServers(from link: Swift.String, completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void)
-  public static func getOoklaServers(_ completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void)
+  @discardableResult
+  public static func getServers(completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
+  @discardableResult
+  public static func getAllServers(_ completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
+  @discardableResult
+  public static func getCustomServers(from link: Swift.String, completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
+  @discardableResult
+  public static func getOoklaServers(_ completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
   @objc deinit
-}
-public struct SCConfigFileJob : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
 }
 @available(iOS 14.2, *)
 public class SCLocalNetworkAuthorization {
@@ -481,6 +490,39 @@ public enum SCTestStatus {
   public var hashValue: Swift.Int {
     get
   }
+}
+@objc public enum SCActiveConnection : Swift.Int, Swift.Codable {
+  case wifi
+  case _2G
+  case _3G
+  case _4G
+  case _5G
+  public var stringValue: Swift.String {
+    get
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class SCURLTask {
+  public func cancel()
+  @objc deinit
+}
+extension SpeedcheckerSDK.SCURLTask : Swift.Equatable {
+  public static func == (lhs: SpeedcheckerSDK.SCURLTask, rhs: SpeedcheckerSDK.SCURLTask) -> Swift.Bool
+}
+public struct SCDTLocation : Swift.Encodable {
+  public let lat: Swift.Double
+  public let lon: Swift.Double
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct SCDTCellInfo : Swift.Encodable {
+  public init()
+  public func encode(to encoder: Swift.Encoder) throws
 }
 @objc(SpeedTestError) public enum SpeedTestError : Swift.Int {
   case ok
@@ -521,6 +563,8 @@ public enum SCTestStatus {
 @objc(SpeedTestLatencyType) public enum SpeedTestLatencyType : Swift.Int {
   case http
   case icmp
+  case tcp
+  case udp
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -541,14 +585,18 @@ public enum SCTestStatus {
   @objc final public let ispName: Swift.String?
   @objc final public let date: Foundation.Date?
   @objc public var userCityName: Swift.String?
+  @objc final public let testID: Swift.String
   @objc final public let downloadTransferredMb: Swift.Double
   @objc final public let uploadTransferredMb: Swift.Double
-  public static func create(withPlain date: Foundation.Date, latencyType: Swift.String?, latencyInMs: Swift.Int, jitter: Swift.Double, downloadInBps: Swift.Double, uploadInBps: Swift.Double, timeToFirstByteMs: Swift.Int, packetLoss: SpeedcheckerSDK.SCPacketLoss?, downloadTransferredMb: Swift.Double, uploadTransferredMb: Swift.Double, ipAddress: Swift.String?, ispName: Swift.String?, networkType: Swift.String?, serverID: Swift.Int, serverDomain: Swift.String?, serverCityName: Swift.String?, serverCountryCode: Swift.String?) -> SpeedcheckerSDK.SpeedTestResult
+  public static func create(withPlain date: Foundation.Date, latencyType: Swift.String?, latencyInMs: Swift.Int, jitter: Swift.Double, downloadInBps: Swift.Double, uploadInBps: Swift.Double, timeToFirstByteMs: Swift.Int, packetLoss: SpeedcheckerSDK.SCPacketLoss?, downloadTransferredMb: Swift.Double, uploadTransferredMb: Swift.Double, ipAddress: Swift.String?, ispName: Swift.String?, networkType: Swift.String?, serverID: Swift.Int, serverDomain: Swift.String?, serverCityName: Swift.String?, serverCountryCode: Swift.String?, testID: Swift.String?) -> SpeedcheckerSDK.SpeedTestResult
   @objc deinit
 }
 extension SpeedcheckerSDK.SpeedTestResult {
-  @objc dynamic public var connectionType: Swift.String? {
-    @objc get
+  public var connectionTypeString: Swift.String? {
+    get
+  }
+  public var connectionType: SpeedcheckerSDK.SCActiveConnection? {
+    get
   }
   @objc dynamic public var locationLatitude: Swift.Double {
     @objc get
@@ -578,12 +626,14 @@ extension SpeedcheckerSDK.SpeedTestResult {
   @objc final public let downloadFolderPath: Swift.String?
   @objc final public let uploadFolderPath: Swift.String?
   @objc final public let uploadScript: Swift.String?
+  @objc final public let userIP: Swift.String?
+  @objc final public let userISP: Swift.String?
   @objc final public let countryCode: Swift.String?
   @objc final public let cityName: Swift.String?
   @objc public var country: Swift.String? {
     @objc get
   }
-  public init(ID: Swift.Int?, type: SpeedcheckerSDK.SCServerType = .speedchecker, scheme: Swift.String?, domain: Swift.String?, port: Swift.Int? = nil, downloadFolderPath: Swift.String? = nil, uploadFolderPath: Swift.String? = nil, uploadScript: Swift.String? = nil, countryCode: Swift.String?, cityName: Swift.String?)
+  public init(ID: Swift.Int?, type: SpeedcheckerSDK.SCServerType = .speedchecker, scheme: Swift.String?, domain: Swift.String?, port: Swift.Int? = nil, downloadFolderPath: Swift.String? = nil, uploadFolderPath: Swift.String? = nil, uploadScript: Swift.String? = nil, countryCode: Swift.String?, cityName: Swift.String?, userIP: Swift.String? = nil, userISP: Swift.String? = nil)
   @objc convenience public init(ID: Foundation.NSNumber?, type: SpeedcheckerSDK.SCServerType, scheme: Swift.String?, domain: Swift.String?, port: Foundation.NSNumber?, downloadFolderPath: Swift.String?, uploadFolderPath: Swift.String?, uploadScript: Swift.String?, countryCode: Swift.String?, cityName: Swift.String?)
   @objc deinit
 }
@@ -606,10 +656,6 @@ extension SpeedcheckerSDK.SpeedTestResult {
   }
   @objc deinit
 }
-public struct SCConfigFileJobCommand : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
 public struct SSDPService : Swift.Equatable {
   public let cacheControl: Foundation.Date
   public let location: Foundation.URL
@@ -618,24 +664,6 @@ public struct SSDPService : Swift.Equatable {
   public let uniqueServiceName: Swift.String
   public let otherHeaders: [Swift.String : Swift.String]
   public static func == (lhs: SpeedcheckerSDK.SSDPService, rhs: SpeedcheckerSDK.SSDPService) -> Swift.Bool
-}
-extension SpeedcheckerSDK.BackgroundTest : SpeedcheckerSDK.InternetSpeedTestDelegate {
-  @objc dynamic public func internetTestError(error: SpeedcheckerSDK.SpeedTestError)
-  @objc dynamic public func internetTestFinish(result: SpeedcheckerSDK.SpeedTestResult)
-  @objc dynamic public func internetTestReceived(servers: [SpeedcheckerSDK.SpeedTestServer])
-  @objc dynamic public func internetTestSelected(server: SpeedcheckerSDK.SpeedTestServer, latency: Swift.Int, jitter: Swift.Int)
-  @objc dynamic public func internetTestDownloadStart()
-  @objc dynamic public func internetTestDownloadFinish()
-  @objc dynamic public func internetTestDownload(progress: Swift.Double, speed: SpeedcheckerSDK.SpeedTestSpeed)
-  @objc dynamic public func internetTestUploadStart()
-  @objc dynamic public func internetTestUploadFinish()
-  @objc dynamic public func internetTestUpload(progress: Swift.Double, speed: SpeedcheckerSDK.SpeedTestSpeed)
-}
-extension SpeedcheckerSDK.BackgroundTest : SpeedcheckerSDK.WifiSpeedTestDelegate {
-  public func wifiTest(finish error: SpeedcheckerSDK.SCTestError)
-  public func wifiTest(finish speed: SpeedcheckerSDK.SpeedTestSpeed)
-  public func wifiTest(latency: Swift.Int)
-  public func wifiTest(progress: Swift.Double, _ speed: SpeedcheckerSDK.SpeedTestSpeed)
 }
 public struct UPNPAction {
   public struct TotalBytesReceived : SpeedcheckerSDK.UPNPActionable {
@@ -676,25 +704,6 @@ public struct UPNPAction {
       public init(from decoder: Swift.Decoder) throws
     }
   }
-}
-public struct SCConfigFileSettings : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-@objc(BackgroundTest) public class BackgroundTest : ObjectiveC.NSObject {
-  @objc public init(licenseKey: Swift.String? = nil, url: Swift.String? = nil, testsEnabled: Swift.Bool = true)
-  @objc deinit
-  @objc public func setBackgroundNetworkTesting(testsEnabled: Swift.Bool)
-  @objc public func getBackgroundNetworkTestingEnabled() -> Swift.Bool
-  @objc public func prepareLocationManager(locationManager: CoreLocation.CLLocationManager?)
-  @available(*, unavailable, message: "Function has been removed, there is no longer needed to use it.")
-  @objc public func applicationDidEnterBackground(locationManager: CoreLocation.CLLocationManager?)
-  @available(*, unavailable, message: "Function has been removed, there is no longer needed to use it.")
-  @objc public func applicationDidBecomeActive(locationManager: CoreLocation.CLLocationManager?)
-}
-extension SpeedcheckerSDK.BackgroundTest {
-  @objc dynamic public func didChangeAuthorization(manager: CoreLocation.CLLocationManager, status: CoreLocation.CLAuthorizationStatus)
-  @objc dynamic public func didUpdateLocations(manager: CoreLocation.CLLocationManager, locations: [CoreLocation.CLLocation])
 }
 public protocol UPNPActionable {
   associatedtype Response : Swift.Decodable, Swift.Encodable
@@ -830,6 +839,7 @@ public class UPNPDiscover {
 public class WifiSpeedTest {
   public init(_ ipAddress: Swift.String? = nil, isBackground: Swift.Bool = false, delegate: SpeedcheckerSDK.WifiSpeedTestDelegate?)
   public func start()
+  public func stop()
   @objc deinit
 }
 public protocol WifiSpeedTestDelegate : AnyObject {
@@ -919,9 +929,9 @@ extension SpeedcheckerSDK.Reachability {
     get
   }
 }
-extension SpeedcheckerSDK.SCIssueSignalMeasurementStrength : Swift.Equatable {}
-extension SpeedcheckerSDK.SCIssueSignalMeasurementStrength : Swift.Hashable {}
-extension SpeedcheckerSDK.SCIssueSignalMeasurementStrength : Swift.RawRepresentable {}
+extension SpeedcheckerSDK.SCCellularTechnology : Swift.Equatable {}
+extension SpeedcheckerSDK.SCCellularTechnology : Swift.Hashable {}
+extension SpeedcheckerSDK.SCCellularTechnology : Swift.RawRepresentable {}
 extension SpeedcheckerSDK.SCError : Swift.Equatable {}
 extension SpeedcheckerSDK.SCError : Swift.Hashable {}
 extension SpeedcheckerSDK.SCTestError : Swift.Equatable {}
@@ -943,6 +953,9 @@ extension SpeedcheckerSDK.SCServerType : Swift.Hashable {}
 extension SpeedcheckerSDK.SCServerType : Swift.RawRepresentable {}
 extension SpeedcheckerSDK.SCTestStatus : Swift.Equatable {}
 extension SpeedcheckerSDK.SCTestStatus : Swift.Hashable {}
+extension SpeedcheckerSDK.SCActiveConnection : Swift.Equatable {}
+extension SpeedcheckerSDK.SCActiveConnection : Swift.Hashable {}
+extension SpeedcheckerSDK.SCActiveConnection : Swift.RawRepresentable {}
 extension SpeedcheckerSDK.SpeedTestError : Swift.Equatable {}
 extension SpeedcheckerSDK.SpeedTestError : Swift.Hashable {}
 extension SpeedcheckerSDK.SpeedTestError : Swift.RawRepresentable {}

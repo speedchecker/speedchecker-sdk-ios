@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,16 @@
 		A67814BF2832864300988B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67814BD2832864300988B9B /* Main.storyboard */; };
 		A67814C12832864300988B9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A67814C02832864300988B9B /* Assets.xcassets */; };
 		A67814C42832864300988B9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67814C22832864300988B9B /* LaunchScreen.storyboard */; };
+		A6E7F4B52DB81CFF0034B38E /* DataCompression.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893829E890D300AEFD64 /* DataCompression.xcframework */; };
+		A6E7F4B62DB81CFF0034B38E /* DataCompression.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893829E890D300AEFD64 /* DataCompression.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6E7F4B72DB81CFF0034B38E /* Socket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893629E890D300AEFD64 /* Socket.xcframework */; };
+		A6E7F4B82DB81CFF0034B38E /* Socket.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893629E890D300AEFD64 /* Socket.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6E7F4B92DB81CFF0034B38E /* SpeedcheckerReportSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893729E890D300AEFD64 /* SpeedcheckerReportSDK.xcframework */; };
+		A6E7F4BA2DB81CFF0034B38E /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893729E890D300AEFD64 /* SpeedcheckerReportSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6E7F4BB2DB81CFF0034B38E /* SpeedcheckerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893929E890D300AEFD64 /* SpeedcheckerSDK.xcframework */; };
+		A6E7F4BC2DB81CFF0034B38E /* SpeedcheckerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893929E890D300AEFD64 /* SpeedcheckerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6E7F4BD2DB81CFF0034B38E /* XMLParsing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893529E890D300AEFD64 /* XMLParsing.xcframework */; };
+		A6E7F4BE2DB81CFF0034B38E /* XMLParsing.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893529E890D300AEFD64 /* XMLParsing.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6E9894429E890EA00AEFD64 /* DataCompression.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893829E890D300AEFD64 /* DataCompression.xcframework */; };
 		A6E9894529E890EA00AEFD64 /* DataCompression.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893829E890D300AEFD64 /* DataCompression.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6E9894629E890EB00AEFD64 /* Socket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893629E890D300AEFD64 /* Socket.xcframework */; };
@@ -70,6 +80,21 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6E7F4BF2DB81CFF0034B38E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A6E7F4BE2DB81CFF0034B38E /* XMLParsing.xcframework in Embed Frameworks */,
+				A6E7F4B82DB81CFF0034B38E /* Socket.xcframework in Embed Frameworks */,
+				A6E7F4B62DB81CFF0034B38E /* DataCompression.xcframework in Embed Frameworks */,
+				A6E7F4BC2DB81CFF0034B38E /* SpeedcheckerSDK.xcframework in Embed Frameworks */,
+				A6E7F4BA2DB81CFF0034B38E /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -87,12 +112,27 @@
 		A67814C02832864300988B9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A67814C32832864300988B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A67814C52832864300988B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6E7F48E2DB817890034B38E /* LaunchTest Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LaunchTest Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6E9893529E890D300AEFD64 /* XMLParsing.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = XMLParsing.xcframework; path = ../Framework/XMLParsing.xcframework; sourceTree = "<group>"; };
 		A6E9893629E890D300AEFD64 /* Socket.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Socket.xcframework; path = ../Framework/Socket.xcframework; sourceTree = "<group>"; };
 		A6E9893729E890D300AEFD64 /* SpeedcheckerReportSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpeedcheckerReportSDK.xcframework; path = ../Framework/SpeedcheckerReportSDK.xcframework; sourceTree = "<group>"; };
 		A6E9893829E890D300AEFD64 /* DataCompression.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DataCompression.xcframework; path = ../Framework/DataCompression.xcframework; sourceTree = "<group>"; };
 		A6E9893929E890D300AEFD64 /* SpeedcheckerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpeedcheckerSDK.xcframework; path = ../Framework/SpeedcheckerSDK.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A6E7F49F2DB8178A0034B38E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A6E7F48D2DB817890034B38E /* LaunchTest Sample */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A6E7F48F2DB817890034B38E /* LaunchTest Sample */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (A6E7F49F2DB8178A0034B38E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "LaunchTest Sample"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		38E83DF524DBD7430064DCD5 /* Frameworks */ = {
@@ -119,6 +159,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6E7F48B2DB817890034B38E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6E7F4BD2DB81CFF0034B38E /* XMLParsing.xcframework in Frameworks */,
+				A6E7F4B72DB81CFF0034B38E /* Socket.xcframework in Frameworks */,
+				A6E7F4B52DB81CFF0034B38E /* DataCompression.xcframework in Frameworks */,
+				A6E7F4BB2DB81CFF0034B38E /* SpeedcheckerSDK.xcframework in Frameworks */,
+				A6E7F4B92DB81CFF0034B38E /* SpeedcheckerReportSDK.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -128,6 +180,7 @@
 				A6E9893429E890B100AEFD64 /* SCSDK */,
 				38E83DFA24DBD7430064DCD5 /* SpeedcheckerSDK Sample */,
 				A67814B62832864300988B9B /* BackgroundTests Sample */,
+				A6E7F48F2DB817890034B38E /* LaunchTest Sample */,
 				38E83DF924DBD7430064DCD5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -137,6 +190,7 @@
 			children = (
 				38E83DF824DBD7430064DCD5 /* SpeedcheckerSDK Sample.app */,
 				A67814B52832864300988B9B /* BackgroundTests Sample.app */,
+				A6E7F48E2DB817890034B38E /* LaunchTest Sample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,13 +272,36 @@
 			productReference = A67814B52832864300988B9B /* BackgroundTests Sample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A6E7F48D2DB817890034B38E /* LaunchTest Sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6E7F4A02DB8178A0034B38E /* Build configuration list for PBXNativeTarget "LaunchTest Sample" */;
+			buildPhases = (
+				A6E7F48A2DB817890034B38E /* Sources */,
+				A6E7F48B2DB817890034B38E /* Frameworks */,
+				A6E7F48C2DB817890034B38E /* Resources */,
+				A6E7F4BF2DB81CFF0034B38E /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A6E7F48F2DB817890034B38E /* LaunchTest Sample */,
+			);
+			name = "LaunchTest Sample";
+			packageProductDependencies = (
+			);
+			productName = "LaunchTest Sample";
+			productReference = A6E7F48E2DB817890034B38E /* LaunchTest Sample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		38E83DF024DBD7430064DCD5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1160;
 				TargetAttributes = {
 					38E83DF724DBD7430064DCD5 = {
@@ -232,6 +309,9 @@
 					};
 					A67814B42832864300988B9B = {
 						CreatedOnToolsVersion = 13.3.1;
+					};
+					A6E7F48D2DB817890034B38E = {
+						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
@@ -250,6 +330,7 @@
 			targets = (
 				38E83DF724DBD7430064DCD5 /* SpeedcheckerSDK Sample */,
 				A67814B42832864300988B9B /* BackgroundTests Sample */,
+				A6E7F48D2DB817890034B38E /* LaunchTest Sample */,
 			);
 		};
 /* End PBXProject section */
@@ -275,6 +356,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6E7F48C2DB817890034B38E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -293,6 +381,13 @@
 			files = (
 				A67814BC2832864300988B9B /* ViewController.swift in Sources */,
 				A67814B82832864300988B9B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6E7F48A2DB817890034B38E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +657,79 @@
 			};
 			name = Release;
 		};
+		A6E7F4A12DB8178A0034B38E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W4L7C7T8G2;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LaunchTest Sample/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide accurate speeds by using your nearest server.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.speedchecker.SpeedcheckerSDK.LaunchTest-Sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A6E7F4A22DB8178A0034B38E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W4L7C7T8G2;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LaunchTest Sample/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide accurate speeds by using your nearest server.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.speedchecker.SpeedcheckerSDK.LaunchTest-Sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -588,6 +756,15 @@
 			buildConfigurations = (
 				A67814C72832864300988B9B /* Debug */,
 				A67814C82832864300988B9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6E7F4A02DB8178A0034B38E /* Build configuration list for PBXNativeTarget "LaunchTest Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6E7F4A12DB8178A0034B38E /* Debug */,
+				A6E7F4A22DB8178A0034B38E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
