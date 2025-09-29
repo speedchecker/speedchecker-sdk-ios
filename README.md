@@ -1,4 +1,4 @@
-# Speedchecker SDK for iOS, version 2.2.9 - Free speed test for your own app.
+# Speedchecker SDK for iOS, version 2.2.13 - Free speed test for your own app.
 
 The embedded framework version of the Speedchecker Speed Test supports its own API which allows you to access various methods and events easily from the your iOS application code. You can also try our  [Speedchecker on App Store](https://itunes.apple.com/app/id658790195), it's powered by the latest Speedchecker SDK version. More information about [SpeedChecker SDKs](https://www.speedchecker.com/speed-test-tools/mobile-apps-and-sdks.html)
 
@@ -21,7 +21,7 @@ The embedded framework version of the Speedchecker Speed Test supports its own A
 
 1. File > Add Packages...
 2. Add `https://github.com/speedchecker/speedchecker-sdk-ios`
-3. Select "Up to Next Major" with "2.2.9"
+3. Select "Up to Next Major" with "2.2.13"
 
 ### CocoaPods
 

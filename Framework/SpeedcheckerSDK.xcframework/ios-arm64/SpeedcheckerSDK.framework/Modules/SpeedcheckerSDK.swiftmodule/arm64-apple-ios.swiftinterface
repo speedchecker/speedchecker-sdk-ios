@@ -452,14 +452,19 @@ public struct SCServer : Swift.Equatable {
 }
 public func == (lhs: SpeedcheckerSDK.SCServer, rhs: SpeedcheckerSDK.SCServer) -> Swift.Bool
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SCServerDataController : SpeedcheckerSDK.SCDataController {
+  public typealias GetServersResult = Swift.Result<SpeedcheckerSDK.SCServerDataController.GetServersResponse, SpeedcheckerSDK.SCError>
+  public struct GetServersResponse {
+    public let servers: [SpeedcheckerSDK.SCServer]
+    public let isAppISPMismatch: Swift.Bool
+  }
   @discardableResult
-  public static func getServers(completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
+  public static func getServers(completion: @escaping (SpeedcheckerSDK.SCServerDataController.GetServersResult) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
   @discardableResult
-  public static func getAllServers(_ completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
+  public static func getAllServers(_ completion: @escaping (SpeedcheckerSDK.SCServerDataController.GetServersResult) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
   @discardableResult
-  public static func getCustomServers(from link: Swift.String, completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
+  public static func getCustomServers(from link: Swift.String, completion: @escaping (SpeedcheckerSDK.SCServerDataController.GetServersResult) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
   @discardableResult
-  public static func getOoklaServers(_ completion: @escaping ([SpeedcheckerSDK.SCServer]?, SpeedcheckerSDK.SCError?) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
+  public static func getOoklaServers(_ completion: @escaping (SpeedcheckerSDK.SCServerDataController.GetServersResult) -> Swift.Void) -> SpeedcheckerSDK.SCURLTask?
   @objc deinit
 }
 @available(iOS 14.2, *)
@@ -592,8 +597,8 @@ public struct SCDTCellInfo : Swift.Encodable {
   @objc deinit
 }
 extension SpeedcheckerSDK.SpeedTestResult {
-  public var connectionTypeString: Swift.String? {
-    get
+  @objc dynamic public var connectionTypeString: Swift.String? {
+    @objc get
   }
   public var connectionType: SpeedcheckerSDK.SCActiveConnection? {
     get

@@ -483,6 +483,7 @@ SWIFT_CLASS_NAMED("SpeedTestResult")
 
 
 @interface SpeedTestResult (SWIFT_EXTENSION(SpeedcheckerSDK))
+@property (nonatomic, readonly, copy) NSString * _Nullable connectionTypeString;
 @property (nonatomic, readonly) double locationLatitude;
 @property (nonatomic, readonly) double locationLongitude;
 @property (nonatomic, readonly, copy) NSString * _Nonnull networkOperator;
@@ -1023,6 +1024,7 @@ SWIFT_CLASS_NAMED("SpeedTestResult")
 
 
 @interface SpeedTestResult (SWIFT_EXTENSION(SpeedcheckerSDK))
+@property (nonatomic, readonly, copy) NSString * _Nullable connectionTypeString;
 @property (nonatomic, readonly) double locationLatitude;
 @property (nonatomic, readonly) double locationLongitude;
 @property (nonatomic, readonly, copy) NSString * _Nonnull networkOperator;
