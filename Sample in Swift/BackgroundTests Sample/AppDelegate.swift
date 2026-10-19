@@ -11,8 +11,6 @@ import SpeedcheckerSDK
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
-    
     var backgroundTest: BackgroundTest?
     var locationManager: CLLocationManager? = CLLocationManager()
 

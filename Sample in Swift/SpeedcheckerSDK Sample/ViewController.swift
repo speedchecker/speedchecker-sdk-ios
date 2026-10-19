@@ -16,10 +16,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupUI()
         requestLocationAuthorization()
     }
+    
+    private func setupUI() {
+        view.backgroundColor = .systemBackground
+        let startButton = UIButton(type: .system)
+        startButton.setTitle("Run Speed Test", for: .normal)
+        startButton.addTarget(self, action: #selector(runSpeedTestTouched(_:)), for: .touchUpInside)
+        
+        startButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(startButton)
+        NSLayoutConstraint.activate([
+            startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            startButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
 
-    @IBAction func runSpeedTestTouched(_ sender: UIButton) {
+    @objc func runSpeedTestTouched(_ sender: UIButton) {
         // to use free version, your app should have location access
         internetTest = InternetSpeedTest(delegate: self)
         internetTest?.startFreeTest() { (error) in
