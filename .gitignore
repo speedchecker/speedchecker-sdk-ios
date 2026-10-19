@@ -1,0 +1,5 @@
+# Xcode per-user data (window layout, breakpoints, scheme order)
+xcuserdata/
+
+# macOS
+.DS_Store
