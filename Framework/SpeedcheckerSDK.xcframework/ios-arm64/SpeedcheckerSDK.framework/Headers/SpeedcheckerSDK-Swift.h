@@ -246,6 +246,7 @@ SWIFT_CLASS_NAMED("BackgroundTest")
 - (void)loadConfigWithLaunchOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions completion:(void (^ _Nonnull)(BOOL))completion;
 @end
 
+
 @class UIViewController;
 @class UIView;
 
@@ -269,9 +270,11 @@ SWIFT_AVAILABILITY(ios,introduced=13)
 
 
 
+
 @protocol InternetSpeedTestDelegate;
 @class SpeedTestServer;
 enum SpeedTestError : NSInteger;
+@class SpeedTestOptions;
 @class SpeedTestNetwork;
 
 /// The controller manages the speed test process. See also <code>InternetSpeedTestDelegate</code>
@@ -286,13 +289,15 @@ SWIFT_CLASS_NAMED("InternetSpeedTest")
 - (void)startTest:(void (^ _Nonnull)(enum SpeedTestError))completion SWIFT_UNAVAILABLE_MSG("'startTest' has been renamed to 'startFreeTest:'");
 /// The function starts a free test if geolocation is enabled
 - (void)startFreeTest:(void (^ _Nonnull)(enum SpeedTestError))completion;
+/// The function starts a test with options
+- (void)startWithOptions:(SpeedTestOptions * _Nonnull)options completionHandler:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
+- (void)startWithOptions:(SpeedTestOptions * _Nonnull)options servers:(NSArray<SpeedTestServer *> * _Nonnull)servers completionHandler:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
 /// The function finishes the current speed test process.
 - (void)forceFinish:(SWIFT_NOESCAPE void (^ _Nonnull)(enum SpeedTestError))completion;
 - (SpeedTestNetwork * _Nonnull)currentNetwork SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 
@@ -318,7 +323,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable msi
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable userID;)
 + (NSString * _Nullable)userID SWIFT_WARN_UNUSED_RESULT;
 + (void)setUserID:(NSString * _Nullable)newValue;
-+ (void)bgTestAbilityWithCompletion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL, BOOL, BOOL, BOOL, BOOL))completion;
 @end
 
 @class SpeedTestResult;
@@ -366,6 +370,7 @@ SWIFT_CLASS("_TtC15SpeedcheckerSDK10LaunchTest")
 + (NSArray<NSString *> * _Nonnull)getLogs SWIFT_WARN_UNUSED_RESULT;
 + (void)shareLogsFromViewController:(UIViewController * _Nonnull)viewController presentationSourceView:(UIView * _Nonnull)sourceView;
 @end
+
 
 typedef SWIFT_ENUM(NSInteger, SCActiveConnection, open) {
   SCActiveConnectionWifi = 0,
@@ -451,6 +456,27 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SpeedTestNetworkType, "SpeedTestNetworkType"
   SpeedTestNetworkTypeCellular = 2,
 };
 
+@class NSNumber;
+
+SWIFT_CLASS("_TtC15SpeedcheckerSDK16SpeedTestOptions")
+@interface SpeedTestOptions : NSObject
+@property (nonatomic, readonly) NSInteger downloadTimeMs;
+@property (nonatomic, readonly) NSInteger uploadTimeMs;
+@property (nonatomic, readonly) NSInteger downloadSampleTimeMs;
+@property (nonatomic, readonly) NSInteger uploadSampleTimeMs;
+@property (nonatomic, readonly) NSInteger additionalThreadsCount;
+@property (nonatomic, readonly) NSInteger connectionTimeoutMs;
+/// Value which tells if results will be sent to SpeedChecker servers.
+@property (nonatomic, readonly) BOOL sendResultsToSpeedChecker;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable downloadThreadsCountNumber;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable uploadThreadsCountNumber;
+- (nonnull instancetype)initWithDownloadTimeMs:(NSInteger)downloadTimeMs uploadTimeMs:(NSInteger)uploadTimeMs downloadThreadsCount:(NSNumber * _Nullable)downloadThreadsCount uploadThreadsCount:(NSNumber * _Nullable)uploadThreadsCount downloadSampleTimeMs:(NSInteger)downloadSampleTimeMs uploadSampleTimeMs:(NSInteger)uploadSampleTimeMs additionalThreadsCount:(NSInteger)additionalThreadsCount connectionTimeoutMs:(NSInteger)connectionTimeoutMs sendResultsToSpeedChecker:(BOOL)sendResultsToSpeedChecker;
+- (nonnull instancetype)init;
+@end
+
+
+
+
 @class NSDate;
 
 SWIFT_CLASS_NAMED("SpeedTestResult")
@@ -470,6 +496,7 @@ SWIFT_CLASS_NAMED("SpeedTestResult")
 @property (nonatomic, readonly, copy) NSString * _Nullable ispName;
 @property (nonatomic, readonly, copy) NSDate * _Nullable date;
 @property (nonatomic, copy) NSString * _Nullable userCityName;
+@property (nonatomic, readonly, strong) CLLocation * _Nullable location;
 @property (nonatomic, readonly, copy) NSString * _Nonnull testID;
 /// Data transferred during download. In MB (megabytes).
 @property (nonatomic, readonly) double downloadTransferredMb;
@@ -482,15 +509,14 @@ SWIFT_CLASS_NAMED("SpeedTestResult")
 
 @interface SpeedTestResult (SWIFT_EXTENSION(SpeedcheckerSDK))
 @property (nonatomic, readonly, copy) NSString * _Nullable connectionTypeString;
-@property (nonatomic, readonly) double locationLatitude;
-@property (nonatomic, readonly) double locationLongitude;
-@property (nonatomic, readonly, copy) NSString * _Nonnull networkOperator;
+@property (nonatomic, readonly) double locationLatitude SWIFT_DEPRECATED_MSG("Use location?.coordinate.latitude instead.");
+@property (nonatomic, readonly) double locationLongitude SWIFT_DEPRECATED_MSG("Use location?.coordinate.longitude instead.");
+@property (nonatomic, readonly, copy) NSString * _Nonnull networkOperator SWIFT_AVAILABILITY(ios,deprecated=16.4,message="Relies on CTCarrier (deprecated by Apple); returns a placeholder value since iOS 16.4.");
 @property (nonatomic, readonly, copy) NSString * _Nonnull deviceInfo;
-@property (nonatomic, readonly, copy) NSString * _Nonnull cellMCC;
-@property (nonatomic, readonly, copy) NSString * _Nonnull cellMNC;
+@property (nonatomic, readonly, copy) NSString * _Nonnull cellMCC SWIFT_AVAILABILITY(ios,deprecated=16.4,message="Relies on CTCarrier (deprecated by Apple); returns a placeholder MCC (\"65535\") since iOS 16.4.");
+@property (nonatomic, readonly, copy) NSString * _Nonnull cellMNC SWIFT_AVAILABILITY(ios,deprecated=16.4,message="Relies on CTCarrier (deprecated by Apple); returns a placeholder MNC (\"65535\") since iOS 16.4.");
 @end
 
-@class NSNumber;
 
 /// The model holds a physical server information.
 SWIFT_CLASS_NAMED("SpeedTestServer")
@@ -519,14 +545,6 @@ SWIFT_CLASS_NAMED("SpeedTestSpeed")
 @property (nonatomic, readonly) double mbps;
 @property (nonatomic, readonly, copy) NSString * _Nonnull descriptionInKbps;
 @property (nonatomic, readonly, copy) NSString * _Nonnull descriptionInMbps;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-/// Represents a single ping instance. A ping instance has a single destination.
-SWIFT_CLASS("_TtC15SpeedcheckerSDK10SwiftyPing")
-@interface SwiftyPing : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

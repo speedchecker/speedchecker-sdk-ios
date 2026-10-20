@@ -25,8 +25,6 @@
 		A6E7F4BA2DB81CFF0034B38E /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893729E890D300AEFD64 /* SpeedcheckerReportSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6E7F4BB2DB81CFF0034B38E /* SpeedcheckerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893929E890D300AEFD64 /* SpeedcheckerSDK.xcframework */; };
 		A6E7F4BC2DB81CFF0034B38E /* SpeedcheckerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893929E890D300AEFD64 /* SpeedcheckerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6E7F4BD2DB81CFF0034B38E /* XMLParsing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893529E890D300AEFD64 /* XMLParsing.xcframework */; };
-		A6E7F4BE2DB81CFF0034B38E /* XMLParsing.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893529E890D300AEFD64 /* XMLParsing.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6E9894429E890EA00AEFD64 /* DataCompression.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893829E890D300AEFD64 /* DataCompression.xcframework */; };
 		A6E9894529E890EA00AEFD64 /* DataCompression.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893829E890D300AEFD64 /* DataCompression.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6E9894629E890EB00AEFD64 /* Socket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893629E890D300AEFD64 /* Socket.xcframework */; };
@@ -35,8 +33,6 @@
 		A6E9894929E890EC00AEFD64 /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893729E890D300AEFD64 /* SpeedcheckerReportSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6E9894A29E890EE00AEFD64 /* SpeedcheckerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893929E890D300AEFD64 /* SpeedcheckerSDK.xcframework */; };
 		A6E9894B29E890EE00AEFD64 /* SpeedcheckerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893929E890D300AEFD64 /* SpeedcheckerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6E9894C29E890EF00AEFD64 /* XMLParsing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893529E890D300AEFD64 /* XMLParsing.xcframework */; };
-		A6E9894D29E890EF00AEFD64 /* XMLParsing.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893529E890D300AEFD64 /* XMLParsing.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6E9894E29E890F300AEFD64 /* DataCompression.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893829E890D300AEFD64 /* DataCompression.xcframework */; };
 		A6E9894F29E890F300AEFD64 /* DataCompression.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893829E890D300AEFD64 /* DataCompression.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6E9895029E890F400AEFD64 /* Socket.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893629E890D300AEFD64 /* Socket.xcframework */; };
@@ -45,8 +41,6 @@
 		A6E9895329E890F600AEFD64 /* SpeedcheckerReportSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893729E890D300AEFD64 /* SpeedcheckerReportSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6E9895429E890F700AEFD64 /* SpeedcheckerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893929E890D300AEFD64 /* SpeedcheckerSDK.xcframework */; };
 		A6E9895529E890F700AEFD64 /* SpeedcheckerSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893929E890D300AEFD64 /* SpeedcheckerSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6E9895629E890F800AEFD64 /* XMLParsing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893529E890D300AEFD64 /* XMLParsing.xcframework */; };
-		A6E9895729E890F800AEFD64 /* XMLParsing.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6E9893529E890D300AEFD64 /* XMLParsing.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,7 +50,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A6E9894D29E890EF00AEFD64 /* XMLParsing.xcframework in Embed Frameworks */,
 				A6E9894729E890EB00AEFD64 /* Socket.xcframework in Embed Frameworks */,
 				A6E9894529E890EA00AEFD64 /* DataCompression.xcframework in Embed Frameworks */,
 				A6E9894B29E890EE00AEFD64 /* SpeedcheckerSDK.xcframework in Embed Frameworks */,
@@ -71,7 +64,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A6E9895729E890F800AEFD64 /* XMLParsing.xcframework in Embed Frameworks */,
 				A6E9895129E890F400AEFD64 /* Socket.xcframework in Embed Frameworks */,
 				A6E9894F29E890F300AEFD64 /* DataCompression.xcframework in Embed Frameworks */,
 				A6E9895529E890F700AEFD64 /* SpeedcheckerSDK.xcframework in Embed Frameworks */,
@@ -86,7 +78,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A6E7F4BE2DB81CFF0034B38E /* XMLParsing.xcframework in Embed Frameworks */,
 				A6E7F4B82DB81CFF0034B38E /* Socket.xcframework in Embed Frameworks */,
 				A6E7F4B62DB81CFF0034B38E /* DataCompression.xcframework in Embed Frameworks */,
 				A6E7F4BC2DB81CFF0034B38E /* SpeedcheckerSDK.xcframework in Embed Frameworks */,
@@ -113,7 +104,6 @@
 		A68AEC7F308680FE0074884A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A68AEC81308686C10074884A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A6E7F48E2DB817890034B38E /* LaunchTest Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LaunchTest Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6E9893529E890D300AEFD64 /* XMLParsing.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = XMLParsing.xcframework; path = ../Framework/XMLParsing.xcframework; sourceTree = "<group>"; };
 		A6E9893629E890D300AEFD64 /* Socket.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Socket.xcframework; path = ../Framework/Socket.xcframework; sourceTree = "<group>"; };
 		A6E9893729E890D300AEFD64 /* SpeedcheckerReportSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpeedcheckerReportSDK.xcframework; path = ../Framework/SpeedcheckerReportSDK.xcframework; sourceTree = "<group>"; };
 		A6E9893829E890D300AEFD64 /* DataCompression.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DataCompression.xcframework; path = ../Framework/DataCompression.xcframework; sourceTree = "<group>"; };
@@ -139,7 +129,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6E9894C29E890EF00AEFD64 /* XMLParsing.xcframework in Frameworks */,
 				A6E9894429E890EA00AEFD64 /* DataCompression.xcframework in Frameworks */,
 				A6E9894629E890EB00AEFD64 /* Socket.xcframework in Frameworks */,
 				A6E9894A29E890EE00AEFD64 /* SpeedcheckerSDK.xcframework in Frameworks */,
@@ -151,7 +140,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6E9895629E890F800AEFD64 /* XMLParsing.xcframework in Frameworks */,
 				A6E9894E29E890F300AEFD64 /* DataCompression.xcframework in Frameworks */,
 				A6E9895029E890F400AEFD64 /* Socket.xcframework in Frameworks */,
 				A6E9895429E890F700AEFD64 /* SpeedcheckerSDK.xcframework in Frameworks */,
@@ -163,7 +151,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6E7F4BD2DB81CFF0034B38E /* XMLParsing.xcframework in Frameworks */,
 				A6E7F4B72DB81CFF0034B38E /* Socket.xcframework in Frameworks */,
 				A6E7F4B52DB81CFF0034B38E /* DataCompression.xcframework in Frameworks */,
 				A6E7F4BB2DB81CFF0034B38E /* SpeedcheckerSDK.xcframework in Frameworks */,
@@ -228,7 +215,6 @@
 				A6E9893629E890D300AEFD64 /* Socket.xcframework */,
 				A6E9893729E890D300AEFD64 /* SpeedcheckerReportSDK.xcframework */,
 				A6E9893929E890D300AEFD64 /* SpeedcheckerSDK.xcframework */,
-				A6E9893529E890D300AEFD64 /* XMLParsing.xcframework */,
 			);
 			name = SCSDK;
 			sourceTree = "<group>";

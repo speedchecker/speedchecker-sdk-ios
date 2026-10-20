@@ -216,6 +216,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 
+
 SWIFT_CLASS("_TtC21SpeedcheckerReportSDK18SpeedcheckerReport")
 @interface SpeedcheckerReport : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
